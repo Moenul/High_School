@@ -17,10 +17,25 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin', function () {
-    return view('/admin/index');
-});
+// Route::get('/admin', function () {
+//     return view('/admin/index');
+// });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'admin'], function(){
+
+    Route::get('/admin', function () {
+        return view('admin.index');
+    });
+
+    // Route::resource('/admin/categories', 'AdminCategoriesController', ['names'=>[
+    //     'index'=>'admin.categories.index',
+    //     'edit'=>'admin.categories.edit'
+    // ]]);
+
+});
+
+
+Route::get('/home', 'HomeController@index');
