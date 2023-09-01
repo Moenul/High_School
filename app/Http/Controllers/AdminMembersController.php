@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Gallery;
+use App\Models\Member;
 use App\Models\Photo;
 
 
-class AdminGalleriesController extends Controller
+class AdminMembersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AdminGalleriesController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::all();
-        return view('admin.galleries.index', compact('galleries'));
+        $members = Member::all();
+        return view('admin.members.index', compact('members'));
     }
 
     /**
@@ -50,9 +50,9 @@ class AdminGalleriesController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        Gallery::create($input);
+        Member::create($input);
 
-        return redirect('admin/galleries');
+        return redirect('admin/members');
     }
 
     /**
@@ -74,7 +74,8 @@ class AdminGalleriesController extends Controller
      */
     public function edit($id)
     {
-
+        $member = Member::findOrFail($id);
+        return view('admin.members.edit', compact('member'));
     }
 
     /**
@@ -86,7 +87,24 @@ class AdminGalleriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $member = Member::findOrFail($id);
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        $member->update($input);
+
+        return redirect('/admin/members');
+
     }
 
     /**
@@ -97,17 +115,16 @@ class AdminGalleriesController extends Controller
      */
     public function destroy($id)
     {
+        $member = Member::findOrFail($id);
 
-        $gallery = Gallery::findOrFail($id);
+        if ($member->photo_id !== null) {
+            unlink(public_path() . $member->photo->file);
 
-        if ($gallery->photo_id !== null) {
-            unlink(public_path() . $gallery->photo->file);
-
-            $photo = $gallery->photo->id;
+            $photo = $member->photo->id;
             Photo::findOrFail($photo)->delete();
         }
 
-        $gallery->delete();
+        $member->delete();
         return redirect()->back();
     }
 }

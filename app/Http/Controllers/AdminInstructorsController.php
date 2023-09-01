@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Gallery;
+use App\Models\Instructor;
 use App\Models\Photo;
 
-
-class AdminGalleriesController extends Controller
+class AdminInstructorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class AdminGalleriesController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::all();
-        return view('admin.galleries.index', compact('galleries'));
+        $instructors = Instructor::all();
+        return view('admin.instructors.index', compact('instructors'));
     }
 
     /**
@@ -50,9 +49,9 @@ class AdminGalleriesController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        Gallery::create($input);
+        Instructor::create($input);
 
-        return redirect('admin/galleries');
+        return redirect('admin/instructors');
     }
 
     /**
@@ -74,7 +73,8 @@ class AdminGalleriesController extends Controller
      */
     public function edit($id)
     {
-
+        $instructor = Instructor::findOrFail($id);
+        return view('admin.instructors.edit', compact('instructor'));
     }
 
     /**
@@ -86,7 +86,23 @@ class AdminGalleriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $instructor = Instructor::findOrFail($id);
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        $instructor->update($input);
+
+        return redirect('/admin/instructors');
     }
 
     /**
@@ -97,17 +113,16 @@ class AdminGalleriesController extends Controller
      */
     public function destroy($id)
     {
+        $instructor = Instructor::findOrFail($id);
 
-        $gallery = Gallery::findOrFail($id);
+        if ($instructor->photo_id !== null) {
+            unlink(public_path() . $instructor->photo->file);
 
-        if ($gallery->photo_id !== null) {
-            unlink(public_path() . $gallery->photo->file);
-
-            $photo = $gallery->photo->id;
+            $photo = $instructor->photo->id;
             Photo::findOrFail($photo)->delete();
         }
 
-        $gallery->delete();
+        $instructor->delete();
         return redirect()->back();
     }
 }

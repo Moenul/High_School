@@ -7,7 +7,6 @@
     <a href=""><li class="side_nav_item"><i class="fas fa-calendar-check"></i><span>Event</span></li></a>
 
 
-    <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Gallery</span></li></a>
     <li class="side_nav_item"><i class="fas fa-users"></i><span>Students</span>
         <ul class="side_dropdown">
             <a href="">All Students</a>
@@ -15,6 +14,7 @@
         </ul>
     </li>
 
+    <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Gallery</span></li></a>
 
     <a href="{{ route('admin.contacts.index') }}"><li class="side_nav_item"><i class="fas fa-address-book"></i><span>Contact Info</span></li></a>
 
@@ -30,8 +30,8 @@
 
     <li class="side_nav_item"><i class="fas fa-school"></i><span>Academic</span>
         <ul class="side_dropdown">
-            <a href="">Donor Member</a>
-            <a href="">Instructor</a>
+            <a href="{{ route('admin.members.index') }}">Donor Member</a>
+            <a href="{{ route('admin.instructors.index') }}">Instructor</a>
         </ul>
     </li>
 

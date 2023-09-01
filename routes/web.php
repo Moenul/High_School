@@ -44,6 +44,16 @@ Route::group(['middleware' => 'admin'], function(){
         'index'=>'admin.galleries.index'
     ]]);
 
+    Route::resource('/admin/members', 'AdminMembersController', ['names'=>[
+        'index'=>'admin.members.index',
+        'edit'=>'admin.members.edit'
+    ]]);
+
+    Route::resource('/admin/instructors', 'AdminInstructorsController', ['names'=>[
+        'index'=>'admin.instructors.index',
+        'edit'=>'admin.instructors.edit'
+    ]]);
+
 });
 
 
