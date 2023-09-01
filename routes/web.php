@@ -40,6 +40,10 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.abouts.edit'
     ]]);
 
+    Route::resource('/admin/galleries', 'AdminGalleriesController', ['names'=>[
+        'index'=>'admin.galleries.index'
+    ]]);
+
 });
 
 

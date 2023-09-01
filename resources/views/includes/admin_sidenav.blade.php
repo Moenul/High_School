@@ -7,7 +7,7 @@
     <a href=""><li class="side_nav_item"><i class="fas fa-calendar-check"></i><span>Event</span></li></a>
 
 
-    <a href=""><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Gallery</span></li></a>
+    <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Gallery</span></li></a>
     <li class="side_nav_item"><i class="fas fa-users"></i><span>Students</span>
         <ul class="side_dropdown">
             <a href="">All Students</a>

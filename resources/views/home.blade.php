@@ -146,13 +146,13 @@
 <div class="gallery_section" id="gallery">
 	<div class="container">
 		<div class="section_name">গ্যালারি</div>
-		<div class="gallery">
-			<div class="gallery_item"><img src="images/gallary_image_2.jpg"></div>
-			<div class="gallery_item"><img src="images/gallary_image_1.jpg"></div>
-			<div class="gallery_item"><img src="images/19103073043_7d76447725_b.jpg"></div>
-			<div class="gallery_item"><img src="images/images.jpg"></div>
-			<div class="gallery_item"><img src="images/home-slider-1682681811.png"></div>
-		</div>
+        @if ($galleries)
+        <div class="gallery">
+            @foreach ($galleries as $gallery)
+                <div class="gallery_item"><img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}"></div>
+            @endforeach
+        </div>
+        @endif
 	</div>
 </div>
 

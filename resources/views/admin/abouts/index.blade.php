@@ -19,8 +19,8 @@
 <div class="content_section">
     <!-- start header -->
     <div class="header">
-        <h3>Contact</h3>&nbsp;&nbsp;<span>Manage Contact Info</span>
-        <a href=""><i class="fas fa-home"></i>Home</a>
+        <h3>About</h3>&nbsp;&nbsp;<span>Manage About Info</span>
+        <a href="{{ url('../') }}"><i class="fas fa-home"></i>Home</a>
         <hr>
     </div>
     <!-- end header -->
