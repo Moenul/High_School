@@ -2,13 +2,15 @@
 <!-- /* /////  Top Nav Section Start ------------------- */ -->
 <div class="top_nav">
 	<div class="container">
-		<li><a href=""><i style="color:#FF0000" class="fa-brands fa-youtube"></i></a></li>
-		<li><a href=""><i style="color:#25D366" class="fa-brands fa-whatsapp"></i></a></li>
-		<li><a href=""><i style="color:#4267B2" class="fa-brands fa-facebook-f"></i></a></li>
+        @if ($contact)
+            <li><a href="{{$contact->youtube_link}}"><i style="color:#FF0000" class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="{{$contact->whatsapp_link}}"><i style="color:#25D366" class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href="{{$contact->facebook_link}}"><i style="color:#4267B2" class="fa-brands fa-facebook-f"></i></a></li>
 
-		<li><i class="fa-solid fa-location-dot"></i> <a href="https://goo.gl/maps/VDgL35ENacX2AcXs6" target="_blank">নোয়াগাঁও বাজার, নোয়াগাঁও, সরাইল, ব্রাহ্মণবাড়িয়া</a></li>
-		<li><i class="fa-solid fa-phone-flip"></i> <a href="tel:+8801795243628">+88 01795243628</a></li>
-	</div>
+            <li><i class="fa-solid fa-location-dot"></i> <a href="{{$contact->address_link}}" target="_blank">{{$contact->address}}</a></li>
+            <li><i class="fa-solid fa-phone-flip"></i> <a href="tel:+880{{$contact->phone_1}}">+88 0{{$contact->phone_1}}</a></li>
+        @endif
+    </div>
 </div>
 <!-- /* /////  Top Nav Section End ------------------- */ -->
 

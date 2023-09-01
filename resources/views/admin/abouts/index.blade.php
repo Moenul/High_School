@@ -38,12 +38,16 @@
                 <img class="action_field border border-secondary" width="150px" height="150px" src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
             </div>
             <div class="form-group">
-                <label for=""><b>Describe About:</b></label>
-                <p>{{$about->about_text}}</p>
+                <label for=""><b>Institute Name:</b></label>
+                <p>{{$about->institute_name}}</p>
             </div>
             <div class="form-group">
-                <label for=""><b>Headline:</b></label>
-                <p>{{$about->headline}}</p>
+                <label for=""><b>Institute Description:</b></label>
+                <p>{{$about->institute_desc}}</p>
+            </div>
+            <div class="form-group">
+                <label for=""><b>Tagline:</b></label>
+                <p>{{$about->tagline}}</p>
             </div>
             <div class="form-group">
                 <label for=""><b>Terms & Condition:</b></label>

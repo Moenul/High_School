@@ -20,7 +20,7 @@
     <!-- start header -->
     <div class="header">
         <h3>Welcome</h3>&nbsp;&nbsp;<span>Sub Heading</span>
-        <a href=""><i class="fas fa-home"></i>Home</a>
+        <a href="{{ url('../') }}"><i class="fas fa-home"></i>Home</a>
         <hr>
     </div>
     <!-- end header -->

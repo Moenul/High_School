@@ -16,8 +16,9 @@ class CreateAboutsTable extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->integer('photo_id')->unsigned()->nullable();
-            $table->text('about_text')->nullable();
-            $table->string('headline')->nullable();
+            $table->string('tagline')->nullable();
+            $table->string('institute_name')->nullable();
+            $table->text('institute_desc')->nullable();
             $table->text('terms_condition')->nullable();
             $table->text('privacy_policy')->nullable();
             $table->timestamps();

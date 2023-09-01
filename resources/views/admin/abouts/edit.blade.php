@@ -32,6 +32,7 @@
 
     <div class="col-2"></div>
     <div class="col-6">
+        <label for="">Logo:</label>
         {!! Form::model($about, ['method'=>'PATCH', 'action'=> ['AdminAboutsController@update', $about->id], 'files'=>true]) !!}
 
         <div class="mb-2 d-flex justify-content-center">
@@ -42,13 +43,17 @@
             {!! Form::file('photo_id', ['id' => 'imgInp'], null) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('about_text','Describe About Institute:') !!}
-            {!! Form::textarea('about_text', $about->about_text, ['class'=>'form-control','rows'=>5]) !!}
+            {!! Form::label('institute_name','Institute Name:') !!}
+            {!! Form::text('institute_name', $about->institute_name, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('institute_desc','Institute Description:') !!}
+            {!! Form::textarea('institute_desc', $about->institute_desc, ['class'=>'form-control','rows'=>5]) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('headline','Intro Line:') !!}
-            {!! Form::text('headline', $about->headline, ['class'=>'form-control']) !!}
+            {!! Form::label('tagline','TagLine:') !!}
+            {!! Form::text('tagline', $about->tagline, ['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('terms_condition','Terms Condition:') !!}

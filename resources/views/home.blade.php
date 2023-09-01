@@ -161,11 +161,15 @@
 <div class="about_section" id="about_us">
 	<div class="container">
 		<div class="section_name">আমাদের সমন্ধে</div>
+        @if ($about)
+
 		<div class="about_image_bar"><img src="images/Islam-golden-decor-background.jpg"></div>
 		<div class="about_desc_bar">
-			<div class="desc_title">নোয়াগাওঁ ফায়জানে মাদীনা দাখিল মাদ্রাসা</div>
-			<p>১৮৫৪ সালে মাদ্রাসায় একটি পৃথক ইনস্টিটিউট হিসেবে ইঙ্গ-ফারসি বিভাগ প্রতিষ্ঠিত হয়। এখানে ভর্তির সময় শরাফতনামা (উচ্চ বংশে জন্মের সনদপত্র)-র উপর জোর দেওয়া হতো। ইংরেজি এবং ফারসি ভাষায় শিক্ষাদানের মাধ্যমে প্রতিষ্ঠিত ইঙ্গ-ফারসি বিভাগের উদ্দেশ্য ছিল শিক্ষার্থীদের এন্ট্রান্স পরীক্ষায় অংশগ্রহণের উপযোগী করে গড়ে তোলা। ইঙ্গ-ফারসি বিভাগ মুসলিম অভিজাতদের মধ্যে তেমন আগ্রহ সৃষ্টি করতে ব্যর্থ হয়। ১৮২১ সালে মাদ্রাসার শিক্ষক ও শিক্ষার্থীদের বিরোধিতা সত্ত্বেও মাদ্রাসায় প্রথাগত পরীক্ষা ব্যবস্থা চালু করা হয়। ১৮৫৪ সালের শিক্ষাসংক্রান্ত ‘ডেস্পাচ’-এ কলকাতা মাদ্রাসাকে প্রস্তাবিত কলকাতা বিশ্ববিদ্যালয়ের অধীনে নিয়ে আসার ইঙ্গিত থাকলেও মাদ্রাসাটিকে বিশ্ববিদ্যালয়ের অধীনে আনা হয়নি। ১৮৬৩ সালে কলকাতা মাদ্রাসায় এফ.এ পর্যায়ের ক্লাস সংযোজিত হয়।</p>
+			<div class="desc_title">{{ $about->institute_name }}</div>
+			<p>{{ $about->institute_desc }}</p>
 		</div>
+
+        @endif
 	</div>
 </div>
 
@@ -240,23 +244,29 @@
 <div class="contact_section" id="contact">
 	<div class="container">
 		<div class="section_name">যোগাযোগ</div>
+
+        @if ($contact)
+
 		<div class="address_sction">
 			<div class="option_title"><i class="fa-solid fa-phone-flip"></i> কল করুন </div>
 			<div class="option_bar">
-				<li><a href="tel:+8801795243628">+880 1795243628</a></li>
-				<li><a href="">+880 1795243628</a></li>
+				<li><a href="tel:+880{{$contact->phone_1}}">+880 {{$contact->phone_1}}</a></li>
+				<li><a href="tel:+880{{$contact->phone_2}}">+880 {{$contact->phone_2}}</a></li>
 			</div>
 
 			<div class="option_title"><i class="fa-solid fa-location-dot"></i> ঠিকানা : </div>
 			<div class="option_bar">
-				<li>নোয়াগাঁও বাজার, নোয়াগাঁও, সরাইল, ব্রাহ্মণবাড়িয়া</li>
+				<li>{{$contact->address}}</li>
 				<div class="location_bar">
-					<div id="googleMap" style="width:100%;height: 100%;">
+					<div id="googleMap" style="width:100%; height: 100%;">
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1821.1506362125685!2d91.132272!3d24.090898499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375403c3d036bacb%3A0xedc0a05256113f4f!2zQmh1aXlhbiBCYXJpICjgpq3gp4LgpoHgpofgpq_gprzgpr4g4Kas4Ka-4Kah4Ka84Ka_KQ!5e0!3m2!1sen!2sbd!4v1692073418883!5m2!1sen!2sbd" width="100%" height="100%" style="border:2px solid grey; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 				</div>
 			</div>
 		</div>
+
+        @endif
+
 		<div class="mail_sction">
 			<div class="sction_title">মেইল করুন :-</div>
 			<div class="mail_inputs">

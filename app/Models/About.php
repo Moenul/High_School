@@ -11,8 +11,9 @@ class About extends Model
 
     protected $fillable = [
         'photo_id',
-        'about_text',
-        'headline',
+        'tagline',
+        'institute_name',
+        'institute_desc',
         'terms_condition',
         'privacy_policy'
     ];
