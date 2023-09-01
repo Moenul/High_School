@@ -30,10 +30,15 @@ Route::group(['middleware' => 'admin'], function(){
         return view('admin.index');
     });
 
-    // Route::resource('/admin/categories', 'AdminCategoriesController', ['names'=>[
-    //     'index'=>'admin.categories.index',
-    //     'edit'=>'admin.categories.edit'
-    // ]]);
+    Route::resource('/admin/contacts', 'AdminContactsController', ['names'=>[
+        'index'=>'admin.contacts.index',
+        'edit'=>'admin.contacts.edit'
+    ]]);
+
+    Route::resource('/admin/abouts', 'AdminAboutsController', ['names'=>[
+        'index'=>'admin.abouts.index',
+        'edit'=>'admin.abouts.edit'
+    ]]);
 
 });
 
