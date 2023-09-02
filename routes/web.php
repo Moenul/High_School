@@ -54,6 +54,11 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.instructors.edit'
     ]]);
 
+    Route::resource('/admin/events', 'AdminEventsController', ['names'=>[
+        'index'=>'admin.events.index',
+        'edit'=>'admin.events.edit'
+    ]]);
+
 });
 
 

@@ -81,61 +81,63 @@
 		<div class="event_section">
 			<div class="section_title">ইভেন্ট</div>
 			<div class="section_bar">
-				<!-- event bar -->
-				<div class="event_bar">
-					<div class="event_date">
-						<div class="event_date_dot"></div>
-						<div class="event_date_dot"></div>
-						<div class="date_day">24</div>
-						<div class="date_month">March</div>
-						<div class="date_year">2023</div>
-					</div>
-					<div class="event_box">
-						<div class="event_title">বার্ষিক ক্রীড়া প্রতিযোগিতা ও সংগীত পরিবেশনা  অনুষ্ঠান</div>
-						<div class="event_desc">বার্ষিক ক্রীড়া প্রতিযোগিতা অনুষ্ঠান ২০২৩ এর আয়োজন সফল অনুষ্ঠান ২০২৩ এর আয়োজন ও সুন্দর করার জন্য সবাই আমন্ত্রিত।</div>
-						<div class="event_time">সকাল ৮ টা হতে বিকাল ৩ টা</div>
-					</div>
-				</div>
-				<!-- event bar -->
 
-				<!-- event bar -->
-				<div class="event_bar">
-					<div class="event_date">
-						<div class="event_date_dot"></div>
-						<div class="event_date_dot"></div>
-						<div class="date_day">24</div>
-						<div class="date_month">March</div>
-						<div class="date_year">2023</div>
-					</div>
-					<div class="event_box">
-						<div class="event_title">বার্ষিক ক্রীড়া প্রতিযোগিতা ও সংগীত পরিবেশনা  অনুষ্ঠান</div>
-						<div class="event_desc">বার্ষিক ক্রীড়া প্রতিযোগিতা অনুষ্ঠান ২০২৩ এর আয়োজন সফল অনুষ্ঠান ২০২৩ এর আয়োজন ও সুন্দর করার জন্য সবাই আমন্ত্রিত।</div>
-						<div class="event_time">সকাল ৮ টা হতে বিকাল ৩ টা</div>
-					</div>
-				</div>
-				<!-- event bar -->
+                @if ($events->count())
 
-				<div class="previous_event">
-					পূর্ববর্তী
-				</div>
+                    @foreach ($events as $event)
 
-				<!-- event bar -->
-				<div class="event_bar previous_event_bar">
-					<div class="event_date">
-						<div class="event_date_dot"></div>
-						<div class="event_date_dot"></div>
-						<div class="date_day">24</div>
-						<div class="date_month">March</div>
-						<div class="date_year">2023</div>
-					</div>
-					<div class="event_box">
-						<div class="event_title">বার্ষিক ক্রীড়া প্রতিযোগিতা ও সংগীত পরিবেশনা  অনুষ্ঠান</div>
-						<div class="event_desc">বার্ষিক ক্রীড়া প্রতিযোগিতা অনুষ্ঠান ২০২৩ এর আয়োজন সফল অনুষ্ঠান ২০২৩ এর আয়োজন ও সুন্দর করার জন্য সবাই আমন্ত্রিত।</div>
-						<div class="event_time">সকাল ৮ টা হতে বিকাল ৩ টা</div>
-					</div>
-				</div>
-				<!-- event bar -->
+                        @if (\Carbon\Carbon::today() <= $event->date )
 
+                        <!-- event bar -->
+                        <div class="event_bar">
+                            <div class="event_date">
+                                <div class="event_date_dot"></div>
+                                <div class="event_date_dot"></div>
+                                <div class="date_day">{{ \Carbon\Carbon::parse($event->date)->format('d') }}</div>
+                                <div class="date_month">{{ \Carbon\Carbon::parse($event->date)->format('M') }}</div>
+                                <div class="date_year">{{ \Carbon\Carbon::parse($event->date)->format('Y') }}</div>
+                            </div>
+                            <div class="event_box">
+                                <div class="event_title">{{$event->title}}</div>
+                                <div class="event_desc">{{$event->desc}}</div>
+                                <div class="event_time">{{$event->time}}</div>
+                            </div>
+                        </div>
+                        <!-- event bar -->
+
+                        @endif
+
+                    @endforeach
+
+                    <div class="previous_event">
+                        পূর্ববর্তী
+                    </div>
+
+                    @foreach ($events as $event)
+
+                        @if (\Carbon\Carbon::today() >= $event->date )
+
+                         <!-- previous event bar -->
+                         <div class="event_bar previous_event_bar">
+                            <div class="event_date">
+                                <div class="event_date_dot"></div>
+                                <div class="event_date_dot"></div>
+                                <div class="date_day">{{ \Carbon\Carbon::parse($event->date)->format('d') }}</div>
+                                <div class="date_month">{{ \Carbon\Carbon::parse($event->date)->format('M') }}</div>
+                                <div class="date_year">{{ \Carbon\Carbon::parse($event->date)->format('Y') }}</div>
+                            </div>
+                            <div class="event_box">
+                                <div class="event_title">{{$event->title}}</div>
+                                <div class="event_desc">{{$event->desc}}</div>
+                                <div class="event_time">{{$event->time}}</div>
+                            </div>
+                        </div>
+                        <!-- previous event bar -->
+                        @endif
+
+                    @endforeach
+
+                @endif
 
 			</div>
 		</div>
@@ -178,31 +180,17 @@
 	<div class="container">
 		<div class="section_name">দাতা সদস্য</div>
 		<div class="donor_members">
-			<div class="member">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">(জমি দাতা)</div>
-			</div>
-			<div class="member">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">(জমি দাতা)</div>
-			</div>
-			<div class="member">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">(জমি দাতা)</div>
-			</div>
-			<div class="member">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">(জমি দাতা)</div>
-			</div>
-			<div class="member">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">(জমি দাতা)</div>
-			</div>
+        @if ($members->count())
+            @foreach ($members as $member)
+                <div class="member">
+                    <div class="photo"><img src="{{ $member->photo ? $member->photo->file : '/images/DummyProfile.jpg' }}"></div>
+                    <div class="name">{{$member->name}}</div>
+                    <div class="title">({{$member->title}})</div>
+                </div>
+            @endforeach
+        @else
+            <p class="text-warning">No Data Found!</p>
+        @endif
 		</div>
 	</div>
 </div>
@@ -211,31 +199,17 @@
 	<div class="container">
 		<div class="section_name">শিক্ষক মন্ডলী</div>
 		<div class="instructors">
-			<div class="instructor">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">প্রভাষক (আরবি)</div>
-			</div>
-			<div class="instructor">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">প্রভাষক (আরবি)</div>
-			</div>
-			<div class="instructor">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">প্রভাষক (আরবি)</div>
-			</div>
-			<div class="instructor">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">প্রভাষক (আরবি)</div>
-			</div>
-			<div class="instructor">
-				<div class="photo"><img src="images/DummyProfile.jpg"></div>
-				<div class="name">মোঃ জাহাঙ্গীর আলম ভূঁইয়া</div>
-				<div class="title">প্রভাষক (আরবি)</div>
-			</div>
+        @if ($instructors->count())
+            @foreach ($instructors as $instructor)
+                <div class="instructor">
+                    <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}"></div>
+                    <div class="name">{{$instructor->name}}</div>
+                    <div class="title">{{$instructor->title}}</div>
+                </div>
+            @endforeach
+        @else
+            <p class="text-warning">No Data Found!</p>
+        @endif
 		</div>
 	</div>
 </div>

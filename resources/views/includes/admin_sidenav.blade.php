@@ -4,7 +4,7 @@
     <a href="{{ url('/admin') }}"><li class="side_nav_item"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></li></a>
 
     <a href=""><li class="side_nav_item"><i class="fas fa-volume-down"></i><span>Notice</span></li></a>
-    <a href=""><li class="side_nav_item"><i class="fas fa-calendar-check"></i><span>Event</span></li></a>
+    <a href="{{ route('admin.events.index') }}"><li class="side_nav_item"><i class="fas fa-calendar-check"></i><span>Event</span></li></a>
 
 
     <li class="side_nav_item"><i class="fas fa-users"></i><span>Students</span>
