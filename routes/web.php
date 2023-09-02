@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('home', function () {
+//     return view('home');
+// });
 
 // Route::get('/admin', function () {
 //     return view('/admin/index');
@@ -59,7 +59,15 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.events.edit'
     ]]);
 
+    Route::resource('/admin/notices', 'AdminNoticesController', ['names'=>[
+        'index'=>'admin.notices.index',
+        'edit'=>'admin.notices.edit'
+    ]]);
+
+
 });
 
+Route::get('/download/{id}', 'DownloadsController@download');
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');

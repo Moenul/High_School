@@ -255,7 +255,7 @@ body {
 
 .updates_section .notice_section .section_bar{
     width: 100%;
-    min-height: 10px;
+    min-height: 435px;
     max-height: 435px;
     overflow-y: scroll;
     padding: 20px;
@@ -320,9 +320,8 @@ body {
     width: 100%;
     text-align: center;
     padding-top: 5px;
-}
-.updates_section .notice_section .section_bar .load_more a{
     color: var(--color-smart-black);
+    cursor: pointer;
 }
 /* /////  Notice ------------------- */
 

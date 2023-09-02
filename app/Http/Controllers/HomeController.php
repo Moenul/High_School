@@ -11,6 +11,7 @@ use App\Models\Event;
 use Carbon\Carbon;
 use App\Models\Member;
 use App\Models\Instructor;
+use App\Models\Notice;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $contact = Contact::first();
         $about = About::first();
@@ -37,6 +38,16 @@ class HomeController extends Controller
         $events = Event::orderBy('date', 'desc')->limit(3)->get();
         $members = Member::all();
         $instructors = Instructor::all();
-        return view('home', compact('contact','about','galleries','events','members','instructors'));
+
+
+        $notices = Notice::paginate(5);
+
+        if ($request->ajax()) {
+            $view = view('includes.notice', compact('notices'))->render();
+
+            return response()->json(['html' => $view]);
+        }
+
+        return view('home', compact('contact','about','galleries','events','members','instructors','notices'));
     }
 }
