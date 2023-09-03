@@ -30,6 +30,7 @@
 
     <div class="row">
     <div class="col-8">
+        @if ($events->count())
         <table class="table table-dark table-hover mx-auto">
             <thead>
             <tr>
@@ -42,50 +43,41 @@
             </tr>
             </thead>
             <tbody>
-
-            @if ($events->count())
-
                 @foreach ($events as $event)
+                    @if (\Carbon\Carbon::today() <= $event->date )
+                        <tr class="table-success text-dark">
+                            <td>{{$event->id}}</td>
+                            <td>{{$event->title}}</td>
+                            <td>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</td>
 
-                @if (\Carbon\Carbon::today() <= $event->date )
-                <tr class="table-success text-dark">
-                    <td>{{$event->id}}</td>
-                    <td>{{$event->title}}</td>
-                    <td>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</td>
+                            <td>{{$event->time}}</td>
+                            <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.events.edit', $event->id) }}"><i class="far fa-edit text-dark"></i></a></td>
+                            <td>
+                            {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminEventsController@destroy', $event->id]]) !!}
+                                {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn btn-lg'] )  }}
+                            {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    @else
+                        <tr class="table-warning text-dark">
+                            <td>{{$event->id}}</td>
+                            <td>{{$event->title}}</td>
+                            <td>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</td>
 
-                    <td>{{$event->time}}</td>
-                    <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.events.edit', $event->id) }}"><i class="far fa-edit text-dark"></i></a></td>
-                    <td>
-                    {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminEventsController@destroy', $event->id]]) !!}
-                        {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn btn-lg'] )  }}
-                    {!! Form::close() !!}
-                    </td>
-                </tr>
-
-                @else
-
-                <tr class="table-warning text-dark">
-                    <td>{{$event->id}}</td>
-                    <td>{{$event->title}}</td>
-                    <td>{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</td>
-
-                    <td>{{$event->time}}</td>
-                    <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.events.edit', $event->id) }}"><i class="far fa-edit text-dark"></i></a></td>
-                    <td>
-                    {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminEventsController@destroy', $event->id]]) !!}
-                        {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn btn-lg'] )  }}
-                    {!! Form::close() !!}
-                    </td>
-                </tr>
-
-                @endif
-
+                            <td>{{$event->time}}</td>
+                            <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.events.edit', $event->id) }}"><i class="far fa-edit text-dark"></i></a></td>
+                            <td>
+                            {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminEventsController@destroy', $event->id]]) !!}
+                                {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn btn-lg'] )  }}
+                            {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    @endif
                 @endforeach
-
-            @endif
-
             </tbody>
         </table>
+        {!! $events->links() !!}
+        @endif
 
     </div>
 

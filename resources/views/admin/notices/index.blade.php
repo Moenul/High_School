@@ -30,6 +30,7 @@
 
     <div class="row">
     <div class="col-8">
+        @if ($notices->count())
         <table class="table table-dark table-hover mx-auto">
             <thead>
             <tr>
@@ -41,10 +42,8 @@
                 <th style="width:80px; text-align:center;">Delete</th>
             </tr>
             </thead>
+
             <tbody>
-
-            @if ($notices->count())
-
                 @foreach ($notices as $notice)
                 <tr class="table-success text-dark">
                     <td>{{$notice->id}}</td>
@@ -61,11 +60,11 @@
                     </td>
                 </tr>
                 @endforeach
-
-            @endif
-
             </tbody>
         </table>
+        {!! $notices->links() !!}
+        @endif
+
 
     </div>
 
