@@ -816,18 +816,57 @@ body {
 }
 .admission_section .instruction_bar{
     width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.admission_section .instruction_bar .alert_info{
+    width:60%;
+    min-height: 175px;
     padding: 20px;
     background: wheat;
     border-radius: 6px;
     margin-bottom: 20px;
+    display: inline-block;
 }
-
-.admission_section .instruction_bar p{
+.admission_section .instruction_bar .alert_info p{
     font-size: 16px;
 }
-.admission_section .instruction_bar span{
+.admission_section .instruction_bar .alert_info span{
     font-weight: bold;
 }
+
+.admission_section .instruction_bar .cost_info{
+    width:calc(100% - 62%);
+    padding: 11px;
+    background: wheat;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    float: right;
+}
+.admission_section .instruction_bar .cost_info span{
+    text-align: center;
+    display: block;
+}
+.admission_section .instruction_bar .cost_table{
+    display: block;
+    max-height: 130px;
+    overflow-y: scroll;
+}
+.admission_section .instruction_bar .cost_table::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 40px;
+}
+.admission_section .instruction_bar .cost_table::-webkit-scrollbar-thumb {
+	background-color: var(--color-black);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.admission_section .instruction_bar .cost_table table{
+    margin-bottom:0;
+}
+
+
 .admission_section .form_section{
     width: 100%;
     padding: 20px 40px;
@@ -1361,6 +1400,18 @@ body {
 }
 /* /// MiniMax ///  Contact Section End ------------------- */
 
+/* /// MiniMax ///  Admission Section Start ------------------- */
+.admission_section .instruction_bar .alert_info{
+    width:100%;
+    min-height: auto;
+    height: auto;
+    display: block;
+}
+.admission_section .instruction_bar .cost_info{
+    width:100%;
+    float: none;
+}
+/* /// MiniMax ///  Admission Section End ------------------- */
 
 }
 /*MiniMax End*/

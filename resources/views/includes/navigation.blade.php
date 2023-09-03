@@ -22,7 +22,7 @@
 		<div class="nav_list">
 			<ul>
 				<a href=""><li style="background: #FFD261;">ডোনেশন</li></a>
-				<a href="admission.html"><li style="background: #85E352;">ভর্তি আবেদন</li></a>
+				<a href="{{ url('/admission') }}"><li style="background: #85E352;">ভর্তি আবেদন</li></a>
 				<a href=""><li>লাইব্রেরি</li></a>
 				<a href="#contact"><li>যোগাযোগ</li></a>
 				<li>সমন্ধে <i class="fa-solid fa-angle-down"></i>
@@ -34,7 +34,7 @@
 						</ul>
 					</div>
 				</li>
-				<a href="index.html"><li>হোম</li></a>
+				<a href="/"><li>হোম</li></a>
 			</ul>
 		</div>
 
