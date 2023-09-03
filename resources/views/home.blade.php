@@ -9,13 +9,17 @@
 <div class="header_section">
 	<div class="header_slider">
 		<div class="slider" id="slider">
-			<div class="slider_image"style="background-image: url('images/CoverPhoto1.jpg');"></div>
-			<div class="slider_image"style="background-image: url('images/CoverPhoto2.png');"></div>
-			<div class="slider_image"style="background-image: url('images/CoverPhoto3.jpg');"></div>
+            @if ($sliders)
+                @foreach ($sliders as $slider)
+                <div class="slider_image"style="background-image: url('{{ $slider->photo ? $slider->photo->file : '/images/Empty_Images_Landscape.jpg' }}');"></div>
+                @endforeach
+            @endif
 		</div>
 	</div>
 	<div class="container">
-		<p>ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ</p>
+        @if ($about)
+			<p>{{ $about->tagline }}</p>
+        @endif
 	</div>
 </div>
 

@@ -14,7 +14,8 @@
         </ul>
     </li>
 
-    <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Gallery</span></li></a>
+    <a href="{{ route('admin.sliders.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Slider</span></li></a>
+    <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-image"></i><span>Gallery</span></li></a>
 
     <a href="{{ route('admin.contacts.index') }}"><li class="side_nav_item"><i class="fas fa-address-book"></i><span>Contact Info</span></li></a>
 

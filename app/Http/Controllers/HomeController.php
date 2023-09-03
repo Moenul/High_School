@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use App\Models\Member;
 use App\Models\Instructor;
 use App\Models\Notice;
+use App\Models\Slider;
+
 
 class HomeController extends Controller
 {
@@ -48,6 +50,8 @@ class HomeController extends Controller
             return response()->json(['html' => $view]);
         }
 
-        return view('home', compact('contact','about','galleries','events','members','instructors','notices'));
+        $sliders = Slider::where('status',1)->limit(5)->get();
+
+        return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders'));
     }
 }

@@ -64,6 +64,10 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.notices.edit'
     ]]);
 
+    Route::resource('/admin/sliders', 'AdminSlidersController', ['names'=>[
+        'index'=>'admin.sliders.index'
+    ]]);
+
 
 });
 

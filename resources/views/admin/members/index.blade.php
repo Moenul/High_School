@@ -70,6 +70,7 @@
     </div>
 
     <div class="col-4">
+        <h5 class="text-center text-success">Create New Member</h5>
         {!! Form::open(['method'=>'POST', 'action'=>'AdminMembersController@store', 'files'=>true]) !!}
         <div class="mb-2 d-flex justify-content-center">
             <img class="action_field border border-secondary" id="preview_img" width="100px" height="108px"  src="{{ '/images/DummyProfile.jpg' }}">
