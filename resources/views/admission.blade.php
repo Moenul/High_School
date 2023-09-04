@@ -40,6 +40,10 @@
             </div>
         </div>
 
+        @foreach($errors->get('student_birth_reg') as $error)
+            <div class="help-block text-center p-2 m-1 bg-danger">{{ $error }}</div>
+        @endforeach
+
         <div class="form_section">
             {!! Form::open(['method'=>'POST', 'action'=>'AdmissionController@store', 'files'=>true]) !!}
             <div class="personal_info info_bar">
@@ -57,9 +61,12 @@
                         {!! Form::label('student_DOB','জন্ম তারিখ :') !!}
                         {!! Form::date('student_DOB', null, ['class'=>'form-control', 'required'=>'required']) !!}
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 {{ $errors->get('student_birth_reg') ? 'has-error' : 'hess' }}">
                         {!! Form::label('student_birth_reg','জন্ম নিবন্ধন নম্বর :') !!}
                         {!! Form::text('student_birth_reg', null, ['class'=>'form-control', 'placeholder'=>'জন্ম নিবন্ধন নম্বর', 'maxlength'=>17, 'required'=>'required' ]) !!}
+                        @foreach($errors->get('student_birth_reg') as $error)
+                            <span class="help-block text-danger">{{ $error }}</span>
+                        @endforeach
                     </div>
                     <div class="form-group col-md-6">
                         <label class="d-block" for="name">লিঙ্গ :</label>
