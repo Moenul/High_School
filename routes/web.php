@@ -76,7 +76,8 @@ Route::get('/download/{id}', 'DownloadsController@download');
 // Route::get('/admission', 'AdmissionController@index');
 
 Route::resource('/admission', 'AdmissionController', ['names'=>[
-    'index'=>'admission.index'
+    'index'=>'admission.index',
+    'show'=>'admission.show'
 ]]);
 
 Route::get('/', 'HomeController@index');

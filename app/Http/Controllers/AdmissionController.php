@@ -18,7 +18,7 @@ class AdmissionController extends Controller
     public function index()
     {
         $contact = Contact::first();
-        return view('admission', compact('contact'));
+        return view('admissions.index', compact('contact'));
     }
 
     /**
@@ -65,9 +65,9 @@ class AdmissionController extends Controller
             $input['student_photo_id'] = $student_photo->id;
         }
 
-        Admission::create($input);
+        $admission = Admission::create($input);
 
-        return redirect()->back();
+        return redirect()->route('admission.show', $admission);
         // return dd($input);
     }
 
@@ -79,7 +79,8 @@ class AdmissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $admission = Admission::findOrFail($id);
+        return view('admissions.success.index', compact('admission'));
     }
 
     /**
