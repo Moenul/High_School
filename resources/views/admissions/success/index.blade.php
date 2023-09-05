@@ -84,7 +84,7 @@ body{
             <div class="success_alert">অভিনন্দন! ভর্তি আবেদন সম্পন্ন হয়েছে।</div>
             <div class="success_desc">আবেদন নিশ্চিত করতে আবেদন ফরম, শিক্ষার্থীর জন্ম নিবন্ধন, পিতা মাতার জাতীয় পরিচয় পত্রের ফটোকপি এবং প্রয়োজনীয় ফি সহ সরাসরি প্রতিষ্ঠানে যোগাযোগ করুন।</div>
             <div class="download_alert">নিচের লিংক থেকে আবেদনকৃত ফরম ডাউনলোড করুন।</div>
-            <div class="pdf_button"><a href="" class="btn btn-success">Download PDF Form</a></div>
+            <div class="pdf_button"><a href="{{ action('PdfController@generatePdf', ['id'=> $admission->id]) }}" class="btn btn-success">Download PDF Form</a></div>
             <div class="return_button"><a href="/"> Back to Home</a></div>
         </div>
     </div>

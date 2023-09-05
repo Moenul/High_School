@@ -1,0 +1,236 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/PhenX/php-font-lib
+EncodingScheme FontSpecific
+Copyright Copyright 2023 Lipighor. All Rights Reserved.
+FontName Li Alinur Tatsama Unicode
+FontSubfamily Regular
+UniqueID Li Alinur Tatsama Unicode:Version 1.00
+FullName Li Alinur Tatsama Unicode
+Version 1.00 | Designed & Developed by Md Alinur Islam.
+PostScriptName LiAlinurTatsamaUnicode
+Trademark Li Alinur Tatsama © All Rights Reserved by Lipighor Font Foundry.
+Manufacturer LIPIGHOR FONT FOUNDRY
+Designer Md Alinur Islam
+Description Li Alinur Tatsama is a Free Bengali font, Designed & Developed by Md Alinur Islam.
+FontVendorURL https://lipighor.com
+FontDesignerURL https://www.facebook.com/alinurbd
+LicenseDescription This Font Software is copyrighted property of Lipighor Font Foundry (LGFF) under domestic and international trademark and copyright laws. You cannot Modify, Distribute, Edit, Forge or Sell this Font Software, it will be considered illegal & punishable crime in the court of law. You have to give proper credit to the owner of the Font Software- Lipighor Font Foundry (LGFF) in your design/product detail and accept our terms & conditions.
+LicenseURL https://lipighor.com/EULA.html
+PreferredFamily Li Alinur Tatsama Unicode
+SampleText লিপিঘর আলিনুর তৎসম - আমার সোনার বাংলা আমি তোমায় ভালোবাসি
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 40
+UnderlinePosition -100
+FontHeightOffset 0
+Ascender 1003
+Descender -328
+FontBBox -653 -328 1251 1003
+StartCharMetrics 421
+U 0 ; WX 0 ; N .null ; G 1
+U 32 ; WX 271 ; N space ; G 2
+U 33 ; WX 311 ; N exclam ; G 3
+U 34 ; WX 348 ; N quotedbl ; G 4
+U 35 ; WX 697 ; N numbersign ; G 5
+U 36 ; WX 571 ; N dollar ; G 356
+U 37 ; WX 645 ; N percent ; G 6
+U 38 ; WX 740 ; N ampersand ; G 357
+U 39 ; WX 219 ; N quotesingle ; G 7
+U 40 ; WX 267 ; N parenleft ; G 8
+U 41 ; WX 267 ; N parenright ; G 9
+U 42 ; WX 697 ; N asterisk ; G 10
+U 43 ; WX 588 ; N plus ; G 11
+U 44 ; WX 218 ; N comma ; G 12
+U 45 ; WX 529 ; N hyphenminus ; G 13
+U 46 ; WX 226 ; N period ; G 14
+U 47 ; WX 537 ; N slash ; G 15
+U 48 ; WX 571 ; N zero ; G 358
+U 49 ; WX 571 ; N one ; G 359
+U 50 ; WX 571 ; N two ; G 360
+U 51 ; WX 571 ; N three ; G 361
+U 52 ; WX 571 ; N four ; G 362
+U 53 ; WX 571 ; N five ; G 363
+U 54 ; WX 571 ; N six ; G 364
+U 55 ; WX 571 ; N seven ; G 365
+U 56 ; WX 571 ; N eight ; G 366
+U 57 ; WX 571 ; N nine ; G 367
+U 58 ; WX 226 ; N colon ; G 16
+U 59 ; WX 226 ; N semicolon ; G 17
+U 60 ; WX 444 ; N less ; G 18
+U 61 ; WX 640 ; N equal ; G 19
+U 62 ; WX 444 ; N greater ; G 20
+U 63 ; WX 623 ; N question ; G 21
+U 64 ; WX 898 ; N at ; G 22
+U 65 ; WX 661 ; N A ; G 368
+U 66 ; WX 660 ; N B ; G 369
+U 67 ; WX 634 ; N C ; G 370
+U 68 ; WX 734 ; N D ; G 371
+U 69 ; WX 558 ; N E ; G 372
+U 70 ; WX 532 ; N F ; G 373
+U 71 ; WX 726 ; N G ; G 374
+U 72 ; WX 751 ; N H ; G 375
+U 73 ; WX 361 ; N I ; G 376
+U 74 ; WX 299 ; N J ; G 377
+U 75 ; WX 639 ; N K ; G 378
+U 76 ; WX 542 ; N L ; G 379
+U 77 ; WX 923 ; N M ; G 380
+U 78 ; WX 783 ; N N ; G 381
+U 79 ; WX 787 ; N O ; G 382
+U 80 ; WX 615 ; N P ; G 383
+U 81 ; WX 787 ; N Q ; G 384
+U 82 ; WX 639 ; N R ; G 385
+U 83 ; WX 550 ; N S ; G 386
+U 84 ; WX 566 ; N T ; G 387
+U 85 ; WX 742 ; N U ; G 388
+U 86 ; WX 622 ; N V ; G 389
+U 87 ; WX 946 ; N W ; G 390
+U 88 ; WX 622 ; N X ; G 391
+U 89 ; WX 592 ; N Y ; G 392
+U 90 ; WX 575 ; N Z ; G 393
+U 91 ; WX 281 ; N bracketleft ; G 23
+U 92 ; WX 537 ; N backslash ; G 24
+U 93 ; WX 281 ; N bracketright ; G 25
+U 94 ; WX 393 ; N asciicircum ; G 26
+U 95 ; WX 681 ; N underscore ; G 27
+U 96 ; WX 190 ; N grave ; G 28
+U 97 ; WX 580 ; N a ; G 394
+U 98 ; WX 623 ; N b ; G 395
+U 99 ; WX 495 ; N c ; G 396
+U 100 ; WX 623 ; N d ; G 397
+U 101 ; WX 576 ; N e ; G 398
+U 102 ; WX 363 ; N f ; G 399
+U 103 ; WX 556 ; N g ; G 400
+U 104 ; WX 635 ; N h ; G 401
+U 105 ; WX 279 ; N i ; G 402
+U 106 ; WX 279 ; N j ; G 403
+U 107 ; WX 572 ; N k ; G 404
+U 108 ; WX 279 ; N l ; G 405
+U 109 ; WX 956 ; N m ; G 406
+U 110 ; WX 635 ; N n ; G 407
+U 111 ; WX 611 ; N o ; G 408
+U 112 ; WX 623 ; N p ; G 409
+U 113 ; WX 623 ; N q ; G 410
+U 114 ; WX 431 ; N r ; G 411
+U 115 ; WX 487 ; N s ; G 412
+U 116 ; WX 393 ; N t ; G 413
+U 117 ; WX 635 ; N u ; G 414
+U 118 ; WX 535 ; N v ; G 415
+U 119 ; WX 817 ; N w ; G 416
+U 120 ; WX 551 ; N x ; G 417
+U 121 ; WX 536 ; N y ; G 418
+U 122 ; WX 478 ; N z ; G 419
+U 123 ; WX 267 ; N braceleft ; G 29
+U 124 ; WX 230 ; N bar ; G 30
+U 125 ; WX 267 ; N braceright ; G 31
+U 126 ; WX 557 ; N asciitilde ; G 32
+U 160 ; WX 271 ; N space ; G 2
+U 173 ; WX 297 ; N softhyphen ; G 36
+U 183 ; WX 226 ; N periodcentered ; G 33
+U 215 ; WX 506 ; N multiply ; G 34
+U 247 ; WX 559 ; N divide ; G 35
+U 2384 ; WX 720 ; N om-deva ; G 347
+U 2404 ; WX 339 ; N devanagaridanda ; G 106
+U 2405 ; WX 544 ; N devanagaridoubledanda ; G 107
+U 2432 ; WX 561 ; N anji-beng ; G 349
+U 2433 ; WX 0 ; N signcandrabinducomb-beng ; G 92
+U 2434 ; WX 424 ; N signanusvara-beng ; G 90
+U 2435 ; WX 381 ; N signvisarga-beng ; G 91
+U 2437 ; WX 906 ; N a-beng ; G 43
+U 2438 ; WX 1135 ; N aa-beng ; G 44
+U 2439 ; WX 506 ; N i-beng ; G 45
+U 2440 ; WX 648 ; N ii-beng ; G 46
+U 2441 ; WX 683 ; N u-beng ; G 47
+U 2442 ; WX 721 ; N uu-beng ; G 48
+U 2443 ; WX 850 ; N vocalicr-beng ; G 49
+U 2445 ; WX 607 ; N glyph112 ; G 111
+U 2446 ; WX 607 ; N glyph113 ; G 112
+U 2447 ; WX 747 ; N e-beng ; G 50
+U 2448 ; WX 957 ; N ai-beng ; G 51
+U 2451 ; WX 758 ; N o-beng ; G 52
+U 2452 ; WX 830 ; N au-beng ; G 53
+U 2453 ; WX 868 ; N ka-beng ; G 54
+U 2454 ; WX 665 ; N kha-beng ; G 55
+U 2455 ; WX 609 ; N ga-beng ; G 56
+U 2456 ; WX 622 ; N gha-beng ; G 57
+U 2457 ; WX 718 ; N nga-beng ; G 58
+U 2458 ; WX 583 ; N ca-beng ; G 59
+U 2459 ; WX 607 ; N cha-beng ; G 60
+U 2460 ; WX 862 ; N ja-beng ; G 61
+U 2461 ; WX 850 ; N jha-beng ; G 62
+U 2462 ; WX 1062 ; N nya-beng ; G 63
+U 2463 ; WX 583 ; N tta-beng ; G 64
+U 2464 ; WX 571 ; N ttha-beng ; G 65
+U 2465 ; WX 683 ; N dda-beng ; G 66
+U 2466 ; WX 583 ; N ddha-beng ; G 67
+U 2467 ; WX 584 ; N nna-beng ; G 68
+U 2468 ; WX 717 ; N ta-beng ; G 69
+U 2469 ; WX 652 ; N tha-beng ; G 70
+U 2470 ; WX 593 ; N da-beng ; G 71
+U 2471 ; WX 622 ; N dha-beng ; G 72
+U 2472 ; WX 586 ; N na-beng ; G 73
+U 2474 ; WX 669 ; N pa-beng ; G 74
+U 2475 ; WX 867 ; N pha-beng ; G 75
+U 2476 ; WX 622 ; N ba-beng ; G 76
+U 2477 ; WX 679 ; N bha-beng ; G 77
+U 2478 ; WX 586 ; N ma-beng ; G 78
+U 2479 ; WX 623 ; N ya-beng ; G 79
+U 2480 ; WX 622 ; N ra-beng ; G 80
+U 2482 ; WX 706 ; N la-beng ; G 81
+U 2486 ; WX 677 ; N sha-beng ; G 82
+U 2487 ; WX 623 ; N ssa-beng ; G 83
+U 2488 ; WX 614 ; N sa-beng ; G 84
+U 2489 ; WX 506 ; N ha-beng ; G 85
+U 2492 ; WX 0 ; N signnuktacomb-beng ; G 109
+U 2493 ; WX 506 ; N signavagraha-beng ; G 348
+U 2494 ; WX 230 ; N vowelsignaa-beng ; G 93
+U 2495 ; WX 230 ; N vowelsigni-beng ; G 94
+U 2496 ; WX 230 ; N vowelsignii-beng ; G 95
+U 2497 ; WX 0 ; N vowelsignucomb-beng ; G 96
+U 2498 ; WX 0 ; N vowelsignuucomb-beng ; G 97
+U 2499 ; WX 0 ; N vowelsignvocalicrcomb-beng ; G 98
+U 2503 ; WX 270 ; N vowelsigne-beng ; G 99
+U 2504 ; WX 270 ; N vowelsignai-beng ; G 101
+U 2507 ; WX 500 ; N vowelsigno-beng ; G 103
+U 2508 ; WX 500 ; N vowelsignau-beng ; G 104
+U 2509 ; WX 0 ; N signviramacomb-beng ; G 105
+U 2510 ; WX 529 ; N khandata-beng ; G 89
+U 2519 ; WX 230 ; N aulength-beng ; G 108
+U 2524 ; WX 683 ; N rra-beng ; G 86
+U 2525 ; WX 583 ; N rha-beng ; G 87
+U 2527 ; WX 623 ; N yya-beng ; G 88
+U 2534 ; WX 577 ; N zero-beng ; G 113
+U 2535 ; WX 505 ; N one-beng ; G 114
+U 2536 ; WX 472 ; N two-beng ; G 115
+U 2537 ; WX 718 ; N three-beng ; G 116
+U 2538 ; WX 577 ; N four-beng ; G 117
+U 2539 ; WX 560 ; N five-beng ; G 118
+U 2540 ; WX 648 ; N six-beng ; G 119
+U 2541 ; WX 561 ; N seven-beng ; G 120
+U 2542 ; WX 673 ; N eight-beng ; G 121
+U 2543 ; WX 541 ; N nine-beng ; G 122
+U 2544 ; WX 622 ; N ramiddlediagonal-beng ; G 343
+U 2545 ; WX 622 ; N ralowerdiagonal-beng ; G 344
+U 2547 ; WX 588 ; N rupeesign-beng ; G 123
+U 2554 ; WX 565 ; N isshar-beng ; G 110
+U 8204 ; WX 0 ; N zwnj ; G 354
+U 8205 ; WX 0 ; N zwj ; G 355
+U 8208 ; WX 297 ; N softhyphen ; G 36
+U 8211 ; WX 880 ; N endash ; G 37
+U 8212 ; WX 1289 ; N emdash ; G 38
+U 8216 ; WX 281 ; N quoteleft ; G 39
+U 8217 ; WX 281 ; N quoteright ; G 40
+U 8220 ; WX 456 ; N quotedblleft ; G 41
+U 8221 ; WX 456 ; N quotedblright ; G 42
+U 8377 ; WX 625 ; N indianrupeesign ; G 124
+U 9676 ; WX 0 ; N dottedcircle ; G 345
+U 65018 ; WX 1158 ; N sallallahoualayhewasallam-arab.isol ; G 346
+EndCharMetrics
+StartKernData 
+StartKernPairs 1
+
+KPX four p -92
+EndKernPairs
+EndKernData
+EndFontMetrics

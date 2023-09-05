@@ -1,0 +1,32 @@
+{
+    "liniladrirongtuliunicode": {
+        "normal": "liniladrirongtuliunicode_normal_c2e071b01a085fca55eb94a260f5503a"
+    },
+    "jomhuria": {
+        "normal": "jomhuria_normal_88b9a7596a41e5bcb098d22e1e34ba67"
+    },
+    "nikosh": {
+        "normal": "D:\\xampp\\htdocs\\Laravel_Project\\Madrasah\\storage\\fonts\/nikosh_normal_554949d3ba2b5904f148422105cf4d82",
+        "500": "nikosh_500_554949d3ba2b5904f148422105cf4d82"
+    },
+    "li_alinur_tatsama_ansi": {
+        "normal": "D:\\xampp\\htdocs\\Laravel_Project\\Madrasah\\storage\\fonts\/li_alinur_tatsama_ansi_normal_b45c7043afa2e53592f2e32580678469",
+        "500": "li_alinur_tatsama_ansi_500_b45c7043afa2e53592f2e32580678469"
+    },
+    "li_alinur_tatsama_unicode": {
+        "normal": "D:\\xampp\\htdocs\\Laravel_Project\\Madrasah\\storage\\fonts\/li_alinur_tatsama_unicode_normal_d4b68fecb2c817aa288edde56b590f75",
+        "500": "li_alinur_tatsama_unicode_500_d4b68fecb2c817aa288edde56b590f75"
+    },
+    "nsonar_banglaikosh": {
+        "500": "nsonar_banglaikosh_500_1373489426de9eba4760169a600e4e8b"
+    },
+    "sonar_bangla": {
+        "500": "sonar_bangla_500_1373489426de9eba4760169a600e4e8b"
+    },
+    "sutonnymj_regular": {
+        "500": "sutonnymj_regular_500_1878ee54ecefb7c12859d323a43c6ec1"
+    },
+    "siyamrupali": {
+        "500": "siyamrupali_500_9dce0f09aec15211c1e793417c38b70f"
+    }
+}

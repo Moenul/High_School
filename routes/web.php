@@ -73,12 +73,12 @@ Route::group(['middleware' => 'admin'], function(){
 
 Route::get('/download/{id}', 'DownloadsController@download');
 
-// Route::get('/admission', 'AdmissionController@index');
-
 Route::resource('/admission', 'AdmissionController', ['names'=>[
     'index'=>'admission.index',
     'show'=>'admission.show'
 ]]);
+
+Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');

@@ -40,8 +40,6 @@
             </div>
         </div>
 
-        <a href="{{ Route('admission.show', $contact->id) }}">Admission Success</a>
-
         @foreach($errors->get('student_birth_reg') as $error)
             <div class="help-block text-center p-2 m-1 bg-danger">{{ $error }}</div>
         @endforeach

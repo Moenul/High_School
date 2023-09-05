@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "li_alinur_tatsama_unicode";
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    src: url("../fonts/li_alinur_tatsama_unicode.ttf") format('truetype');
+}
+@font-face {
+    font-family: "li_alinur_tatsama_ansi";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    src: url("../fonts/li_alinur_tatsama_ansi.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'nikosh';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    src: url("../fonts/Nikosh.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'sonar_bangla';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    src: url("../fonts/sonar_bangla.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'sutonnymj_regular';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    src: url("../fonts/sutonnymj_regular.ttf") format('truetype');
+}
+@font-face {
+    font-family: 'siyamrupali';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    src: url("../fonts/siyamrupali.ttf") format('truetype');
+}
+
+
+body{
+    /* width: 2480px; */
+    background: yellowgreen;
+    /* font-family: sans-serif; */
+    font-family: 'li_alinur_tatsama_unicode', sans-serif;
+    font-size: 16px;
+}
+h2{
+    font-family: 'li_alinur_tatsama_unicode', sans-serif;
+}
+b{
+    font-family: 'li_alinur_tatsama_unicode', sans-serif;
+}
+.admission_form .col-6{
+    display: inline-block;
+    width: 45%
+}
+.admission_form p b{
+    font-size: 18px;
+    display: inline-block;
+}
+.admission_form p span{
+    width: 50%;
+    display: inline-block;
+    border-bottom: 1px dashed;
+
+}
+
