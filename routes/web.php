@@ -68,6 +68,12 @@ Route::group(['middleware' => 'admin'], function(){
         'index'=>'admin.sliders.index'
     ]]);
 
+    Route::resource('/admin/admissions', 'AdminAdmissionsController', ['names'=>[
+        'index'=>'admin.admissions.index',
+        'show'=>'admin.admissions.show',
+        'edit'=>'admin.admissions.edit'
+    ]]);
+
 
 });
 

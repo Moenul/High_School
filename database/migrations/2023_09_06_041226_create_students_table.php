@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdmissionsTable extends Migration
+class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,24 @@ class CreateAdmissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admissions', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
-                // student details
+
+            // student details
             $table->string('student_name');
             $table->string('student_name_en');
             $table->date('student_DOB');
             $table->string('student_birth_reg')->unique();
             $table->string('student_gender');
+            // ------------
+            $table->integer('class_id');
+            $table->integer('student_roll')->nullable();
+            $table->integer('student_section')->nullable();
+            $table->integer('photo_id')->unsigned()->nullable();
+            $table->integer('certificate_id')->unsigned()->nullable();
+            $table->integer('status')->default(0);
+
+
                 // fathers details
             $table->string('fathers_name');
             $table->string('fathers_name_en');
@@ -63,12 +73,6 @@ class CreateAdmissionsTable extends Migration
             $table->string('nationality');
             $table->string('religion');
             $table->string('physical_disability')->nullable();
-                // admisssion related
-            $table->integer('admission_class');
-            $table->integer('previous_class')->nullable();
-            $table->integer('certificate_id')->unsigned()->nullable();
-            $table->integer('photo_id')->unsigned()->nullable();
-            $table->integer('status')->default(0);
 
             $table->timestamps();
         });
@@ -81,6 +85,6 @@ class CreateAdmissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admissions');
+        Schema::dropIfExists('students');
     }
 }

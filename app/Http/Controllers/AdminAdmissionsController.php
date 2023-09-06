@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contact;
-use Carbon\Carbon;
-use App\Models\Photo;
 use App\Models\Admission;
 use App\Models\Classs;
+use App\Models\Section;
+use App\Models\Student;
+use App\Models\Photo;
 
-class AdmissionController extends Controller
+class AdminAdmissionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,9 @@ class AdmissionController extends Controller
      */
     public function index()
     {
-        $contact = Contact::first();
-        $classes = Classs::pluck('name','id')->all();
-
-        return view('admissions.index', compact('contact','classes'));
+        // $admissions = Admission::all();
+        $admissions = Admission::orderBy('created_at', 'desc')->paginate(5);
+        return view('admin.admissions.index', compact('admissions'));
     }
 
     /**
@@ -45,18 +44,8 @@ class AdmissionController extends Controller
         $input = $request->all();
 
         $this->validate($request, [
-            'student_birth_reg'=>'required|max:17|unique:admissions,student_birth_reg',
+            'student_birth_reg'=>'required|max:17|unique:students,student_birth_reg',
         ]);
-
-        if($file = $request->file('certificate_id')){
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images', $name);
-
-            $certificate = Photo::create(['file'=>$name]);
-
-            $input['certificate_id'] = $certificate->id;
-        }
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
@@ -68,10 +57,24 @@ class AdmissionController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        $admission = Admission::create($input);
+        if($file = $request->file('certificate_id')){
+            $name = time() . $file->getClientOriginalName();
 
-        return redirect()->route('admission.show', $admission);
-        // return dd($input);
+            $file->move('images', $name);
+
+            $certificate = Photo::create(['file'=>$name]);
+
+            $input['certificate_id'] = $certificate->id;
+        }
+
+
+        $result = Admission::where('id', $request->admission_id)
+            ->update(['status' => 1]);
+
+        $student = Student::create($input);
+
+
+        return redirect('/admin/admissions');
     }
 
     /**
@@ -83,7 +86,9 @@ class AdmissionController extends Controller
     public function show($id)
     {
         $admission = Admission::findOrFail($id);
-        return view('admissions.success.index', compact('admission'));
+        $classes = Classs::pluck('name','id')->all();
+        $sections = Section::pluck('name','id')->all();
+        return view('admin.admissions.show', compact('admission', 'classes','sections'));
     }
 
     /**
@@ -117,6 +122,23 @@ class AdmissionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admission = Admission::findOrFail($id);
+
+        if ($admission->photo_id !== null) {
+            unlink(public_path() . $admission->photo->file);
+
+            $photo = $admission->photo->id;
+            Photo::findOrFail($photo)->delete();
+        }
+
+        if ($admission->certificate_id !== null) {
+            unlink(public_path() . $admission->certificate->file);
+
+            $certificate = $admission->certificate->id;
+            Photo::findOrFail($certificate)->delete();
+        }
+
+        $admission->delete();
+        return redirect('/admin/admissions');
     }
 }

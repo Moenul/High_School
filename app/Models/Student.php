@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Admission extends Model
+class Student extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,12 @@ class Admission extends Model
         'student_DOB',
         'student_birth_reg',
         'student_gender',
+        'class_id',
+        'student_roll',
+        'student_section',
+        'photo_id',
+        'certificate_id',
+        'status',
         'fathers_name',
         'fathers_name_en',
         'fathers_DOB',
@@ -51,20 +57,25 @@ class Admission extends Model
         'nationality',
         'religion',
         'physical_disability',
-        'admission_class',
-        'previous_class',
-        'certificate_id',
-        'photo_id',
-        'status',
+
     ];
 
+    public function classs()
+    {
+        return $this->belongsTo('App\Models\Classs');
+    }
 
-    public function certificate()
+    public function section()
+    {
+        return $this->belongsTo('App\Models\Section');
+    }
+
+    public function photo()
     {
         return $this->belongsTo('App\Models\Photo');
     }
 
-    public function photo()
+    public function certificate()
     {
         return $this->belongsTo('App\Models\Photo');
     }

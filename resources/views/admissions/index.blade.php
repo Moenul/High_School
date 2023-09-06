@@ -265,11 +265,11 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="name">ভর্তি ইচ্ছু শ্রেণীর নাম :</label>
-                        {!! Form::select('admission_class', [null => 'শ্রেণী নির্বাচন করুন'] + ['প্রথম' => 'প্রথম','দ্বিতীয়'=>'দ্বিতীয়','তৃতীয়'=>'তৃতীয়','চতুর্থ'=>'চতুর্থ','পঞ্চম'=>'পঞ্চম'], null, ['class' => 'form-control', 'required'=>'required']) !!}
+                        {!! Form::select('admission_class', [null => 'শ্রেণীর নাম'] + $classes, null, ['class' => 'form-control', 'required'=>'required']) !!}
                     </div>
                     <div class="form-group col-md-4">
                         <label for="name">পূর্বে অধ্যয়নরত শ্রেণীর নাম (প্রযোজ্য ক্ষেত্রে) :</label>
-                        {!! Form::select('previous_class', [null => 'শ্রেণী নির্বাচন করুন'] + ['নার্সারী' => 'নার্সারী','প্রথম' => 'প্রথম','দ্বিতীয়'=>'দ্বিতীয়','তৃতীয়'=>'তৃতীয়','চতুর্থ'=>'চতুর্থ'], null, ['class' => 'form-control']) !!}
+                        {!! Form::select('previous_class', [null => 'শ্রেণীর নাম'] + $classes, null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="form-group">
@@ -278,12 +278,12 @@
                     </div>
 
                     <div class="form-group" style="width: 160px; margin: 0px 15px;">
-                        {!! Form::label('student_photo_id', 'শিক্ষার্থীর ছবি :') !!}
+                        {!! Form::label('photo_id', 'শিক্ষার্থীর ছবি :') !!}
                         <div class="mb-2 d-flex justify-content-center">
                             <img class="action_field border border-secondary" id="preview_img" width="160px" height="170px"  src="{{ '/images/DummyProfile.jpg' }}">
                         </div>
                         <div class="form-group">
-                            {!! Form::file('student_photo_id', ['class' => 'form-control-file border','id' => 'imgInp', 'required'=>'required'], null) !!}
+                            {!! Form::file('photo_id', ['class' => 'form-control-file border','id' => 'imgInp', 'required'=>'required'], null) !!}
                         </div>
                     </div>
                 </div>
