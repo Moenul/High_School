@@ -74,6 +74,16 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.admissions.edit'
     ]]);
 
+    Route::resource('/admin/classes', 'AdminClassesController', ['names'=>[
+        'index'=>'admin.classes.index',
+        'edit'=>'admin.classes.edit'
+    ]]);
+
+    Route::resource('/admin/sections', 'AdminSectionsController', ['names'=>[
+        'index'=>'admin.sections.index',
+        'edit'=>'admin.sections.edit'
+    ]]);
+
 
 });
 
