@@ -98,6 +98,7 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::resource('/admin/routines', 'AdminRoutinesController', ['names'=>[
         'index'=>'admin.routines.index',
+        'create'=>'admin.routines.create',
         'edit'=>'admin.routines.edit'
     ]]);
 

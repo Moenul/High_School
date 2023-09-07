@@ -32,7 +32,7 @@
     @if ($student)
 
     <div class="form_section">
-        {!! Form::model($student, ['method'=>'PATCH', 'action'=> ['AdminStudentsController@update', $student->id], 'files'=>true]) !!}
+        {!! Form::model($student, ['method'=>'PATCH', 'action'=> ['AdminUpgradesController@update', $student->id], 'files'=>true]) !!}
         <div class="personal_info info_bar">
             <div class="row">
                 <div class="col-8">
@@ -74,6 +74,7 @@
 
         <div class="additional_info info_bar">
             <div class="row">
+                <input type="hidden" name="redirect_class" value="{{$student->class_id}}">
                 <div class="form-group col-md-4">
                     <label for="name">অধ্যয়নরত শ্রেণি :</label>
                     {!! Form::select('class_id', $classes, $student->class_id, ['class' => 'form-control', 'required'=>'required']) !!}

@@ -33,10 +33,11 @@
         <table class="table table-dark">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Students</th>
-                <th>Routine</th>
+                <th>Class</th>
+                <th>Students Counts</th>
+                <th>Boys Counts</th>
+                <th>Girls Counts</th>
+                <th>View Students</th>
                 <th>Edit</th>
                 <th style="width:80px; text-align:center;">Delete</th>
             </tr>
@@ -45,11 +46,11 @@
             <tbody>
                 @foreach ($classes as $class)
                 <tr>
-                    <td>{{$class->id}}</td>
                     <td>{{$class->name}}</td>
-                    <td>{{$class->student->count()}} <a href="{{ Route('admin.classes.show', $class->id) }}">View Students</a></td>
-                    <td><a href="{{ route('admin.routines.index') }}">Class Routine</a></td>
-
+                    <td>{{$class->student->count()}}</td>
+                    <td>{{$class->student->where('student_gender', '=', 'ছেলে')->count()}}</td>
+                    <td>{{$class->student->where('student_gender', '=', 'মেয়ে')->count()}}</td>
+                    <td><a href="{{ Route('admin.classes.show', $class->id) }} " class="btn btn-primary">View</a></td>
                     <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.classes.edit', $class->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                     <td>
                     {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminClassesController@destroy', $class->id]]) !!}

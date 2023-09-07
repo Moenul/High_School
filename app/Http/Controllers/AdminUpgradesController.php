@@ -75,7 +75,25 @@ class AdminUpgradesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        $student->update($input);
+
+        $redirect_class = $request->redirect_class;
+
+        return redirect('/admin/classes/'.$redirect_class);
     }
 
     /**

@@ -15,7 +15,7 @@ class AdminClassesController extends Controller
      */
     public function index()
     {
-        $classes = Classs::all();
+        $classes = Classs::orderBy('id', 'asc')->get();
         return view('admin.classes.index', compact('classes'));
     }
 

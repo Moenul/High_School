@@ -14,6 +14,7 @@
         <ul class="side_dropdown">
             <a href="{{ route('admin.students.index') }}">All Students</a>
             <a href="{{ route('admin.classes.index') }}">Classes</a>
+            <a href="{{ route('admin.routines.index') }}">Class Routines</a>
             <a href="{{ route('admin.sections.index') }}">Section</a>
             <a href="{{ route('admin.instructors.index') }}">Instructor</a>
             <a href="{{ route('admin.members.index') }}">Donor Member</a>

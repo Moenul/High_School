@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Routine;
+use App\Models\Classs;
 
 class AdminRoutinesController extends Controller
 {
@@ -13,7 +15,8 @@ class AdminRoutinesController extends Controller
      */
     public function index()
     {
-        //
+        $routines = Routine::orderBy('class_id', 'asc')->get();
+        return view('admin.routines.index', compact('routines'));
     }
 
     /**
@@ -23,7 +26,8 @@ class AdminRoutinesController extends Controller
      */
     public function create()
     {
-        //
+        $classes = Classs::pluck('name','id')->all();
+        return view('admin.routines.create', compact('classes'));
     }
 
     /**
@@ -34,7 +38,11 @@ class AdminRoutinesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        Routine::create($input);
+
+        return redirect('admin/routines');
     }
 
     /**
@@ -56,7 +64,9 @@ class AdminRoutinesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $routine = Routine::findOrFail($id);
+        $classes = Classs::pluck('name','id')->all();
+        return view('admin.routines.edit', compact('routine','classes'));
     }
 
     /**
@@ -68,7 +78,13 @@ class AdminRoutinesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $routine = Routine::findOrFail($id);
+
+        $input = $request->all();
+
+        $routine->update($input);
+
+        return redirect('/admin/routines');
     }
 
     /**
@@ -79,6 +95,9 @@ class AdminRoutinesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $routine = Routine::findOrFail($id);
+
+        $routine->delete();
+        return redirect()->back();
     }
 }
