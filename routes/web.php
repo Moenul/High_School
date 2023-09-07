@@ -76,13 +76,31 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::resource('/admin/classes', 'AdminClassesController', ['names'=>[
         'index'=>'admin.classes.index',
-        'edit'=>'admin.classes.edit'
+        'edit'=>'admin.classes.edit',
+        'show'=>'admin.classes.show'
     ]]);
 
     Route::resource('/admin/sections', 'AdminSectionsController', ['names'=>[
         'index'=>'admin.sections.index',
         'edit'=>'admin.sections.edit'
     ]]);
+
+    Route::resource('/admin/students', 'AdminStudentsController', ['names'=>[
+        'index'=>'admin.students.index',
+        'show'=>'admin.students.show',
+        'edit'=>'admin.students.edit'
+    ]]);
+
+    Route::resource('/admin/upgrades', 'AdminUpgradesController', ['names'=>[
+        'index'=>'admin.upgrades.index',
+        'edit'=>'admin.upgrades.edit'
+    ]]);
+
+    Route::resource('/admin/routines', 'AdminRoutinesController', ['names'=>[
+        'index'=>'admin.routines.index',
+        'edit'=>'admin.routines.edit'
+    ]]);
+
 
 
 });

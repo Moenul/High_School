@@ -15,6 +15,6 @@ class Section extends Model
 
     public function student()
     {
-        return $this->hasMany('App\Models\Student');
+        return $this->hasMany('App\Models\Student','student_section');
     }
 }

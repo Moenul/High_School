@@ -252,7 +252,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('student_section','শাখা :') !!}
-                    {!! Form::select('student_section', [null => ' প্রযোজ্য নয়'] + $sections, null, ['class' => 'form-control']) !!}
+                    {!! Form::select('student_section', $sections, null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('student_roll','রোল :') !!}
@@ -275,11 +275,11 @@
                     {!! Form::label('certificate_id', 'প্রশংসা পত্র / ট্রান্সফার সার্টিফিকেট ছবি :') !!}
                     <div class="mb-2 d-flex justify-content-center">
                         <a target="_blank" href="{{ $admission->certificate ? $admission->certificate->file : '/images/Empty_images.jpg' }}">
-                        <img class="action_field2 border border-secondary" id="preview_img2" width="300px" height="auto" src="{{ $admission->certificate ? $admission->certificate->file : '/images/Empty_images.jpg' }}">
+                        <img class="action_field_second border border-secondary" id="preview_img_second" width="300px" height="auto" src="{{ $admission->certificate ? $admission->certificate->file : '/images/Empty_images.jpg' }}">
                         </a>
                     </div>
                     <input type="hidden" name="certificate_id" value="{{$admission->certificate_id}}">
-                    {!! Form::file('certificate_id', ['class' => 'form-control-file border','id' => 'imgInp2'], null) !!}
+                    {!! Form::file('certificate_id', ['class' => 'form-control-file border','id' => 'imgInp_second'], null) !!}
                 </div>
                 <input type="hidden" name="admission_id" value="{{$admission->id}}">
             </div>

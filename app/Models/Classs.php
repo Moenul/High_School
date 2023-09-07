@@ -15,7 +15,7 @@ class Classs extends Model
 
     public function student()
     {
-        return $this->hasMany('App\Models\Student');
+        return $this->hasMany('App\Models\Student','class_id');
     }
 
 }

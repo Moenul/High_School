@@ -29,12 +29,14 @@
 <div class="container">
 
     <div class="row">
-    <div class="col-6">
+    <div class="col-8">
         <table class="table table-dark">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Students</th>
+                <th>Routine</th>
                 <th>Edit</th>
                 <th style="width:80px; text-align:center;">Delete</th>
             </tr>
@@ -45,6 +47,8 @@
                 <tr>
                     <td>{{$class->id}}</td>
                     <td>{{$class->name}}</td>
+                    <td>{{$class->student->count()}} <a href="{{ Route('admin.classes.show', $class->id) }}">View Students</a></td>
+                    <td><a href="{{ route('admin.routines.index') }}">Class Routine</a></td>
 
                     <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.classes.edit', $class->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                     <td>
@@ -59,7 +63,6 @@
 
 
     </div>
-    <div class="col-2"></div>
 
     <div class="col-4">
         <h5 class="text-center text-success">Create New Class</h5>

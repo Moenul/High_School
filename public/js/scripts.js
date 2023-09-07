@@ -4,7 +4,7 @@ $(document).ready(function(){
     $(window).scroll(function() {
         if ($(this).scrollTop()) {
             $(".nav_bar").addClass("nav_bar_active");
-        } 
+        }
         else {
             $(".nav_bar").removeClass("nav_bar_active");
         }
@@ -57,6 +57,28 @@ $(document).ready(function(){
     });
 
     // --------
+
+
+
+    // Before Upload Preview Image
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview_img_second').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+            $('.action_field_second').show();
+        }
+    }
+
+    $("#imgInp_second").change(function() {
+        readURL(this);
+    });
+
+    // --------
+
 
 
 

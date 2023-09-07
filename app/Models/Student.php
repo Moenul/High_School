@@ -60,14 +60,14 @@ class Student extends Model
 
     ];
 
-    public function classs()
+    public function class()
     {
-        return $this->belongsTo('App\Models\Classs');
+        return $this->belongsTo('App\Models\Classs','class_id');
     }
 
     public function section()
     {
-        return $this->belongsTo('App\Models\Section');
+        return $this->belongsTo('App\Models\Section','student_section');
     }
 
     public function photo()
