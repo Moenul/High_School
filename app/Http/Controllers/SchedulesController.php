@@ -4,26 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use Carbon\Carbon;
-use App\Models\Photo;
-use App\Models\Admission;
+use App\Models\Routine;
 use App\Models\Classs;
-use App\Models\StudentCost;
 
-class AdmissionController extends Controller
+class SchedulesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $contact = Contact::first();
-        $classes = Classs::pluck('name','id')->all();
-        $studentCosts = StudentCost::orderBy('class_id', 'asc')->get();
+        $classes = Classs::all();
 
-        return view('admissions.index', compact('contact','classes','studentCosts'));
+
+        if($request) {
+            if($request->class_id) {
+                $schedule = Routine::where('class_id', $request->class_id)->get();
+            }else{
+                $schedule = '';
+            }
+        }
+
+        return view('schedules.index', compact('contact','classes','schedule'));
     }
 
     /**
@@ -44,36 +49,7 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        $this->validate($request, [
-            'student_birth_reg'=>'required|max:17|unique:admissions,student_birth_reg',
-        ]);
-
-        if($file = $request->file('certificate_id')){
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images', $name);
-
-            $certificate = Photo::create(['file'=>$name]);
-
-            $input['certificate_id'] = $certificate->id;
-        }
-
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images', $name);
-
-            $photo = Photo::create(['file'=>$name]);
-
-            $input['photo_id'] = $photo->id;
-        }
-
-        $admission = Admission::create($input);
-
-        return redirect()->route('admission.show', $admission);
-        // return dd($input);
+        //
     }
 
     /**
@@ -84,8 +60,7 @@ class AdmissionController extends Controller
      */
     public function show($id)
     {
-        $admission = Admission::findOrFail($id);
-        return view('admissions.success.index', compact('admission'));
+
     }
 
     /**

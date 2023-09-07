@@ -23,8 +23,16 @@
 			<ul>
 				<a href=""><li style="background: #FFD261;">ডোনেশন</li></a>
 				<a href="{{ url('/admission') }}"><li style="background: #85E352;">ভর্তি আবেদন</li></a>
-				<a href=""><li>লাইব্রেরি</li></a>
-				<a href="#contact"><li>যোগাযোগ</li></a>
+                <a href="#contact"><li>যোগাযোগ</li></a>
+                <li>একাডেমিক <i class="fa-solid fa-angle-down"></i>
+					<div class="nav_dropdown">
+						<ul>
+							<a href="{{ route('schedules.index') }}">ক্লাস রুটিন</a>
+							<a href="">পরীক্ষার রেজাল্ট</a>
+							<a href="">লাইব্রেরি</a>
+						</ul>
+					</div>
+				</li>
 				<li>সমন্ধে <i class="fa-solid fa-angle-down"></i>
 					<div class="nav_dropdown">
 						<ul>
@@ -34,6 +42,7 @@
 						</ul>
 					</div>
 				</li>
+
 				<a href="/"><li>হোম</li></a>
 			</ul>
 		</div>

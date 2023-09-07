@@ -27,42 +27,44 @@
 
     <!-- start dashboard content -->
 
-        <a href="">
-        <div class="panel post_panel">
-            <div class="panel_icon"><i class="fas fa-file-alt"></i></div>
-            <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
-            </div>
-        </div>
-        </a>
-
-        <a href="">
+        <a href="{{ route('admin.students.index') }}">
         <div class="panel user_panel">
-            <div class="panel_icon"><i class="fas fa-users"></i></div>
+            <div class="panel_icon"><i class="fas fa-user-graduate"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
+                <h5>Total Students</h5>
+                <span>
+                    {{App\Models\Student::count()}}
+                </span>
             </div>
         </div>
         </a>
 
-        <a href="">
+        <a href="{{ route('admin.events.index') }}">
+        <div class="panel post_panel">
+            <div class="panel_icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="panel_content">
+                <h5>Total Event</h5>
+                <span>{{App\Models\Event::count()}}</span>
+            </div>
+        </div>
+        </a>
+
+        <a href="{{ route('admin.notices.index') }}">
         <div class="panel comment_panel">
-            <div class="panel_icon"><i class="far fa-comments"></i></div>
+            <div class="panel_icon"><i class="fas fa-volume-down"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
+                <h5>Total Notice</h5>
+                <span>{{App\Models\Notice::count()}}</span>
             </div>
         </div>
         </a>
 
-        <a href="">
+        <a href="{{ route('admin.instructors.index') }}">
         <div class="panel category_panel">
-            <div class="panel_icon"><i class="far fa-list-alt"></i></div>
+            <div class="panel_icon"><i class="fas fa-chalkboard-teacher"></i></div>
             <div class="panel_content">
-                <h5>CPU trafic</h5>
-                <span>45</span>
+                <h5>Total Instructor</h5>
+                <span>{{App\Models\Instructor::count()}}</span>
             </div>
         </div>
         </a>

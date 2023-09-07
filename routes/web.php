@@ -118,6 +118,14 @@ Route::resource('/admission', 'AdmissionController', ['names'=>[
     'show'=>'admission.show'
 ]]);
 
+// Route::resource('/routines', 'RoutinesController', ['names'=>[
+//     'index'=>'routines.index',
+//     'show'=>'routines.show'
+// ]]);
+Route::resource('/schedules', 'SchedulesController', ['names'=>[
+    'index'=>'schedules.index'
+]]);
+
 Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');
 
 Route::get('/', 'HomeController@index');

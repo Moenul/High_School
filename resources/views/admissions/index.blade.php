@@ -28,12 +28,17 @@
                             <th scope="col">টিউশন ফি</th>
                           </tr>
                         </thead>
+
                         <tbody>
-                          <tr>
-                            <th scope="row">প্রথম</th>
-                            <td>২০০ টাকা</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @if ($studentCosts)
+                                @foreach ($studentCosts as $studentCost)
+                                    <tr>
+                                        <th scope="row">{{$studentCost->class->name}}</th>
+                                        <td>{{$studentCost->session_fee}}</td>
+                                        <td>{{$studentCost->tuition_fee}}</td>
+                                    </tr>
+                                @endforeach
+                            @endif
                         </tbody>
                     </table>
                 </div>
