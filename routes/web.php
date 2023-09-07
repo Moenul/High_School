@@ -102,6 +102,11 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.routines.edit'
     ]]);
 
+    Route::resource('/admin/studentCosts', 'AdminStudentCostsController', ['names'=>[
+        'index'=>'admin.studentCosts.index',
+        'edit'=>'admin.studentCosts.edit'
+    ]]);
+
 
 
 });
