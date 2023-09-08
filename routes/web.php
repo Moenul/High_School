@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('logout/', 'Auth\loginController@logout');
 
 Route::group(['middleware' => 'admin'], function(){
 
@@ -107,6 +108,12 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.studentCosts.edit'
     ]]);
 
+    Route::resource('/admin/policys', 'AdminPolicysController', ['names'=>[
+        'index'=>'admin.policys.index',
+        'create'=>'admin.policys.create',
+        'edit'=>'admin.policys.edit'
+    ]]);
+
 
 
 });
@@ -124,6 +131,10 @@ Route::resource('/admission', 'AdmissionController', ['names'=>[
 // ]]);
 Route::resource('/schedules', 'SchedulesController', ['names'=>[
     'index'=>'schedules.index'
+]]);
+
+Route::resource('/informations', 'InformationsController', ['names'=>[
+    'index'=>'informations.index'
 ]]);
 
 Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');

@@ -50,18 +50,14 @@
             {!! Form::label('institute_desc','Institute Description:') !!}
             {!! Form::textarea('institute_desc', $about->institute_desc, ['class'=>'form-control','rows'=>5]) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('cover_id', 'Cover:') !!}
+            {!! Form::file('cover_id', null) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::label('tagline','TagLine:') !!}
             {!! Form::text('tagline', $about->tagline, ['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('terms_condition','Terms Condition:') !!}
-            {!! Form::textarea('terms_condition', $about->terms_condition, ['class'=>'form-control','rows'=>5]) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('privacy_policy','Privacy Policy:') !!}
-            {!! Form::textarea('privacy_policy', $about->privacy_policy, ['class'=>'form-control','rows'=>5]) !!}
         </div>
 
 

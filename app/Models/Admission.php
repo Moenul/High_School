@@ -56,6 +56,9 @@ class Admission extends Model
         'certificate_id',
         'photo_id',
         'status',
+        'applicant_name',
+        'applicant_email',
+        'applicant_phone',
     ];
 
 

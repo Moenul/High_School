@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\About;
+use App\Models\Policy;
 use App\Models\Routine;
 use App\Models\Classs;
+
 
 class SchedulesController extends Controller
 {
@@ -18,7 +21,8 @@ class SchedulesController extends Controller
     {
         $contact = Contact::first();
         $classes = Classs::all();
-
+        $about = About::first();
+        $policys = Policy::all();
 
         if($request) {
             if($request->class_id) {
@@ -28,7 +32,7 @@ class SchedulesController extends Controller
             }
         }
 
-        return view('schedules.index', compact('contact','classes','schedule'));
+        return view('schedules.index', compact('contact','about','classes','schedule','policys'));
     }
 
     /**

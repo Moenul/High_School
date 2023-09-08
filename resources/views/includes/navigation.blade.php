@@ -18,7 +18,12 @@
 <!-- /* /////  Nav_Bar Section Start ------------------- */ -->
 <div class="nav_bar">
 	<div class="container">
-		<div class="nav_brand"><img src="images/Madrasah_big.png"></div>
+		<div class="nav_brand">
+            @if ($about)
+                <img src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
+            @endif
+
+        </div>
 		<div class="nav_list">
 			<ul>
 				<a href=""><li style="background: #FFD261;">ডোনেশন</li></a>

@@ -15,7 +15,9 @@
 
         <div class="instruction_bar">
             <div class="alert_info">
-                <p> <span>সতর্কতাঃ</span> উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্ট উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্ট উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্ট উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্ট উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্ট উল্লেখিত আবেদন ফরম জমা দেয়ার ক্ষেত্রে নির্দিষ্টউল্লেখিত আবেদন</p>
+                <p>
+                    {!! App\Models\Policy::where('name', '=', 'Admission Form Alerts')->first()->desc !!}
+                </p>
             </div>
             <div class="cost_info">
                 <span>সেশন ফি ও টিউশন ফি</span>
@@ -290,6 +292,24 @@
                         <div class="form-group">
                             {!! Form::file('photo_id', ['class' => 'form-control-file border','id' => 'imgInp', 'required'=>'required'], null) !!}
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="additional_info info_bar">
+                <div class="info_title">আবেদনকারীর তথ্য :</div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        {!! Form::label('applicant_name','আবেদনকারীর নাম :') !!}
+                        {!! Form::text('applicant_name', null, ['class'=>'form-control', 'placeholder'=>'আবেদনকারীর নাম', 'required'=>'required']) !!}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {!! Form::label('applicant_email','ইমেইল :') !!}
+                        {!! Form::email('applicant_email', null, ['class'=>'form-control', 'placeholder'=>'ইমেইল', 'required'=>'required']) !!}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {!! Form::label('applicant_phone','ফোন নম্বর :') !!}
+                        {!! Form::text('applicant_phone', null, ['class'=>'form-control', 'placeholder'=>'ফোন নম্বর', 'maxlength'=>11, 'required'=>'required']) !!}
                     </div>
                 </div>
             </div>

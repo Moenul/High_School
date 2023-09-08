@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\About;
+use App\Models\Policy;
 use App\Models\Photo;
 
-class AdminAboutsController extends Controller
+class AdminPolicysController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AdminAboutsController extends Controller
      */
     public function index()
     {
-        $abouts = About::all();
-        return view('admin.abouts.index', compact('abouts'));
+        $policys = Policy::all();
+        return view('admin.policys.index', compact('policys'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AdminAboutsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.policys.create');
     }
 
     /**
@@ -37,7 +37,21 @@ class AdminAboutsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        Policy::create($input);
+
+        return redirect('admin/policys');
     }
 
     /**
@@ -59,8 +73,8 @@ class AdminAboutsController extends Controller
      */
     public function edit($id)
     {
-        $about = About::findOrFail($id);
-        return view('admin.abouts.edit', compact('about'));
+        $policy = Policy::findOrFail($id);
+        return view('admin.policys.edit', compact('policy'));
     }
 
     /**
@@ -72,7 +86,7 @@ class AdminAboutsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $about = About::findOrFail($id);
+        $policy = Policy::findOrFail($id);
 
         $input = $request->all();
 
@@ -86,19 +100,9 @@ class AdminAboutsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        if($file = $request->file('cover_id')){
-            $name = time() . $file->getClientOriginalName();
+        $policy->update($input);
 
-            $file->move('images', $name);
-
-            $cover = Photo::create(['file'=>$name]);
-
-            $input['cover_id'] = $cover->id;
-        }
-
-        $about->update($input);
-
-        return redirect('/admin/abouts');
+        return redirect('/admin/policys');
     }
 
     /**
@@ -109,6 +113,16 @@ class AdminAboutsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $policy = Policy::findOrFail($id);
+
+        if ($policy->photo_id !== null) {
+            unlink(public_path() . $policy->photo->file);
+
+            $photo = $policy->photo->id;
+            Photo::findOrFail($photo)->delete();
+        }
+
+        $policy->delete();
+        return redirect()->back();
     }
 }

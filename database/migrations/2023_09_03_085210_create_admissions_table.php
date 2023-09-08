@@ -70,6 +70,10 @@ class CreateAdmissionsTable extends Migration
             $table->integer('photo_id')->unsigned()->nullable();
             $table->integer('status')->default(0);
 
+            $table->string('applicant_name')->nullable();
+            $table->string('applicant_email')->nullable();
+            $table->string('applicant_phone')->nullable();
+
             $table->timestamps();
         });
     }

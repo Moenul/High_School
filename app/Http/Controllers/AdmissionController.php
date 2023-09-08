@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\About;
+use App\Models\Policy;
 use Carbon\Carbon;
 use App\Models\Photo;
 use App\Models\Admission;
 use App\Models\Classs;
 use App\Models\StudentCost;
+
 
 class AdmissionController extends Controller
 {
@@ -20,10 +23,13 @@ class AdmissionController extends Controller
     public function index()
     {
         $contact = Contact::first();
+        $about = About::first();
+        $policys = Policy::all();
         $classes = Classs::pluck('name','id')->all();
         $studentCosts = StudentCost::orderBy('class_id', 'asc')->get();
 
-        return view('admissions.index', compact('contact','classes','studentCosts'));
+
+        return view('admissions.index', compact('contact','about','classes','studentCosts','policys'));
     }
 
     /**

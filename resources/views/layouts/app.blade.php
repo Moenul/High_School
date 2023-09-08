@@ -33,8 +33,11 @@
 <div class="footer">
 	<div class="container">
 		<div class="row footer_condition">
-			<div class="col-md-6"><a href=""> <i class="fas fa-bullhorn"></i> Terms & Conditions</a></div>
-			<div class="col-md-6"><a href=""> <i class="fas fa-user-secret"></i> Privacy Policy</a></div>
+            @if ($policys)
+                @foreach ($policys as $policy)
+                    <div class="col-md-6"><a href="{{ action('InformationsController@index', ['id'=> $policy->id]) }}"> <i class="fas fa-caret-right"></i>{{$policy->name}}</a></div>
+                @endforeach
+            @endif
 			<div class="col-md-12 copyright">&copy; All Rights Reserved</div>
 			<div class="col-md-12 credit">Design and Develoed credit gose to <a href="http://" target="_blank">MOENUL ISLAM</a></div>
 		</div>

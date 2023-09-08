@@ -38,6 +38,7 @@
     </li> --}}
 
     <a href="{{ route('admin.abouts.index') }}"><li class="side_nav_item"><i class="fas fa-info-circle"></i><span>About</span></li></a>
+    <a href="{{ route('admin.policys.index') }}"><li class="side_nav_item"><i class="fas fa-shield-alt"></i><span>Policy</span></li></a>
 
 
 

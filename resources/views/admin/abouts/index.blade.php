@@ -46,16 +46,11 @@
                 <p>{{$about->institute_desc}}</p>
             </div>
             <div class="form-group">
+                <img class="" width="140px" height="150px" src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}">
+            </div>
+            <div class="form-group">
                 <label for=""><b>Tagline:</b></label>
                 <p>{{$about->tagline}}</p>
-            </div>
-            <div class="form-group">
-                <label for=""><b>Terms & Condition:</b></label>
-                <p>{{$about->terms_condition}}</p>
-            </div>
-            <div class="form-group">
-                <label for=""><b>Privacy Policy:</b></label>
-                <p>{{$about->privacy_policy}}</p>
             </div>
 
 

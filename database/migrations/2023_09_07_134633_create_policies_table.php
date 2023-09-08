@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAboutsTable extends Migration
+class CreatePoliciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAboutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('policies', function (Blueprint $table) {
             $table->id();
             $table->integer('photo_id')->unsigned()->nullable();
-            $table->string('tagline')->nullable();
-            $table->string('institute_name')->nullable();
-            $table->text('institute_desc')->nullable();
-            $table->integer('cover_id')->unsigned()->nullable();
+            $table->string('name')->nullable();
+            $table->string('title')->nullable();
+            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateAboutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('policies');
     }
 }

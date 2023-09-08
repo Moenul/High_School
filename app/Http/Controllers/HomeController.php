@@ -13,6 +13,7 @@ use App\Models\Member;
 use App\Models\Instructor;
 use App\Models\Notice;
 use App\Models\Slider;
+use App\Models\Policy;
 
 
 class HomeController extends Controller
@@ -40,6 +41,7 @@ class HomeController extends Controller
         $events = Event::orderBy('date', 'desc')->limit(3)->get();
         $members = Member::all();
         $instructors = Instructor::all();
+        $policys = Policy::all();
 
 
         $notices = Notice::paginate(5);
@@ -52,6 +54,6 @@ class HomeController extends Controller
 
         $sliders = Slider::where('status',1)->limit(5)->get();
 
-        return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders'));
+        return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders','policys'));
     }
 }

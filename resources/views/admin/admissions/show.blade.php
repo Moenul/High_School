@@ -243,6 +243,23 @@
                 </div>
             </div>
         </div>
+        <div class="additional_info info_bar">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    {!! Form::label('applicant_name','আবেদনকারীর নাম :') !!}
+                    {!! Form::text('applicant_name', $admission->applicant_name, ['class'=>'form-control', 'placeholder'=>'আবেদনকারীর নাম', 'required'=>'required']) !!}
+                </div>
+                <div class="form-group col-md-3">
+                    {!! Form::label('applicant_email','ইমেইল :') !!}
+                    {!! Form::text('applicant_email', $admission->applicant_email, ['class'=>'form-control', 'placeholder'=>'ইমেইল', 'required'=>'required']) !!}
+                </div>
+                <div class="form-group col-md-3">
+                    {!! Form::label('applicant_phone','ফোন নম্বর :') !!}
+                    {!! Form::text('applicant_phone', $admission->applicant_phone, ['class'=>'form-control', 'placeholder'=>'ফোন নম্বর']) !!}
+                </div>
+
+            </div>
+        </div>
 
         <div class="additional_info info_bar">
             <div class="row">

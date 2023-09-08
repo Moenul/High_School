@@ -144,7 +144,7 @@
 		<div class="section_name">আমাদের সমন্ধে</div>
         @if ($about)
 
-		<div class="about_image_bar"><img src="images/Islam-golden-decor-background.jpg"></div>
+		<div class="about_image_bar"><img src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}"></div>
 		<div class="about_desc_bar">
 			<div class="desc_title">{{ $about->institute_name }}</div>
 			<p>{{ $about->institute_desc }}</p>
