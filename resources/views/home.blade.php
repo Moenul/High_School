@@ -155,9 +155,60 @@
 </div>
 
 
-<div class="donor_member_section" id="donor_member">
+<div class="institute_head" id="institute_head">
 	<div class="container">
-		<div class="section_name">দাতা সদস্য</div>
+        <div class="section_name">সুপারিন্টেন্ডেন্ট এর বাণী</div>
+		<div class="row">
+            @if ($speaches->where('person_type', '=', 'Institute Head'))
+                @foreach ($speaches->where('person_type', '=', 'Institute Head') as $person)
+                    <div class="col-md-6">
+                        <div class="institute_head_img">
+                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="name">{{$person->name}}</div>
+                        <div class="title">{{$person->title}}</div>
+                        <div class="desc">
+                            <p>{!! $person->desc !!}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+		</div>
+	</div>
+</div>
+
+
+
+<div class="president" id="president">
+	<div class="container">
+        <div class="section_name">সভাপতির বাণী</div>
+		<div class="row">
+			@if ($speaches->where('person_type', '=', 'President'))
+                @foreach ($speaches->where('person_type', '=', 'President') as $person)
+                    <div class="col-md-6">
+                        <div class="president_img">
+                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="name">{{$person->name}}</div>
+                        <div class="title">{{$person->title}}</div>
+                        <div class="desc">
+                            <p>{!! $person->desc !!}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+		</div>
+	</div>
+</div>
+
+
+<div class="donor_member_section" id="member">
+	<div class="container">
+		<div class="section_name">প্রতিষ্ঠাতা ও দাতা</div>
 		<div class="donor_members">
         @if ($members->count())
             @foreach ($members as $member)
@@ -182,8 +233,12 @@
             @foreach ($instructors as $instructor)
                 <div class="instructor">
                     <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}"></div>
-                    <div class="name">{{$instructor->name}}</div>
-                    <div class="title">{{$instructor->title}}</div>
+                    <div class="desc">
+                        <div class="name">{{$instructor->name}}</div>
+                        <div class="title">{{$instructor->title}}</div>
+                        <div class="qualification">{{$instructor->qualification}}</div>
+                        <div class="phone">+88 {{$instructor->phone}}</div>
+                    </div>
                 </div>
             @endforeach
         @else

@@ -19,7 +19,7 @@
 <div class="content_section">
     <!-- start header -->
     <div class="header">
-        <h3>Policy</h3>&nbsp;&nbsp;<span>Manage Policy Info</span>
+        <h3>Speach</h3>&nbsp;&nbsp;<span>Manage Speach</span>
         <a href="{{ url('../') }}"><i class="fas fa-home"></i>Home</a>
         <hr>
     </div>
@@ -28,22 +28,25 @@
  <!-- start dashboard content -->
 
  <div class="row">
-    @if ($policy)
+    @if ($speach)
 
     <div class="col-12">
-        {!! Form::model($policy, ['method'=>'PATCH', 'action'=> ['AdminPolicysController@update', $policy->id], 'files'=>true]) !!}
-
+        {!! Form::model($speach, ['method'=>'PATCH', 'action'=> ['AdminSpeachsController@update', $speach->id], 'files'=>true]) !!}
         <div class="form-group">
-            {!! Form::label('name','Policy Name:') !!}
-            {!! Form::text('name', $policy->name, ['class'=>'form-control']) !!}
+            <label for="person_type">Person Type :</label>
+            {!! Form::select('person_type', [$speach->person_type => $speach->person_type,'Institute Head' => 'Institute Head', 'President' => 'President'], null, ['class' => 'form-control', 'required'=>'required']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('title','Policy title:') !!}
-            {!! Form::text('title', $policy->title, ['class'=>'form-control']) !!}
+            {!! Form::label('name','Person Name:') !!}
+            {!! Form::text('name', $speach->name, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('title','Person title:') !!}
+            {!! Form::text('title', $speach->title, ['class'=>'form-control']) !!}
         </div>
 
         <div class="mb-2 d-flex justify-content-center">
-            <img class="action_field border border-secondary" id="preview_img" width="150px" height="150px" src="{{ $policy->photo ? $policy->photo->file : '/images/Empty_Images.jpg' }}">
+            <img class="action_field border border-secondary" id="preview_img" width="150px" height="150px" src="{{ $speach->photo ? $speach->photo->file : '/images/Empty_Images.jpg' }}">
         </div>
         <div class="form-group">
             {!! Form::label('photo_id', 'Image:') !!}
@@ -51,12 +54,12 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('desc','Policy Description:') !!}
-            {!! Form::textarea('desc', $policy->desc, ['class'=>'form-control  ckeditor','rows'=>5]) !!}
+            {!! Form::label('desc','Write Speach:') !!}
+            {!! Form::textarea('desc', $speach->desc, ['class'=>'form-control  ckeditor','rows'=>5]) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Update Policy', ['class'=>'btn btn-primary float-right']) !!}
+            {!! Form::submit('Update Speach', ['class'=>'btn btn-primary float-right']) !!}
         </div>
 
         {!! Form::close() !!}

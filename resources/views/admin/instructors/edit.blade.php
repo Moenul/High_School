@@ -30,7 +30,7 @@
     <div class="container">
         @if ($instructor)
 
-        <div class="col-4 m-0">
+        <div class="col-6 m-0">
             {!! Form::model($instructor, ['method'=>'PATCH', 'action'=> ['AdminInstructorsController@update', $instructor->id], 'files'=>true]) !!}
             <div class="mb-2 d-flex justify-content-center">
                 <img  class="action_field border border-secondary" id="preview_img"  width="120px" height="128px" src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}">
@@ -46,6 +46,14 @@
             <div class="form-group">
                 {!! Form::label('title','Title:') !!}
                 {!! Form::text('title', $instructor->title, ['class'=>'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('qualification','Qualification:') !!}
+                {!! Form::text('qualification', $instructor->qualification, ['class'=>'form-control']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('phone','Phone No.:') !!}
+                {!! Form::text('phone', $instructor->phone, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Update Instructor', ['class'=>'btn btn-primary float-right']) !!}

@@ -42,8 +42,10 @@
 					<div class="nav_dropdown">
 						<ul>
 							<a href="#about_us">আমাদের সমন্ধে</a>
+							<a href="#institute_head">সুপারিন্টেন্ডেন্ট এর বাণী</a>
+							<a href="#president">সভাপতির বাণী</a>
 							<a href="#instructor">শিক্ষক মন্ডলী </a>
-							<a href="#donor_member">দাতা সদস্য </a>
+							<a href="#member">প্রতিষ্ঠাতা ও দাতা </a>
 						</ul>
 					</div>
 				</li>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstructorsTable extends Migration
+class CreateSpeachesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateInstructorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instructors', function (Blueprint $table) {
+        Schema::create('speaches', function (Blueprint $table) {
             $table->id();
+            $table->string('person_type')->nullable();
             $table->integer('photo_id')->unsigned()->nullable();
             $table->string('name')->nullable();
             $table->string('title')->nullable();
-            $table->string('qualification')->nullable();
-            $table->string('phone')->nullable();
+            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateInstructorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instructors');
+        Schema::dropIfExists('speaches');
     }
 }

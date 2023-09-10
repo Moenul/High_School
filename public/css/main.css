@@ -539,12 +539,57 @@ body {
     color: #548d5a;
 }
 .about_section .about_desc_bar p{
-    font-size: 20px;
+    font-size: 18px;
     width: 80%;
+    height: 400px;
+    overflow-x: scroll;
     margin: 0 auto;
 }
-
+.about_section .about_desc_bar p::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 40px;
+}
+.about_section .about_desc_bar p::-webkit-scrollbar-thumb {
+	background-color: var(--color-smart-black);
+    border: 3px solid #ffffffc7;
+    border-radius: 10px;
+}
 /* /////  About Section End ------------------- */
+
+
+/* /////  Professor Section Start ------------------- */
+.institute_head,
+.president{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+.institute_head .institute_head_img,
+.president .president_img{
+    overflow: hidden;
+    padding: 50px;
+}
+.institute_head .institute_head_img img,
+.president .president_img img{
+    width: 100%;
+}
+.institute_head .name,
+.president .name{
+    font-size: 30px;
+}
+.institute_head .title,
+.president .title{
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #373737;
+}
+.institute_head .desc,
+.president .desc{
+    font-size: 18px;
+}
+
+/* /////  Professor Section End ------------------- */
+
 
 /* /////  Donor Member Section Start ------------------- */
 
@@ -635,41 +680,66 @@ body {
     padding:40px 0px 0px 0px;
 }
 .instructor_section .instructors{
-    height: 230px;
+    height: 250px;
 }
 .instructor_section .instructors .instructor{
     width: 200px;
-    height: 250px;
+    height: 230px;
     margin-right: 30px;
     display: inline-block;
+    overflow: hidden;
+    padding: 5px;
+    transition: all .3s ease-in-out;
 }
 .instructor_section .instructors .instructor:nth-last-child(1) {
     margin-right: 0px;
 }
 .instructor_section .instructors .instructor .photo{
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto;
     border: 5px solid var(--color-deep);
     margin-bottom: 10px;
+    margin-top: 5px;
     border-radius: 50%;
     overflow: hidden;
+    transition: all .3s ease-in-out;
 }
 .instructor_section .instructors .instructor .photo img{
     width: 100%;
 }
-.instructor_section .instructors .instructor .name{
-    font-size: 16px;
-    text-align: center;
-    color: var(--color-deep);
-    word-spacing: -2px;
-}
-.instructor_section .instructors .instructor .title{
-    font-size: 16px;
+.instructor_section .instructors .instructor .desc{
+    width: 100%;
+    height: auto;
     text-align: center;
     color: var(--color-smart-black);
 }
-
+.instructor_section .instructors .instructor .desc .name{
+    font-size: 16px;
+    color: var(--color-deep);
+    word-spacing: -2px;
+}
+.instructor_section .instructors .instructor .desc .title{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.instructor_section .instructors .instructor .desc .qualification{
+    font-size: 14px;
+}
+.instructor_section .instructors .instructor .desc .phone{
+    font-size: 14px;
+}
+.instructor_section .instructors .instructor:hover{
+    background: beige;
+    border-radius: 5px;
+}
+.instructor_section .instructors .instructor:hover .photo{
+    width: 120px;
+    height: 120px;
+}
+.instructor_section .instructors .instructor:hover .title{
+    margin-bottom: 0px;
+}
 
 /* /////  Instructor Section End ------------------- */
 

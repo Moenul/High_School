@@ -14,6 +14,7 @@ use App\Models\Instructor;
 use App\Models\Notice;
 use App\Models\Slider;
 use App\Models\Policy;
+use App\Models\Speach;
 
 
 class HomeController extends Controller
@@ -42,6 +43,7 @@ class HomeController extends Controller
         $members = Member::all();
         $instructors = Instructor::all();
         $policys = Policy::all();
+        $speaches = Speach::all();
 
 
         $notices = Notice::paginate(5);
@@ -54,6 +56,6 @@ class HomeController extends Controller
 
         $sliders = Slider::where('status',1)->limit(5)->get();
 
-        return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders','policys'));
+        return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders','policys','speaches'));
     }
 }

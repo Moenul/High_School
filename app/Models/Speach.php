@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Instructor extends Model
+class Speach extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'person_type',
         'photo_id',
         'name',
         'title',
-        'qualification',
-        'phone',
+        'desc',
     ];
 
     public function photo()

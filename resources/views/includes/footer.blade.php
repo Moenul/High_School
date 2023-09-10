@@ -5,8 +5,8 @@
 <div class="footer">
 	<div class="container">
 		<div class="row footer_condition">
-            @if ($policys)
-                @foreach ($policys as $policy)
+            @if (App\Models\Policy::all())
+                @foreach (App\Models\Policy::all() as $policy)
                     <div class="col-md-6"><a href="{{ action('InformationsController@index', ['id'=> $policy->id]) }}"> <i class="fas fa-caret-right"></i>{{$policy->name}}</a></div>
                 @endforeach
             @endif

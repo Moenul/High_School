@@ -19,7 +19,7 @@
 <div class="content_section">
     <!-- start header -->
     <div class="header">
-        <h3>Policy</h3>&nbsp;&nbsp;<span>Manage Policy</span>
+        <h3>Speach</h3>&nbsp;&nbsp;<span>Manage Speach</span>
         <a href="{{ url('../') }}"><i class="fas fa-home"></i>Home</a>
         <hr>
     </div>
@@ -42,15 +42,15 @@
             </thead>
 
             <tbody>
-                @foreach ($policys as $policy)
+                @foreach ($speaches as $speach)
                 <tr>
-                    <td>{{$policy->id}}</td>
-                    <td>{{$policy->name}}</td>
-                    <td>{{$policy->title}}</td>
+                    <td>{{$speach->id}}</td>
+                    <td>{{$speach->name}}</td>
+                    <td>{{$speach->title}}</td>
 
-                    <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.policys.edit', $policy->id) }}"><i class="far fa-edit text-warning"></i></a></td>
+                    <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.speaches.edit', $speach->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                     <td>
-                    {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminPolicysController@destroy', $policy->id]]) !!}
+                    {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminSpeachsController@destroy', $speach->id]]) !!}
                         {{ Form::button('<i class="fas fa-trash-alt text-danger"></i>', ['type' => 'submit', 'class' => 'btn btn-lg'] )  }}
                     {!! Form::close() !!}
                     </td>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="col-4">
-        <a href="{{ Route('admin.policys.create') }}" class="btn btn-success">Create New</a>
+        <a href="{{ Route('admin.speaches.create') }}" class="btn btn-success">Create New</a>
     </div>
 
 

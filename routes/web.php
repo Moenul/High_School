@@ -114,6 +114,12 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.policys.edit'
     ]]);
 
+    Route::resource('/admin/speaches', 'AdminSpeachsController', ['names'=>[
+        'index'=>'admin.speaches.index',
+        'create'=>'admin.speaches.create',
+        'edit'=>'admin.speaches.edit'
+    ]]);
+
 
 
 });
@@ -125,10 +131,6 @@ Route::resource('/admission', 'AdmissionController', ['names'=>[
     'show'=>'admission.show'
 ]]);
 
-// Route::resource('/routines', 'RoutinesController', ['names'=>[
-//     'index'=>'routines.index',
-//     'show'=>'routines.show'
-// ]]);
 Route::resource('/schedules', 'SchedulesController', ['names'=>[
     'index'=>'schedules.index'
 ]]);

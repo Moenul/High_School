@@ -87,6 +87,14 @@
             {!! Form::label('title','Title:') !!}
             {!! Form::text('title', null, ['class'=>'form-control']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('qualification','Qualification:') !!}
+            {!! Form::text('qualification', null, ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('phone','Phone No.:') !!}
+            {!! Form::text('phone', null, ['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::submit('Submit', ['class'=>'btn btn-success  float-right']) !!}
