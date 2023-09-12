@@ -69,7 +69,7 @@
 
                     <div class="form-group">
                         {!! Form::label('photo_id', 'Image:') !!}
-                        {!! Form::file('photo_id', ['id' => 'imgInp'], null) !!}
+                        {!! Form::file('photo_id', ['class'=>'form-file-control  border', 'id' => 'imgInp', 'required'=>'required'], null) !!}
                     </div>
                     <div class="form-group">
                         {!! Form::submit('Upload Image', ['class'=>'btn btn-success  float-right']) !!}

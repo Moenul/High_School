@@ -8,8 +8,8 @@
     @yield('style')
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>Madrasah</title>
-	<link rel="shortcut icon" type="image/png" href="images/Madrasah.png">
+<title>School</title>
+	<link rel="shortcut icon" type="image/png" href="images/School.png">
 </head>
 <body>
 

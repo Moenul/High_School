@@ -46,7 +46,12 @@
                 <p>{{$about->institute_desc}}</p>
             </div>
             <div class="form-group">
-                <img class="" width="140px" height="150px" src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}">
+                <label for=""><b>Cover :</b></label>
+                <img class="img-fluid" width="140px" height="150px" src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}">
+            </div>
+            <div class="form-group">
+                <label for=""><b>Top Nav Image :</b></label>
+                <img class="img-fluid" width="1110px" height="60px" src="{{ $about->nav ? $about->nav->file : '/images/Empty_Images.jpg' }}">
             </div>
             <div class="form-group">
                 <label for=""><b>Tagline:</b></label>

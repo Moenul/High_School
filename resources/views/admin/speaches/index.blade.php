@@ -35,7 +35,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Title</th>
+                <th>Position</th>
                 <th>Edit</th>
                 <th style="width:80px; text-align:center;">Delete</th>
             </tr>
@@ -46,7 +46,7 @@
                 <tr>
                     <td>{{$speach->id}}</td>
                     <td>{{$speach->name}}</td>
-                    <td>{{$speach->title}}</td>
+                    <td>{{$speach->person_type}}</td>
 
                     <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.speaches.edit', $speach->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                     <td>

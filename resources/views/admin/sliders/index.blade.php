@@ -95,7 +95,7 @@
 
                 <div class="form-group">
                     {!! Form::label('photo_id', 'Image:') !!}
-                    {!! Form::file('photo_id', ['id' => 'imgInp'], null) !!}
+                    {!! Form::file('photo_id', ['class'=>'form-file-control  border', 'id' => 'imgInp', 'required'=>'required'], null) !!}
                 </div>
                 <input type="hidden" name="status" value="1">
                 <div class="form-group">

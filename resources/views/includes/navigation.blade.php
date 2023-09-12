@@ -14,6 +14,12 @@
 </div>
 <!-- /* /////  Top Nav Section End ------------------- */ -->
 
+<!-- /* /////  Middle Nav Section Start ------------------- */ -->
+<div class="middle_nav">
+	<img src="{{ $about->nav ? $about->nav->file : '/images/Empty_Images_Landscape.jpg' }}">
+</div>
+<!-- /* /////  Middle Nav Section End ------------------- */ -->
+
 
 <!-- /* /////  Nav_Bar Section Start ------------------- */ -->
 <div class="nav_bar">
@@ -26,8 +32,7 @@
         </div>
 		<div class="nav_list">
 			<ul>
-				<a href=""><li style="background: #FFD261;">ডোনেশন</li></a>
-				<a href="{{ url('/admission') }}"><li style="background: #85E352;">ভর্তি আবেদন</li></a>
+				<a href="{{ url('/admission') }}"><li style="background: #7ad2fe;">ভর্তি আবেদন</li></a>
                 <a href="#contact"><li>যোগাযোগ</li></a>
                 <li>একাডেমিক <i class="fa-solid fa-angle-down"></i>
 					<div class="nav_dropdown">
@@ -42,10 +47,10 @@
 					<div class="nav_dropdown">
 						<ul>
 							<a href="#about_us">আমাদের সমন্ধে</a>
-							<a href="#institute_head">সুপারিন্টেন্ডেন্ট এর বাণী</a>
 							<a href="#president">সভাপতির বাণী</a>
+                            <a href="#institute_head">প্রধান শিক্ষক এর বাণী</a>
 							<a href="#instructor">শিক্ষক মন্ডলী </a>
-							<a href="#member">প্রতিষ্ঠাতা ও দাতা </a>
+							<a href="#school_committee">ম্যানেজিং কমিটি </a>
 						</ul>
 					</div>
 				</li>

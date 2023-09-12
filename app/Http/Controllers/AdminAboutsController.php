@@ -96,6 +96,16 @@ class AdminAboutsController extends Controller
             $input['cover_id'] = $cover->id;
         }
 
+        if($file = $request->file('nav_id')){
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $nav = Photo::create(['file'=>$name]);
+
+            $input['nav_id'] = $nav->id;
+        }
+
         $about->update($input);
 
         return redirect('/admin/abouts');

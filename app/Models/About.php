@@ -15,6 +15,7 @@ class About extends Model
         'institute_name',
         'institute_desc',
         'cover_id',
+        'nav_id',
     ];
 
     public function photo()
@@ -22,6 +23,10 @@ class About extends Model
         return $this->belongsTo('App\Models\Photo');
     }
     public function cover()
+    {
+        return $this->belongsTo('App\Models\Photo');
+    }
+    public function nav()
     {
         return $this->belongsTo('App\Models\Photo');
     }

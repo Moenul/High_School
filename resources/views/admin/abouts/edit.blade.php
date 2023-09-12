@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('photo_id', 'Image:') !!}
-            {!! Form::file('photo_id', ['id' => 'imgInp'], null) !!}
+            {!! Form::file('photo_id', ['class'=>'form-file-control  border', 'id' => 'imgInp'], null) !!}
         </div>
         <div class="form-group">
             {!! Form::label('institute_name','Institute Name:') !!}
@@ -52,7 +52,16 @@
         </div>
         <div class="form-group">
             {!! Form::label('cover_id', 'Cover:') !!}
-            {!! Form::file('cover_id', null) !!}
+            {!! Form::file('cover_id', ['class'=>'form-file-control  border'], null) !!}
+        </div>
+
+        <div class="mb-2 d-flex justify-content-center">
+            <img class="second_action_field border border-secondary img-fluid" id="second_preview_img" width="1110px" height="60px" src="{{ $about->nav ? $about->nav->file : '/images/Empty_Images_Landscape.jpg' }}">
+        </div>
+        <div class="form-group">
+            {!! Form::label('nav_id', 'Top Nav Image:') !!}
+            {!! Form::file('nav_id', ['class'=>'form-file-control  border', 'id' => 'second_imgInp'], null) !!}
+            <span class="d-block text-danger">Image size must be 1110px * 60px for Better Results </span>
         </div>
 
         <div class="form-group">
@@ -77,5 +86,37 @@
 
 </div>
 
+
+@endsection
+
+
+@section('script')
+
+<script>
+
+
+// Before Upload Preview Image
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#second_preview_img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+        $('.second_action_field').show();
+    }
+}
+
+$("#second_imgInp").change(function() {
+    readURL(this);
+});
+
+// --------
+
+
+
+
+</script>
 
 @endsection

@@ -77,7 +77,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('pdf_id', 'Notice PDF:') !!}
-            {!! Form::file('pdf_id', null) !!}
+            {!! Form::file('pdf_id', ['class'=>'form-file-control  border', 'required'=>'required'], null) !!}
         </div>
 
         <div class="form-group">

@@ -39,7 +39,7 @@
     <li class="side_nav_item"><i class="fas fa-puzzle-piece"></i><span>Widget</span>
         <ul class="side_dropdown">
             <a href="{{ route('admin.instructors.index') }}">Instructor</a>
-            <a href="{{ route('admin.members.index') }}">Donor Member</a>
+            <a href="{{ route('admin.members.index') }}">Member</a>
             <a href="{{ route('admin.speaches.index') }}">Speach</a>
             <a href="{{ route('admin.contacts.index') }}">Contact Info</a>
             <a href="{{ route('admin.abouts.index') }}">About</a>
