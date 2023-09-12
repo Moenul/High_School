@@ -61,7 +61,7 @@
         <div class="form-group">
             {!! Form::label('nav_id', 'Top Nav Image:') !!}
             {!! Form::file('nav_id', ['class'=>'form-file-control  border', 'id' => 'second_imgInp'], null) !!}
-            <span class="d-block text-danger">Image size must be 1110px * 60px for Better Results </span>
+            <span class="d-block text-danger">Image size must be 1000px * 60px for Better Results </span>
         </div>
 
         <div class="form-group">

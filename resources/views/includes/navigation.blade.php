@@ -38,6 +38,7 @@
 					<div class="nav_dropdown">
 						<ul>
 							<a href="{{ route('schedules.index') }}">ক্লাস রুটিন</a>
+							<a href="{{ route('students.index') }}">শিক্ষার্থী তথ্য</a>
 							<a href="">পরীক্ষার রেজাল্ট</a>
 							<a href="">লাইব্রেরি</a>
 						</ul>

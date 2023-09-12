@@ -135,6 +135,10 @@ Route::resource('/schedules', 'SchedulesController', ['names'=>[
     'index'=>'schedules.index'
 ]]);
 
+Route::resource('/students', 'StudentsController', ['names'=>[
+    'index'=>'students.index'
+]]);
+
 Route::resource('/informations', 'InformationsController', ['names'=>[
     'index'=>'informations.index'
 ]]);

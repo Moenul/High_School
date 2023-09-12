@@ -668,7 +668,7 @@ body {
 .donor_member_section .donor_members .member{
     width: 200px;
     height: 250px;
-    background: #6aad466e;
+    background: var(--color-extra-transparent);
     border: 1px solid var(--color-deep);
     padding: 4px;
     margin-right: 30px;
@@ -701,7 +701,7 @@ body {
 .donor_member_section .donor_members .member .title{
     font-size: 16px;
     text-align: center;
-    color: #64473c;
+    color: var(--color-deep);
 }
 
 

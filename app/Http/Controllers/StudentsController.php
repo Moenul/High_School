@@ -3,20 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Classs;
+use App\Models\Contact;
+use App\Models\About;
+use App\Models\Policy;
 use App\Models\Student;
+use App\Models\Classs;
 
-class AdminClassesController extends Controller
+
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $classes = Classs::orderBy('id', 'asc')->get();
-        return view('admin.classes.index', compact('classes'));
+        $contact = Contact::first();
+        $classes = Classs::all();
+        $about = About::first();
+        $policys = Policy::all();
+
+        if($request) {
+            if($request->class_id) {
+                $students = Student::where('class_id', $request->class_id)->orderBy('student_roll', 'asc')->get();
+            }else{
+                $students = '';
+            }
+        }
+
+        return view('students.index', compact('contact','about','classes','policys', 'students'));
     }
 
     /**
@@ -37,11 +53,7 @@ class AdminClassesController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        Classs::create($input);
-
-        return redirect('admin/classes');
+        //
     }
 
     /**
@@ -52,9 +64,7 @@ class AdminClassesController extends Controller
      */
     public function show($id)
     {
-        $students = Student::where('class_id', '=', $id)->orderBy('student_roll', 'asc')->get();
-        $class = Classs::findOrFail($id);
-        return view('admin.classes.show', compact('students','class'));
+        //
     }
 
     /**
@@ -65,8 +75,7 @@ class AdminClassesController extends Controller
      */
     public function edit($id)
     {
-        $class = Classs::findOrFail($id);
-        return view('admin.classes.edit', compact('class'));
+        //
     }
 
     /**
@@ -78,13 +87,7 @@ class AdminClassesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $class = Classs::findOrFail($id);
-
-        $input = $request->all();
-
-        $class->update($input);
-
-        return redirect('/admin/classes');
+        //
     }
 
     /**
@@ -95,9 +98,6 @@ class AdminClassesController extends Controller
      */
     public function destroy($id)
     {
-        $class = Classs::findOrFail($id);
-
-        $class->delete();
-        return redirect()->back();
+        //
     }
 }

@@ -87,7 +87,7 @@ margin: 0;
     </div>
 
         <h4>{{$class->name}}র শিক্ষার্থী </h4>
-        <table class="table table-dark table-hover table-class table-sm" id= "table-id">
+        <table class="table table-dark table-hover table-class table-sm" id="table-id">
             <thead>
             <tr>
                 <th>Photo</th>
