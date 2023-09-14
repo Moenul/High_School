@@ -90,11 +90,11 @@ margin: 0;
         <table class="table table-dark table-hover table-class table-sm" id="table-id">
             <thead>
             <tr>
+                <th>Roll</th>
+                <th>Class</th>
                 <th>Photo</th>
                 <th>Name</th>
                 <th>Name in English</th>
-                <th>Class</th>
-                <th>Roll</th>
                 <th>Gender</th>
                 <th>Birth Certificate</th>
                 <th>DOB</th>
@@ -106,13 +106,13 @@ margin: 0;
             <tbody>
                 @foreach ($students as $student)
                 <tr>
+                    <td>{{$student->student_roll}}</td>
+                    <td>{{$student->class->name}}</td>
                     <td>
                         <img class="action_field border border-secondary" width="60px" height="62px" src="{{ $student->photo ? $student->photo->file : '/images/DummyProfile.jpg' }}">
                     </td>
                     <td>{{$student->student_name}}</td>
                     <td>{{$student->student_name_en}}</td>
-                    <td>{{$student->class->name}}</td>
-                    <td>{{$student->student_roll}}</td>
                     <td>{{$student->student_gender}}</td>
                     <td>{{$student->student_birth_reg}}</td>
                     <td>{{ \Carbon\Carbon::parse($student->student_DOB)->format('d M Y') }}</td>

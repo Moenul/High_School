@@ -53,7 +53,7 @@ class AdmissionController extends Controller
         $input = $request->all();
 
         $this->validate($request, [
-            'student_birth_reg'=>'required|max:17|unique:admissions,student_birth_reg',
+            'student_birth_reg'=>'required|max:17|unique:students,student_birth_reg',
         ]);
 
         if($file = $request->file('certificate_id')){

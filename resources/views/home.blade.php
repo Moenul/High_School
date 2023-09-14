@@ -67,7 +67,7 @@
 
                     @foreach ($events as $event)
 
-                        @if (\Carbon\Carbon::today() <= $event->date )
+                        @if (\Carbon\Carbon::parse($event->date)->format('d M Y') >= \Carbon\Carbon::today()->format('d M Y'))
 
                         <!-- event bar -->
                         <div class="event_bar">
@@ -96,7 +96,7 @@
 
                     @foreach ($events as $event)
 
-                        @if (\Carbon\Carbon::today() >= $event->date )
+                        @if (\Carbon\Carbon::parse($event->date)->format('d M Y') < \Carbon\Carbon::today()->format('d M Y') )
 
                          <!-- previous event bar -->
                          <div class="event_bar previous_event_bar">
@@ -269,8 +269,8 @@
 				<li>{{$contact->address}}</li>
 				<div class="location_bar">
 					<div id="googleMap" style="width:100%; height: 100%;">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1821.1506362125685!2d91.132272!3d24.090898499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375403c3d036bacb%3A0xedc0a05256113f4f!2zQmh1aXlhbiBCYXJpICjgpq3gp4LgpoHgpofgpq_gprzgpr4g4Kas4Ka-4Kah4Ka84Ka_KQ!5e0!3m2!1sen!2sbd!4v1692073418883!5m2!1sen!2sbd" width="100%" height="100%" style="border:2px solid grey; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1821.4346813167701!2d91.10941800827581!3d24.070904540475286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375403bdb65ac59b%3A0xea30991b975c1391!2sSarail%20Sadar%20High%20School!5e0!3m2!1sen!2sbd!4v1694692619324!5m2!1sen!2sbd" width="100%" height="100%" style="border:2px solid grey; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
 				</div>
 			</div>
 		</div>

@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <div class="additional_info info_bar">
+        {{-- <div class="additional_info info_bar">
             <div class="row">
                 <div class="form-group col-md-3">
                     {!! Form::label('applicant_name','আবেদনকারীর নাম :') !!}
@@ -259,7 +259,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
         <div class="additional_info info_bar">
             <div class="row">

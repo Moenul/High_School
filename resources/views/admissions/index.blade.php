@@ -16,7 +16,9 @@
         <div class="instruction_bar">
             <div class="alert_info">
                 <p>
-                    {!! App\Models\Policy::where('name', '=', 'Admission Form Alerts')->first()->desc !!}
+                    @if (App\Models\Policy::where('name', '=', 'Admission Form Alerts')->count())
+                        {!! App\Models\Policy::where('name', '=', 'Admission Form Alerts')->first()->desc !!}
+                    @endif
                 </p>
             </div>
             <div class="cost_info">
@@ -261,7 +263,7 @@
                         {!! Form::text('religion', null, ['class'=>'form-control', 'placeholder'=>'ধর্ম', 'required'=>'required']) !!}
                     </div>
                     <div class="form-group col-md-4">
-                        {!! Form::label('physical_disability','শারীরিক অক্ষমতা :') !!}
+                        {!! Form::label('physical_disability','শারীরিক অক্ষমতা * :') !!}
                         {!! Form::text('physical_disability', null, ['class'=>'form-control', 'placeholder'=>'শারীরিক অক্ষমতা']) !!}
                     </div>
                 </div>
@@ -275,14 +277,15 @@
                         {!! Form::select('admission_class', [null => 'শ্রেণীর নাম'] + $classes, null, ['class' => 'form-control', 'required'=>'required']) !!}
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="name">পূর্বে অধ্যয়নরত শ্রেণীর নাম (প্রযোজ্য ক্ষেত্রে) :</label>
+                        <label for="name">পূর্বে অধ্যয়নরত শ্রেণীর নাম * :</label>
                         {!! Form::select('previous_class', [null => 'শ্রেণীর নাম'] + $classes, null, ['class' => 'form-control']) !!}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-md-4">
                         {!! Form::label('certificate_id', 'প্রশংসা পত্র / ট্রান্সফার সার্টিফিকেট ছবি :') !!}
                         {!! Form::file('certificate_id', ['class' => 'form-control-file border'], null) !!}
                     </div>
+                </div>
 
                     <div class="form-group" style="width: 160px; margin: 0px 15px;">
                         {!! Form::label('photo_id', 'শিক্ষার্থীর ছবি :') !!}
@@ -293,10 +296,10 @@
                             {!! Form::file('photo_id', ['class' => 'form-control-file border','id' => 'imgInp', 'required'=>'required'], null) !!}
                         </div>
                     </div>
-                </div>
+
             </div>
 
-            <div class="additional_info info_bar">
+            {{-- <div class="additional_info info_bar">
                 <div class="info_title">আবেদনকারীর তথ্য :</div>
                 <div class="row">
                     <div class="form-group col-md-4">
@@ -312,7 +315,7 @@
                         {!! Form::text('applicant_phone', null, ['class'=>'form-control', 'placeholder'=>'ফোন নম্বর', 'maxlength'=>11, 'required'=>'required']) !!}
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="submit_info info_bar">
                 <div class="form-check">

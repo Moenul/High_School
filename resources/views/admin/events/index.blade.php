@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 @foreach ($events as $event)
-                    @if (\Carbon\Carbon::today() <= $event->date )
+                    @if (\Carbon\Carbon::parse($event->date)->format('d M Y') >= \Carbon\Carbon::today()->format('d M Y'))
                         <tr class="table-success text-dark">
                             <td>{{$event->id}}</td>
                             <td>{{$event->title}}</td>

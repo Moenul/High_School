@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>School</title>
-	<link rel="shortcut icon" type="image/png" href="images/School.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset('images/favicon-16x16.png')}}">
 </head>
 <body>
 

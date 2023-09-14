@@ -57,6 +57,7 @@ class Student extends Model
         'nationality',
         'religion',
         'physical_disability',
+        'blood_group',
 
     ];
 

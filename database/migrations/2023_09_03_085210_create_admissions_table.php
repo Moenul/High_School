@@ -63,6 +63,7 @@ class CreateAdmissionsTable extends Migration
             $table->string('nationality');
             $table->string('religion');
             $table->string('physical_disability')->nullable();
+            $table->string('blood_group')->nullable();
                 // admisssion related
             $table->integer('admission_class');
             $table->integer('previous_class')->nullable();

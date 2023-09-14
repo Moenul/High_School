@@ -1,0 +1,175 @@
+.admission_form{
+    width: 820px;
+    background: #f7f7f7;
+    border: 1px solid #d7d7d7;
+    margin: 0 auto;
+    padding: 10px;
+}
+.canvas_div_pdf{
+    width: 794px;
+    /* height: 1123px; */
+    margin: 0 auto;
+}
+.canvas_div_pdf .form_heading{
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.canvas_div_pdf .form_heading .istitute_name{
+    font-size: 30px;
+}
+.canvas_div_pdf .form_heading .istitute_address{
+    font-size: 16px;
+}
+.canvas_div_pdf .form_heading .istitute_contact{
+    font-size: 16px;
+}
+.canvas_div_pdf .form_heading .form_title{
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 20px;
+    padding: 6px 16px;
+    background: skyblue;
+    margin-top: 12px;
+    border-radius: 20px;
+}
+.canvas_div_pdf .form_heading .institute_logo{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.canvas_div_pdf .form_content{
+    border: 1px solid #cfcfcf;
+    padding: 15px;
+}
+.canvas_div_pdf .form_content .section_title{
+    font-size: 20px;
+    padding-left: 25px;
+}
+.canvas_div_pdf .form_content .section_info{
+    border: 1px solid #cfcfcf;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 40px;
+}
+.canvas_div_pdf .form_content .section_info p{
+    margin: 8px 0px;
+}
+.canvas_div_pdf .form_content .section_info p .details{
+    border-bottom: 1px dashed;
+    width: 45%;
+    display: inline-block;
+    padding: 3px;
+}
+.canvas_div_pdf .form_content .section_info .student_photo{
+    width: 130px;
+    height: 135px;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 1px solid #e3e3e3;
+}
+.canvas_div_pdf .form_content .section_info .collaps{
+    width: 40%;
+    display: inline-block;
+    margin: 0px 0px;
+}
+.canvas_div_pdf .form_content .fathers_info .collaps{
+    width: 30%;
+    display: inline-block;
+    margin: 0px 0px;
+}
+
+.canvas_div_pdf .form_content .fathers_info p .details{
+    width: 50%;
+}
+/* .canvas_div_pdf .form_content .additional_info{
+    margin-top: 20px;
+} */
+.canvas_div_pdf .form_content hr{
+    margin: 50px 0px;
+}
+.canvas_div_pdf .form_content .additional_info .collaps{
+    width: 45%;
+    margin: 4px 0px;
+}
+.canvas_div_pdf .form_content .additional_info p .details{
+    width: 60%;
+}
+.canvas_div_pdf .form_content .address_info .collaps{
+    width: 30%;
+    margin: 8px 0px;
+}
+.canvas_div_pdf .form_content .address_info p .details{
+    width: 50%;
+}
+.canvas_div_pdf .signature_section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 60px;
+}
+.canvas_div_pdf .signature_section .sign_bar{
+    border-top: 1px solid rgb(70, 70, 70);
+    width: 25%;
+    padding: 3px 0px;
+}
+
+.canvas_div_pdf .admission_date span{
+    display: inline-block;
+    width: 150px;
+    border-bottom: 1px dashed;
+    margin-top: 50px;
+}
+.canvas_div_pdf .admission_notice{
+    padding: 1px 0px 1px 20px;
+    border-left: 2px solid #fb7000;
+    margin-top: 270px;
+    color: #fb7000;
+}
+.success_alert{
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0px;
+    color: #3b903e;
+}
+
+.pdfDownload{
+    padding: 10px 30px;
+    background: #08ee80;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: block;
+    transition: all .3s ease-in-out;
+}
+.pdfDownload:hover{
+    background: #08d472;
+}
+.return_button{
+    font-size: 18px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/*MiniMax Start*/
+@media screen and (max-width: 540px) {
+body{
+    width: 840px;
+    max-width: 840px;
+    min-width: 840px;
+}
+
+}

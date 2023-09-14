@@ -29,8 +29,7 @@
 <div class="container">
 
     <div class="row">
-    <div class="col-1"></div>
-    <div class="col-8">
+    <div class="col-12">
         @if ($admissions->count())
         <table class="table table-dark table-hover mx-auto">
             <thead>
@@ -41,6 +40,7 @@
                 <th>DOB</th>
                 <th>Class</th>
                 <th>Status</th>
+                <th>Form</th>
                 <th>View</th>
             </tr>
             </thead>
@@ -62,6 +62,7 @@
                         <b class="text-center text-success">Approved</b>
                         @endif
                     </td>
+                    <td><a href="{{ Route('admission.show', $admission->id) }}">View Form</a></td>
                     <td><a href="{{ Route('admin.admissions.show', $admission->id) }}">Show</a></td>
                 </tr>
                 @endforeach

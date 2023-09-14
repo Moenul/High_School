@@ -59,6 +59,7 @@ class Admission extends Model
         'applicant_name',
         'applicant_email',
         'applicant_phone',
+        'blood_group',
     ];
 
 

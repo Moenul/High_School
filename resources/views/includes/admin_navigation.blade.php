@@ -7,24 +7,10 @@
 			<div class="dropdown">
 				<div class="dropdown_title">Notification</div>
 				<a href="">
-					<div class="logo_bar"><img src="\FrontEnd\Madrasah\images\Madrasah_big.png"></div>
+					<div class="logo_bar"><img src=""></div>
 					<div class="detail_bar">
 						<div class="date">15 Dec 2023</div>
-						<div class="desc">১৮৫৪ সালে মাদ্রাসায় একটি পৃথক ইনস্টিটিউট</div>
-					</div>
-				</a>
-				<a href="">
-					<div class="logo_bar"><img src="\FrontEnd\Madrasah\images\Madrasah_big.png"></div>
-					<div class="detail_bar">
-						<div class="date">15 Dec 2023</div>
-						<div class="desc">১৮৫৪ সালে মাদ্রাসায় একটি পৃথক ইনস্টিটিউট</div>
-					</div>
-				</a>
-				<a href="">
-					<div class="logo_bar"><img src="\FrontEnd\Madrasah\images\Madrasah_big.png"></div>
-					<div class="detail_bar">
-						<div class="date">15 Dec 2023</div>
-						<div class="desc">১৮৫৪ সালে মাদ্রাসায় একটি পৃথক ইনস্টিটিউট</div>
+						<div class="desc">Notification description will be show here</div>
 					</div>
 				</a>
 			</div>
@@ -35,14 +21,13 @@
 			<div class="dropdown">
 				<div class="dropdown_title">Message</div>
 				<a href="">
-					<div class="logo_bar"><img src="\FrontEnd\Madrasah\images\DummyProfile.jpg"></div>
+					<div class="logo_bar"><img src=""></div>
 					<div class="detail_bar">
-						<div class="desc">১৮৫৪ সালে মাদ্রাসায় একটি পৃথক ইনস্টিটিউট</div>
+						<div class="desc">Message description will be show here</div>
 						<div class="info">
-							<div class="name">Moenul Islam</div>
+							<div class="name">Person Name</div>
 							<div class="time">2h ago</div>
 						</div>
-
 					</div>
 				</a>
 			</div>
@@ -52,7 +37,7 @@
 			<div class="dropdown">
 				<div class="dropdown_title">Profile</div>
 				<a href="">Profile</a>
-				<a href="">Log Out</a>
+				<a href="{{ route('logout') }}">Log Out</a>
 			</div>
 		</li>
 

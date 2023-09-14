@@ -73,6 +73,7 @@ class CreateStudentsTable extends Migration
             $table->string('nationality');
             $table->string('religion');
             $table->string('physical_disability')->nullable();
+            $table->string('blood_group')->nullable();
 
             $table->timestamps();
         });
