@@ -9,7 +9,7 @@
 
 
 
-<div class="admission_section">
+<div class="post_section">
     <div class="container">
         @if ($policys)
             @foreach ($policys as $policy)
@@ -22,7 +22,7 @@
                 </div>
             @endif
 
-            <div class="container mb-5">
+            <div class="container mb-5 post_desc">
                 {!! $policy->desc !!}
             </div>
 

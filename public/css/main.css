@@ -1011,6 +1011,33 @@ body {
 
 /* /////  Admission Section End ------------------- */
 
+/* /////  Post Section Start ------------------- */
+
+.post_section{
+    min-height: 100vh;
+    padding: 115px 0px 40px 0px;
+}
+.post_desc{
+    width: 100%;
+    height: auto;
+}
+.post_desc h1,
+.post_desc h2,
+.post_desc h3,
+.post_desc h4,
+.post_desc h5{
+    text-align: center;
+}
+.post_desc .image {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.post_desc img{
+    width: 100%;
+}
+
+/* /////  Post Section End ------------------- */
 
 /* /////  Footer Section Start ------------------- */
 
@@ -1571,6 +1598,16 @@ body {
     float: none;
 }
 /* /// MiniMax ///  Admission Section End ------------------- */
+
+/* /// MiniMax ///  Post Section Start ------------------- */
+.post_desc .image {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* /// MiniMax ///  Post Section End ------------------- */
+
 
 }
 /*MiniMax End*/

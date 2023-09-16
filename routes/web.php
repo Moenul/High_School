@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CkUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/admin', function () {
 //     return view('/admin/index');
+// });
+
+// use Illuminate\Support\Facades\Artisan;
+
+// Route::get('/clear-cache', function () {
+//     $code = Artisan::call('cache:clear');
+//     return 'cache cleared';
 // });
 
 Auth::routes();
@@ -120,7 +128,7 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.speaches.edit'
     ]]);
 
-
+    Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
 });
 

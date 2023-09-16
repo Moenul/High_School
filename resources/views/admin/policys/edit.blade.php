@@ -52,7 +52,7 @@
 
         <div class="form-group">
             {!! Form::label('desc','Policy Description:') !!}
-            {!! Form::textarea('desc', $policy->desc, ['class'=>'form-control  ckeditor','rows'=>5]) !!}
+            {!! Form::textarea('desc', $policy->desc, ['class'=>'form-control','id'=>'editor','rows'=>5]) !!}
         </div>
 
         <div class="form-group">
@@ -70,18 +70,6 @@
 
 
 </div>
-
-
-@endsection
-
-@section('script')
-
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-       $('.ckeditor').ckeditor();
-    });
-</script>
 
 
 @endsection

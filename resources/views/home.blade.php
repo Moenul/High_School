@@ -159,7 +159,7 @@
 
 <div class="president" id="president">
 	<div class="container">
-        <div class="section_name">সভাপতির বাণী</div>
+        <div class="section_name">সভাপতি</div>
 		<div class="row">
 			@if ($speaches->where('person_type', '=', 'President'))
                 @foreach ($speaches->where('person_type', '=', 'President') as $person)
@@ -183,7 +183,7 @@
 
 <div class="institute_head" id="institute_head">
 	<div class="container">
-        <div class="section_name">প্রধান শিক্ষক এর বাণী</div>
+        <div class="section_name">প্রধান শিক্ষক</div>
 		<div class="row">
             @if ($speaches->where('person_type', '=', 'Institute Head'))
                 @foreach ($speaches->where('person_type', '=', 'Institute Head') as $person)
@@ -209,7 +209,7 @@
 
 <div class="instructor_section" id="instructor">
 	<div class="container">
-		<div class="section_name">শিক্ষক মন্ডলী</div>
+		<div class="section_name">শিক্ষক ও কর্মচারীবৃন্দ</div>
 		<div class="instructors">
         @if ($instructors->count())
             @foreach ($instructors as $instructor)

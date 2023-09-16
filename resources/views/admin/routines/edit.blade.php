@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('routine','Make Routine:') !!}
-            {!! Form::textarea('routine', $routine->routine, ['class'=>'form-control ckeditor','rows'=>5]) !!}
+            {!! Form::textarea('routine', $routine->routine, ['class'=>'form-control','id'=>'editor','rows'=>5]) !!}
         </div>
 
         <div class="form-group">
@@ -55,15 +55,3 @@
 
 @endsection
 
-
-@section('script')
-
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-       $('.ckeditor').ckeditor();
-    });
-</script>
-
-
-@endsection

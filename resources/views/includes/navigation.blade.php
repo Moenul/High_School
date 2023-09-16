@@ -48,9 +48,9 @@
 					<div class="nav_dropdown">
 						<ul>
 							<a href="#about_us">আমাদের সমন্ধে</a>
-							<a href="#president">সভাপতির বাণী</a>
-                            <a href="#institute_head">প্রধান শিক্ষক এর বাণী</a>
-							<a href="#instructor">শিক্ষক মন্ডলী </a>
+							{{-- <a href="#president">সভাপতি</a>
+                            <a href="#institute_head">প্রধান শিক্ষক</a> --}}
+							<a href="#instructor">শিক্ষক ও কর্মচারীবৃন্দ</a>
 							<a href="#school_committee">ম্যানেজিং কমিটি </a>
 						</ul>
 					</div>

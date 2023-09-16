@@ -14,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('path.public', function() {
+            return '/home/sshsedub/public_html';
+        //   return base_path().'/home/sshsedub/public_html';
+        });
     }
 
     /**

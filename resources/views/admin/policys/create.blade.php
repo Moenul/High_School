@@ -31,6 +31,7 @@
 
         <h5 class="text-center text-success">Create New Policy</h5>
         {!! Form::open(['method'=>'POST', 'action'=>'AdminPolicysController@store', 'files'=>true]) !!}
+        @csrf
         <div class="form-group">
             {!! Form::label('name','Policy Name:') !!}
             {!! Form::text('name', null, ['class'=>'form-control']) !!}
@@ -45,7 +46,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('desc','Write Policy:') !!}
-            {!! Form::textarea('desc', null, ['class'=>'form-control ckeditor','rows'=>5]) !!}
+            {!! Form::textarea('desc', null, ['class'=>'form-control','id'=>'editor','rows'=>5]) !!}
         </div>
 
         <div class="form-group">
@@ -58,19 +59,6 @@
     <!-- end dashboard content -->
 
 </div>
-
-
-@endsection
-
-
-@section('script')
-
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-       $('.ckeditor').ckeditor();
-    });
-</script>
 
 
 @endsection
