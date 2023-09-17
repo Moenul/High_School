@@ -70,6 +70,7 @@
                         @if (\Carbon\Carbon::parse($event->date)->format('d M Y') >= \Carbon\Carbon::today()->format('d M Y'))
 
                         <!-- event bar -->
+                        <a href="{{ Route('view_events.show', $event->id) }}">
                         <div class="event_bar">
                             <div class="event_date">
                                 <div class="event_date_dot"></div>
@@ -80,10 +81,11 @@
                             </div>
                             <div class="event_box">
                                 <div class="event_title">{{$event->title}}</div>
-                                <div class="event_desc">{{$event->desc}}</div>
+                                <div class="event_desc">{!! $event->desc !!}</div>
                                 <div class="event_time">{{$event->time}}</div>
                             </div>
                         </div>
+                        </a>
                         <!-- event bar -->
 
                         @endif
@@ -99,6 +101,7 @@
                         @if (\Carbon\Carbon::parse($event->date)->format('d M Y') < \Carbon\Carbon::today()->format('d M Y') )
 
                          <!-- previous event bar -->
+                         <a href="{{ Route('view_events.show', $event->id) }}">
                          <div class="event_bar previous_event_bar">
                             <div class="event_date">
                                 <div class="event_date_dot"></div>
@@ -109,10 +112,11 @@
                             </div>
                             <div class="event_box">
                                 <div class="event_title">{{$event->title}}</div>
-                                <div class="event_desc">{{$event->desc}}</div>
+                                <div class="event_desc">{!! $event->desc !!}</div>
                                 <div class="event_time">{{$event->time}}</div>
                             </div>
                         </div>
+                        </a>
                         <!-- previous event bar -->
                         @endif
 

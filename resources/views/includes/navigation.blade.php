@@ -34,11 +34,12 @@
 			<ul>
 				<a href="{{ url('/admission') }}"><li style="background: #7ad2fe;">ভর্তি আবেদন</li></a>
                 <a href="#contact"><li>যোগাযোগ</li></a>
+                <a href="{{ route('view_events.index') }}"><li>ইভেন্ট</li></a>
                 <li>একাডেমিক <i class="fa-solid fa-angle-down"></i>
 					<div class="nav_dropdown">
 						<ul>
 							<a href="{{ route('schedules.index') }}">ক্লাস রুটিন</a>
-							<a href="{{ route('students.index') }}">শিক্ষার্থী তথ্য</a>
+							<a href="{{ route('view_students.index') }}">শিক্ষার্থী তথ্য</a>
 							<a href="">পরীক্ষার রেজাল্ট</a>
 							<a href="">লাইব্রেরি</a>
 						</ul>

@@ -379,6 +379,10 @@ body {
 .updates_section .event_section .section_bar{
     width:100%;
 }
+.updates_section .event_section .section_bar a{
+    text-decoration: none;
+    color: black;
+}
 .updates_section .event_section .section_bar .event_bar{
     width: 100%;
     height: 120px;
@@ -1017,24 +1021,58 @@ body {
     min-height: 100vh;
     padding: 115px 0px 40px 0px;
 }
-.post_desc{
+.post_section .post_desc{
     width: 100%;
     height: auto;
 }
-.post_desc h1,
-.post_desc h2,
-.post_desc h3,
-.post_desc h4,
-.post_desc h5{
+.post_section .post_desc h1,
+.post_section .post_desc h2,
+.post_section .post_desc h3,
+.post_section .post_desc h4,
+.post_section .post_desc h5{
     text-align: center;
 }
-.post_desc .image {
+.post_section .post_desc .image {
     width: 70%;
     margin: 0 auto;
     padding: 10px;
 }
-.post_desc img{
+.post_section .post_desc img{
     width: 100%;
+}
+
+.post_section .event_sidebar{
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+.post_section .event_sidebar::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 40px;
+}
+.post_section .event_sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #3d3d3d8f transparent;
+}
+.post_section .event_sidebar::-webkit-scrollbar-thumb {
+	background-color: var(--color-smart-black);
+    border: 3px solid #ffffffc7;
+    border-radius: 10px;
+}
+
+.post_section .event_sidebar a{
+    text-decoration: none;
+    color: black;
+}
+.post_section .event_sidebar .card{
+    padding: 5px;
+    margin-bottom:10px;
+    background: #7ad2fe;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+}
+
+.post_section .event_sidebar .card:hover{
+    background: var(--color-light) !important;
 }
 
 /* /////  Post Section End ------------------- */

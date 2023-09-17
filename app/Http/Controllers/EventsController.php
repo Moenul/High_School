@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
+use App\Models\About;
 use App\Models\Event;
-use Carbon\Carbon;
 
-class AdminEventsController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,20 @@ class AdminEventsController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('date', 'desc')->paginate(5);
-        return view('admin.events.index', compact('events'));
+        $contact = Contact::first();
+        $about = About::first();
+        $events = Event::orderBy('date', 'desc')->paginate(1);
+
+        $all_events = Event::orderBy('date', 'desc')->get();
+        // if($request) {
+        //     if($request->id) {
+        //         $events = Event::where('id', $request->id)->get();
+        //     }else{
+        //         $events = '';
+        //     }
+        // }
+
+        return view('view_events.index', compact('contact','about','events','all_events'));
     }
 
     /**
@@ -26,7 +39,7 @@ class AdminEventsController extends Controller
      */
     public function create()
     {
-        return view('admin.events.create');
+        //
     }
 
     /**
@@ -37,11 +50,7 @@ class AdminEventsController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        Event::create($input);
-
-        return redirect('admin/events');
+        //
     }
 
     /**
@@ -52,7 +61,13 @@ class AdminEventsController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::first();
+        $about = About::first();
+        $event = Event::findOrFail($id);
+
+        $all_events = Event::orderBy('date', 'desc')->get();
+
+        return view('view_events.show', compact('contact','about','event','all_events'));
     }
 
     /**
@@ -63,8 +78,7 @@ class AdminEventsController extends Controller
      */
     public function edit($id)
     {
-        $event = Event::findOrFail($id);
-        return view('admin.events.edit', compact('event'));
+        //
     }
 
     /**
@@ -76,13 +90,7 @@ class AdminEventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $event = Event::findOrFail($id);
-
-        $input = $request->all();
-
-        $event->update($input);
-
-        return redirect('/admin/events');
+        //
     }
 
     /**
@@ -93,9 +101,6 @@ class AdminEventsController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
-
-        $event->delete();
-        return redirect()->back();
+        //
     }
 }

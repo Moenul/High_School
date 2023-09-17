@@ -32,7 +32,7 @@ class StudentsController extends Controller
             }
         }
 
-        return view('students.index', compact('contact','about','classes','policys', 'students'));
+        return view('view_students.index', compact('contact','about','classes','policys', 'students'));
     }
 
     /**

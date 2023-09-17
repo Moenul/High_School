@@ -82,30 +82,7 @@
     </div>
 
     <div class="col-4">
-        <h5 class="text-center text-success">Create New Event</h5>
-        {!! Form::open(['method'=>'POST', 'action'=>'AdminEventsController@store', 'files'=>true]) !!}
-        <div class="form-group">
-            {!! Form::label('title','Event Title:') !!}
-            {!! Form::text('title', null, ['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('desc','Event Description:') !!}
-            {!! Form::textarea('desc', null, ['class'=>'form-control','rows'=>5]) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('date','Event Date:') !!}
-            {!! Form::date('date', null, ['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('time','Event Time:') !!}
-            {!! Form::text('time', null, ['class'=>'form-control']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::submit('Submit', ['class'=>'btn btn-success  float-right']) !!}
-        </div>
-
-        {!! Form::close() !!}
+        <a href="{{ Route('admin.events.create') }}" class="btn btn-success">Create New Event</a>
     </div>
 
     </div>

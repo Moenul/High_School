@@ -65,6 +65,7 @@ Route::group(['middleware' => 'admin'], function(){
 
     Route::resource('/admin/events', 'AdminEventsController', ['names'=>[
         'index'=>'admin.events.index',
+        'create'=>'admin.events.create',
         'edit'=>'admin.events.edit'
     ]]);
 
@@ -143,8 +144,12 @@ Route::resource('/schedules', 'SchedulesController', ['names'=>[
     'index'=>'schedules.index'
 ]]);
 
-Route::resource('/students', 'StudentsController', ['names'=>[
-    'index'=>'students.index'
+Route::resource('/view_students', 'StudentsController', ['names'=>[
+    'index'=>'view_students.index'
+]]);
+
+Route::resource('/view_events', 'EventsController', ['names'=>[
+    'index'=>'view_events.index'
 ]]);
 
 Route::resource('/informations', 'InformationsController', ['names'=>[

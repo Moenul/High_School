@@ -30,7 +30,7 @@
     <div class="container">
         @if ($event)
 
-        <div class="col-4 m-0">
+        <div class="col-12">
             {!! Form::model($event, ['method'=>'PATCH', 'action'=> ['AdminEventsController@update', $event->id], 'files'=>true]) !!}
             <div class="form-group">
                 {!! Form::label('title','Event Title:') !!}
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('desc','Event Description:') !!}
-                {!! Form::textarea('desc', $event->desc, ['class'=>'form-control','rows'=>5]) !!}
+                {!! Form::textarea('desc', $event->desc, ['class'=>'form-control','id'=>'editor','rows'=>5]) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('date','Event Date:') !!}
