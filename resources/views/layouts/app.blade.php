@@ -16,7 +16,7 @@
 
 @yield('navigation')
 
-
+@yield('flash-message')
 
 @yield('header_content')
 

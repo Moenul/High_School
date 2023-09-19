@@ -129,6 +129,11 @@ Route::group(['middleware' => 'admin'], function(){
         'edit'=>'admin.speaches.edit'
     ]]);
 
+    Route::resource('/admin/mails', 'AdminMailsController', ['names'=>[
+        'index'=>'admin.mails.index',
+        'show'=>'admin.mails.show'
+    ]]);
+
     Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
 });
@@ -157,6 +162,8 @@ Route::resource('/informations', 'InformationsController', ['names'=>[
 ]]);
 
 Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');
+
+Route::post('contactMail', 'ContactMailsController@store');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');

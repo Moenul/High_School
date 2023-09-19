@@ -24,6 +24,7 @@
     <a href="{{ route('admin.events.index') }}"><li class="side_nav_item"><i class="fas fa-calendar-check"></i><span>Event</span></li></a>
     <a href="{{ route('admin.sliders.index') }}"><li class="side_nav_item"><i class="fas fa-camera-retro"></i><span>Slider</span></li></a>
     <a href="{{ route('admin.galleries.index') }}"><li class="side_nav_item"><i class="fas fa-image"></i><span>Gallery</span></li></a>
+    <a href="{{ route('admin.mails.index') }}"><li class="side_nav_item"><i class="fas fa-envelope"></i><span>Mails</span></li></a>
 
     {{-- <a href="{{ route('admin.speaches.index') }}"><li class="side_nav_item"><i class="fas fa-pen-nib"></i><span>Speach</span></li></a> --}}
 

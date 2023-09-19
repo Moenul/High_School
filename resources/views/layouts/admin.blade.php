@@ -15,6 +15,7 @@
     @yield('navigation')
 
 
+    @include('includes.flash-message')
 
 
 <div class="mainSection">

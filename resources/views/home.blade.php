@@ -4,6 +4,10 @@
     @include('includes.navigation')
 @endsection
 
+@section('flash-message')
+    @include('includes.flash-message')
+@endsection
+
 @section('header_content')
 
 <div class="header_section">
@@ -284,10 +288,21 @@
 		<div class="mail_sction">
 			<div class="sction_title">মেইল করুন :-</div>
 			<div class="mail_inputs">
-				<input type="email" name="email" id="" placeholder="আপনার ইমেইল লিখুন" required>
-				<input type="text" name="subject" id="" placeholder="বিষয়">
-				<textarea name="desc" id="" cols="20" rows="4" placeholder="এখানে লিখুন..."></textarea>
-				<button class="btn btn-primary" type="submit" name="submit">Submit</button>
+                {!! Form::open(['method'=>'POST', 'action'=>'ContactMailsController@store', 'files'=>true]) !!}
+                    @csrf
+                    <div class="form-group">
+                        {!! Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'আপনার ইমেইল লিখুন', 'required'=>'required']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'বিষয়']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::textarea('message', null, ['class'=>'form-control','rows'=>4, 'cols'=>20, 'placeholder'=>'এখানে লিখুন...']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Submit', ['class'=>'btn btn-primary bg-primary']) !!}
+                    </div>
+                {!! Form::close() !!}
 			</div>
 		</div>
 	</div>

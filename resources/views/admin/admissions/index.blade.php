@@ -56,10 +56,10 @@
                     <td>{{ \Carbon\Carbon::parse($admission->student_DOB)->format('d M Y') }}</td>
                     <td>{{$admission->admission_class}}</td>
                     <td>
-                        @if ($admission->status == 0)
-                        <b class="text-center text-warning">Not Approved</b>
-                        @else
+                        @if ($admission->status == 2)
                         <b class="text-center text-success">Approved</b>
+                        @else
+                        <b class="text-center text-warning">Not Approved</b>
                         @endif
                     </td>
                     <td><a href="{{ Route('admission.show', $admission->id) }}">View Form</a></td>

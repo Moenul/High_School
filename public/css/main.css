@@ -1134,6 +1134,22 @@ body {
 /* /////  Scroll To Top End ------------------- */
 
 
+/* /////  Alert Box Start ------------------- */
+#flash_messsage{
+    width: 500px;
+    padding: 5px 20px;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+}
+#flash_messsage strong{
+    font-size: 14px;
+}
+/* /////  Alert Box End ------------------- */
+
+
 
 
 

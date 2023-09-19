@@ -69,7 +69,7 @@ class AdminAdmissionsController extends Controller
 
 
         $result = Admission::where('id', $request->admission_id)
-            ->update(['status' => 1]);
+            ->update(['status' => 2]);
 
         $student = Student::create($input);
 
@@ -88,6 +88,9 @@ class AdminAdmissionsController extends Controller
         $admission = Admission::findOrFail($id);
         $classes = Classs::pluck('name','id')->all();
         $sections = Section::pluck('name','id')->all();
+
+        $admission->update([ 'status' => 1 ]);
+
         return view('admin.admissions.show', compact('admission', 'classes','sections'));
     }
 

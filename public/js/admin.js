@@ -77,7 +77,9 @@ $("#imgInp").change(function() {
 
 // --------
 
-
+setTimeout(function() {
+    $('#flash_messsage').fadeOut('fast');
+}, 3000);
 
 
 });
