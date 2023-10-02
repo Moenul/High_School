@@ -31,47 +31,47 @@
     @if ($about)
 
     <div class="col-2"></div>
-    <div class="col-6">
-        <label for="">Logo:</label>
+    <div class="col-8">
         {!! Form::model($about, ['method'=>'PATCH', 'action'=> ['AdminAboutsController@update', $about->id], 'files'=>true]) !!}
 
-        <div class="mb-2 d-flex justify-content-center">
-            <img class="action_field border border-secondary" id="preview_img" width="150px" height="150px" src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
-        </div>
-        <div class="form-group">
-            {!! Form::label('photo_id', 'Image:') !!}
-            {!! Form::file('photo_id', ['class'=>'form-file-control  border', 'id' => 'imgInp'], null) !!}
-        </div>
         <div class="form-group">
             {!! Form::label('institute_name','Institute Name:') !!}
             {!! Form::text('institute_name', $about->institute_name, ['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('institute_desc','Institute Description:') !!}
-            {!! Form::textarea('institute_desc', $about->institute_desc, ['class'=>'form-control','rows'=>5]) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('cover_id', 'Cover:') !!}
-            {!! Form::file('cover_id', ['class'=>'form-file-control  border'], null) !!}
-        </div>
-
-        <div class="mb-2 d-flex justify-content-center">
-            <img class="second_action_field border border-secondary img-fluid" id="second_preview_img" width="1110px" height="60px" src="{{ $about->nav ? $about->nav->file : '/images/Empty_Images_Landscape.jpg' }}">
-        </div>
-        <div class="form-group">
-            {!! Form::label('nav_id', 'Top Nav Image:') !!}
-            {!! Form::file('nav_id', ['class'=>'form-file-control  border', 'id' => 'second_imgInp'], null) !!}
-            <span class="d-block text-danger">Image size must be 1000px * 60px for Better Results </span>
-        </div>
-
-        <div class="form-group">
             {!! Form::label('tagline','TagLine:') !!}
             {!! Form::text('tagline', $about->tagline, ['class'=>'form-control']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('institute_desc','Institute Description:') !!}
+            {!! Form::textarea('institute_desc', $about->institute_desc, ['class'=>'form-control','rows'=>5]) !!}
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <label for="">Logo:</label><br>
+                <div class="mb-2 d-flex justify-content-center" style="height: 200px;">
+                    <img class="action_field border border-secondary" id="preview_img" width="150px" height="150px" src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
+                </div>
+                <div class="form-group">
+                    {!! Form::file('photo_id', ['class'=>'form-file-control  border', 'id' => 'imgInp'], null) !!}
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="">Cover:</label><br>
+                <div class="border border-secondary mb-2" style="width: 200px; height: 200px; overflow: hidden;">
+                    <img class="second_action_field img-fluid" id="second_preview_img" width="100%" height="max-content" src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}">
+                </div>
+                <div class="form-group">
+                    {!! Form::file('cover_id', ['class'=>'form-file-control border', 'id' => 'second_imgInp'], null) !!}
+                </div>
+            </div>
+        </div>
 
 
         <div class="form-group">
-            {!! Form::submit('Update Abouts', ['class'=>'btn btn-primary float-right']) !!}
+            <a href="../" class="btn btn-warning">Cancel</a>
+            {!! Form::submit('Update About Informations', ['class'=>'btn btn-primary float-right']) !!}
         </div>
 
         {!! Form::close() !!}

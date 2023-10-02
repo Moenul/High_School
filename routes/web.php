@@ -134,6 +134,10 @@ Route::group(['middleware' => 'admin'], function(){
         'show'=>'admin.mails.show'
     ]]);
 
+    Route::resource('/admin/announce', 'AdminAnnounceController', ['names'=>[
+        'index'=>'admin.announce.index'
+    ]]);
+
     Route::post('upload',['App\Http\Controllers\CkUploadController', 'upload'])->name('ckeditor.upload');
 
 });

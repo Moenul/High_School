@@ -85,7 +85,9 @@
                             </div>
                             <div class="event_box">
                                 <div class="event_title">{{$event->title}}</div>
-                                <div class="event_desc">{!! $event->desc !!}</div>
+                                <div class="event_desc">
+                                    {!! Str::limit(strip_tags($event->desc), 125, ' ...') !!}
+                                </div>
                                 <div class="event_time">{{$event->time}}</div>
                             </div>
                         </div>

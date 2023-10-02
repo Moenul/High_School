@@ -20,7 +20,7 @@ class CreateAboutsTable extends Migration
             $table->string('institute_name')->nullable();
             $table->text('institute_desc')->nullable();
             $table->integer('cover_id')->unsigned()->nullable();
-            $table->integer('nav_id')->unsigned()->nullable();
+            $table->string('announce')->nullable();
             $table->timestamps();
         });
     }

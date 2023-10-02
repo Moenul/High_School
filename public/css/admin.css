@@ -217,7 +217,10 @@ a{
 	text-align: center;
 	font-size: 18px;
 }
-
+.side_nav .side_nav_item iconify-icon{
+    margin: -3px;
+    margin-left: 5px;
+}
 .side_nav .side_dropdown{
 	display: block;
 	width: 160px;
@@ -384,7 +387,7 @@ a{
     padding: 5px 20px;
     position: fixed;
     top: 100px;
-    left: 50%;
+    left: 58%;
     transform: translate(-50%, -50%);
     z-index: 999999;
 }

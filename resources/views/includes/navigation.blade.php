@@ -16,7 +16,12 @@
 
 <!-- /* /////  Middle Nav Section Start ------------------- */ -->
 <div class="middle_nav">
-	<img src="{{ $about->nav ? $about->nav->file : '/images/Empty_Images_Landscape.jpg' }}">
+    <div class="marquee_title">বিজ্ঞপ্তিঃ </div>
+	<marquee scrollamount="8" loop="infinite">
+        @if ($about)
+            {{ $about->announce }}
+        @endif
+    </marquee>
 </div>
 <!-- /* /////  Middle Nav Section End ------------------- */ -->
 
@@ -26,7 +31,9 @@
 	<div class="container">
 		<div class="nav_brand">
             @if ($about)
+            <a href="/">
                 <img src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
+            </a>
             @endif
 
         </div>

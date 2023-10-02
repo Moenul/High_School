@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
-use App\Models\Photo;
 
-class AdminAboutsController extends Controller
+class AdminAnnounceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class AdminAboutsController extends Controller
      */
     public function index()
     {
-        $abouts = About::all();
-        return view('admin.abouts.index', compact('abouts'));
+        $about = About::first();
+        return view('admin.announce.index', compact('about'));
     }
 
     /**
@@ -59,8 +58,7 @@ class AdminAboutsController extends Controller
      */
     public function edit($id)
     {
-        $about = About::findOrFail($id);
-        return view('admin.abouts.edit', compact('about'));
+        //
     }
 
     /**
@@ -76,30 +74,9 @@ class AdminAboutsController extends Controller
 
         $input = $request->all();
 
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images', $name);
-
-            $photo = Photo::create(['file'=>$name]);
-
-            $input['photo_id'] = $photo->id;
-        }
-
-        if($file = $request->file('cover_id')){
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images', $name);
-
-            $cover = Photo::create(['file'=>$name]);
-
-            $input['cover_id'] = $cover->id;
-        }
-
-
         $about->update($input);
 
-        return redirect('/admin/abouts');
+        return redirect('/admin/announce')->with('success', 'Announcement Updated!');
     }
 
     /**

@@ -93,16 +93,27 @@ body {
 /* /////  Middle Nav Section Start ------------------- */
 .middle_nav{
     width: 100%;
-    height: 60px;
+    height: 40px;
     padding: 0px 0px;
     background: white;
     overflow: hidden;
-    padding-left: 26%;
-    padding-right: 6%;
 }
-.middle_nav img{
-    width: 100%;
-    height: 100%;
+.middle_nav .marquee_title{
+    width: 280px;
+    color: white;
+    background: #daa23b;
+    font-size: 20px;
+    padding: 5px 5px;
+    float: left;
+    text-align: right;
+}
+.middle_nav marquee{
+    width: calc(100% - 280px);
+    color: black;
+    background: wheat;
+    font-size: 20px;
+    padding: 5px 0px;
+    float: right;
 }
 /* /////  Middle Nav Section End ------------------- */
 
@@ -112,7 +123,7 @@ body {
     background: var(--color-transparent);
     padding: 10px 0px;
     position: fixed;
-    top: 95px;
+    top: 75px;
     transition: all .5s ease-in-out;
     z-index: 100;
 }
@@ -1240,7 +1251,7 @@ body {
 
 /* /// iPad Air ///  Navbar Start ------------------- */
 .nav_bar {
-    top: 85px;
+    top: 75px;
 }
 .top_nav li {
     padding: 2px 12px;
@@ -1255,14 +1266,6 @@ body {
 }
 /* /// iPad Air ///  Navbar End ------------------- */
 
-/* /// iPad Air ///  Middle Nav Section Start ------------------- */
-
-.middle_nav {
-    height: 50px;
-    padding-left: 26%;
-    padding-right: 6%;
-}
-/* /// iPad Air ///  Middle Nav Section End ------------------- */
 
 /* /// iPad Air ///  Header Section Start ------------------- */
 .header_section .container p {
@@ -1344,16 +1347,32 @@ body {
 /*iPad Air End*/
 
 
+/*iPad Mini Start*/
+@media screen and (max-width: 770px) {
+
+/* /// iPad Mini ///  Middle Nav Section Start ------------------- */
+.middle_nav .marquee_title {
+    width: 240px;
+}
+.middle_nav marquee {
+    width: calc(100% - 240px);
+}
+/* /// iPad Mini ///  Middle Nav Section Start ------------------- */
+
+}
+/*iPad Mini End*/
+
 
 /*MiniMax Start*/
 @media screen and (max-width: 540px) {
 
 /* /// MiniMax ///  Middle Nav Section Start ------------------- */
-
-.middle_nav {
-    /* height: 50px; */
-    padding-left: 0;
-    padding-right: 0;
+.middle_nav .marquee_title {
+    width: 100px;
+    text-align: center;
+}
+.middle_nav marquee {
+    width: calc(100% - 100px);
 }
 /* /// MiniMax ///  Middle Nav Section End ------------------- */
 
@@ -1379,6 +1398,7 @@ body {
     width: 65px;
     float: left;
     padding: 0px 9px;
+    margin-left: 0px;
 }
 .nav_bar .nav_brand img {
     scale: 1.3;

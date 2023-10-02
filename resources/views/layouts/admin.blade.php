@@ -38,7 +38,7 @@
 <script src="{{asset('js/admin.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
-
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@ckeditor/ckeditor5-alignment@39.0.2/src/index.min.js"></script>
 <script>
