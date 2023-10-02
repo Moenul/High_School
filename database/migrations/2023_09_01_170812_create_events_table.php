@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('title')->nullable();
             $table->text('desc')->nullable();
             $table->string('time')->nullable();
-            $table->date('date')->nullable();
+            $table->dateTime('date')->nullable();
             $table->timestamps();
         });
     }

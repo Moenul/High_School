@@ -40,9 +40,9 @@
                 {!! Form::label('desc','Event Description:') !!}
                 {!! Form::textarea('desc', $event->desc, ['class'=>'form-control','id'=>'editor','rows'=>5]) !!}
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 {!! Form::label('date','Event Date:') !!}
-                {!! Form::date('date', $event->date, ['class'=>'form-control']) !!}
+                {!! Form::datetimeLocal('date', $event->date, ['class'=>'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('time','Event Time:') !!}

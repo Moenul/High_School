@@ -71,7 +71,7 @@
 
                     @foreach ($events as $event)
 
-                        @if (\Carbon\Carbon::parse($event->date)->format('d M Y') >= \Carbon\Carbon::today()->format('d M Y'))
+                        @if (\Carbon\Carbon::parse($event->date)->greaterThanOrEqualTo(\Carbon\Carbon::now()))
 
                         <!-- event bar -->
                         <a href="{{ Route('view_events.show', $event->id) }}">
@@ -104,7 +104,7 @@
 
                     @foreach ($events as $event)
 
-                        @if (\Carbon\Carbon::parse($event->date)->format('d M Y') < \Carbon\Carbon::today()->format('d M Y') )
+                        @if (\Carbon\Carbon::parse($event->date)->lessThanOrEqualTo(\Carbon\Carbon::now()))
 
                          <!-- previous event bar -->
                          <a href="{{ Route('view_events.show', $event->id) }}">
