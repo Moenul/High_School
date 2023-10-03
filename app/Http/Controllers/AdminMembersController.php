@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use App\Models\Photo;
-
+use Image;
 
 class AdminMembersController extends Controller
 {
@@ -40,10 +40,16 @@ class AdminMembersController extends Controller
     {
         $input = $request->all();
 
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+            $imageConvert = Image::make($file)->encode('webp', 90);
 
-            $file->move('images', $name);
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -92,9 +98,23 @@ class AdminMembersController extends Controller
         $input = $request->all();
 
         if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            if ($member->photo_id !== null) {
+                unlink(public_path() . $member->photo->file);
+
+                $photo = $member->photo->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('webp', 90);
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Photo;
+use Image;
 
 class AdminAboutsController extends Controller
 {
@@ -77,9 +78,23 @@ class AdminAboutsController extends Controller
         $input = $request->all();
 
         if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            if ($about->photo_id !== null) {
+                unlink(public_path() . $about->photo->file);
+
+                $photo = $about->photo->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('webp', 90);
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 
@@ -87,14 +102,29 @@ class AdminAboutsController extends Controller
         }
 
         if($file = $request->file('cover_id')){
+
+            if ($about->cover_id !== null) {
+                unlink(public_path() . $about->cover->file);
+
+                $photo = $about->cover->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('webp', 90);
+
             $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
 
-            $file->move('images', $name);
+            $imageConvert->save($destinationPath);
 
-            $cover = Photo::create(['file'=>$name]);
+            $name = $filename . ".webp";
 
-            $input['cover_id'] = $cover->id;
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['cover_id'] = $photo->id;
         }
+
 
 
         $about->update($input);

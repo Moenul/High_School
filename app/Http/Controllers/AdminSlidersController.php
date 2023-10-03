@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Photo;
+use Image;
 
 class AdminSlidersController extends Controller
 {
@@ -39,10 +40,16 @@ class AdminSlidersController extends Controller
     {
         $input = $request->all();
 
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+            $imageConvert = Image::make($file)->encode('webp', 90);
 
-            $file->move('images', $name);
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
 
             $photo = Photo::create(['file'=>$name]);
 

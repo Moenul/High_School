@@ -8,6 +8,7 @@ use App\Models\Classs;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Photo;
+use Image;
 
 class AdminAdmissionsController extends Controller
 {
@@ -47,24 +48,49 @@ class AdminAdmissionsController extends Controller
             'student_birth_reg'=>'required|max:17|unique:students,student_birth_reg',
         ]);
 
-        if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+            $imageConvert = Image::make($file)->encode('jpg', 100);
 
-            $file->move('images', $name);
+            if ($imageConvert->width() > 180){
+                $imageConvert->resize(180, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.jpg');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".jpg";
 
             $photo = Photo::create(['file'=>$name]);
 
             $input['photo_id'] = $photo->id;
         }
 
-        if($file = $request->file('certificate_id')){
+
+        if ($file = $request->file('certificate_id')) {
+            $imageConvert = Image::make($file)->encode('jpg', 100);
+
+            if ($imageConvert->width() > 800){
+                $imageConvert->resize(800, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
             $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.jpg');
 
-            $file->move('images', $name);
+            $imageConvert->save($destinationPath);
 
-            $certificate = Photo::create(['file'=>$name]);
+            $name = $filename . ".jpg";
 
-            $input['certificate_id'] = $certificate->id;
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['certificate_id'] = $photo->id;
         }
 
 

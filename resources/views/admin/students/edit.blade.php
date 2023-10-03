@@ -271,11 +271,11 @@
                     {!! Form::label('certificate_id', 'প্রশংসা পত্র / ট্রান্সফার সার্টিফিকেট ছবি :') !!}
                     <div class="mb-2 d-flex justify-content-center">
                         <a target="_blank" href="{{ $student->certificate ? $student->certificate->file : '/images/Empty_images.jpg' }}">
-                        <img class="action_field2 border border-secondary" id="preview_img2" width="300px" height="auto" src="{{ $student->certificate ? $student->certificate->file : '/images/Empty_images.jpg' }}">
+                        <img class="second_action_field border border-secondary" id="second_preview_img" width="300px" height="auto" src="{{ $student->certificate ? $student->certificate->file : '/images/Empty_images.jpg' }}">
                         </a>
                     </div>
                     <input type="hidden" name="certificate_id" value="{{$student->certificate_id}}">
-                    {!! Form::file('certificate_id', ['class' => 'form-control-file border','id' => 'imgInp2'], null) !!}
+                    {!! Form::file('certificate_id', ['class' => 'form-control-file border', 'id' => 'second_imgInp'], null) !!}
                 </div>
             </div>
         </div>
@@ -295,5 +295,35 @@
 
 </div>
 
+
+@endsection
+@section('script')
+
+<script>
+
+
+// Before Upload Preview Image
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#second_preview_img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+        $('.second_action_field').show();
+    }
+}
+
+$("#second_imgInp").change(function() {
+    readURL(this);
+});
+
+// --------
+
+
+
+
+</script>
 
 @endsection

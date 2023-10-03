@@ -7,6 +7,7 @@ use App\Models\Classs;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Photo;
+use Image;
 
 class AdminStudentsController extends Controller
 {
@@ -88,23 +89,64 @@ class AdminStudentsController extends Controller
         $input = $request->all();
 
         if($file = $request->file('photo_id')){
-            $name = time() . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            if ($student->photo_id !== null) {
+                unlink(public_path() . $student->photo->file);
+
+                $photo = $student->photo->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('jpg', 100);
+
+            if ($imageConvert->width() > 180){
+                $imageConvert->resize(180, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.jpg');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".jpg";
 
             $photo = Photo::create(['file'=>$name]);
 
             $input['photo_id'] = $photo->id;
         }
 
+
         if($file = $request->file('certificate_id')){
+
+            if ($student->certificate_id !== null) {
+                unlink(public_path() . $student->certificate->file);
+
+                $certificate = $student->certificate->id;
+                Photo::findOrFail($certificate)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('jpg', 100);
+
+            if ($imageConvert->width() > 800){
+                $imageConvert->resize(800, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
             $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.jpg');
 
-            $file->move('images', $name);
+            $imageConvert->save($destinationPath);
 
-            $certificate = Photo::create(['file'=>$name]);
+            $name = $filename . ".jpg";
 
-            $input['certificate_id'] = $certificate->id;
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['certificate_id'] = $photo->id;
         }
 
         $student->update($input);

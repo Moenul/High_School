@@ -53,7 +53,7 @@
 
         <div class="form-group">
             {!! Form::label('desc','Write Speach:') !!}
-            {!! Form::textarea('desc', null, ['class'=>'form-control ckeditor','rows'=>5]) !!}
+            {!! Form::textarea('desc', null, ['class'=>'form-control ckeditor','rows'=>5,'id'=>'editor']) !!}
         </div>
 
         <div class="form-group">
