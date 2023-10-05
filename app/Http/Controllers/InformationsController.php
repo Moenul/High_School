@@ -21,14 +21,14 @@ class InformationsController extends Controller
         $policys = Policy::all();
 
         if($request) {
-            if($request->id) {
-                $policys = Policy::where('id', $request->id)->get();
+            if($request->name) {
+                $req_policy = Policy::where('slug', $request->name)->first();
             }else{
-                $policys = '';
+                $req_policy = Policy::first();
             }
         }
 
-        return view('informations.index', compact('contact','about','policys'));
+        return view('informations.index', compact('contact','about','policys', 'req_policy'));
     }
 
     /**

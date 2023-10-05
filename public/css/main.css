@@ -38,6 +38,9 @@
 	--color-smart-black:#3C3C3C;
 	--color-hover:#8d5a00;
 } */
+html {
+    touch-action: manipulation;
+}
 body{
 	background:var(--color-bg);
 	font-family: sans-serif;
@@ -1053,7 +1056,7 @@ body {
 }
 
 .post_section .event_sidebar{
-    max-height: 80vh;
+    max-height: 400px;
     overflow-y: scroll;
 }
 .post_section .event_sidebar::-webkit-scrollbar {

@@ -14,22 +14,29 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $contact = Contact::first();
         $about = About::first();
-        $events = Event::orderBy('date', 'desc')->paginate(1);
+        $event = Event::orderBy('date', 'desc')->get()->first();
 
-        $all_events = Event::orderBy('date', 'desc')->get();
-        // if($request) {
-        //     if($request->id) {
-        //         $events = Event::where('id', $request->id)->get();
-        //     }else{
-        //         $events = '';
-        //     }
-        // }
+        if($request) {
+            if($request->slug) {
+                $event = Event::where('slug', $request->slug)->first();
+            }else{
+                $event = Event::orderBy('date', 'desc')->get()->first();
+            }
+        }
 
-        return view('view_events.index', compact('contact','about','events','all_events'));
+        $all_events = Event::orderBy('date', 'desc')->paginate(8);
+
+        if ($request->ajax()) {
+            $view = view('includes.all_events', compact('all_events'))->render();
+
+            return response()->json(['html' => $view]);
+        }
+
+        return view('view_events.index', compact('contact','about','event','all_events'));
     }
 
     /**
@@ -59,15 +66,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request)
     {
-        $contact = Contact::first();
-        $about = About::first();
-        $event = Event::findOrFail($id);
-
-        $all_events = Event::orderBy('date', 'desc')->get();
-
-        return view('view_events.show', compact('contact','about','event','all_events'));
+        //
     }
 
     /**

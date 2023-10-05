@@ -12,6 +12,7 @@ class Policy extends Model
     protected $fillable = [
         'photo_id',
         'name',
+        'slug',
         'title',
         'desc',
     ];

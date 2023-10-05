@@ -1,15 +1,19 @@
 <!doctype html>
-	<html lang="en" style="scroll-behavior: smooth; overflow-y: scroll;"></html>
+	<html lang="en" style="scroll-behavior: smooth; overflow-y: scroll;">
 <head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Author: Sarail Sadar High School (SSHS), Service: Higher Secondary Educational Institutions, Degree: SSC, Address: 34C6+C2C, Haluyapara, Sarail Thana Rd, Sarail, Brahmanbaria, Bangladesh, Institute EIIN Code: 103497, Established: 1993">
+    <meta name="keywords" content="Sarail Sadar High School, High School, EIIN Code: 103497, Institute, Gov High School, SSHS">
+    <meta name="author" content="Sarail Sadar High School (SSHS)">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    @yield('style')
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
+    @yield('style')
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>School</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset('images/favicon-16x16.png')}}">
+    @yield('title')
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
 
@@ -40,7 +44,7 @@
 @yield('script')
 
 <!-- Setup and start animation! -->
-<script>
+<script type="text/javascript">
 
 
 </script>

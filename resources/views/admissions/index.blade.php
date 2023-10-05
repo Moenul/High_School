@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Sarail Sadar High School | Admission</title>
+@endsection
+
 @section('navigation')
     @include('includes.navigation')
 @endsection

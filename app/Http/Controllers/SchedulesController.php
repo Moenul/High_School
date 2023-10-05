@@ -25,14 +25,16 @@ class SchedulesController extends Controller
         $policys = Policy::all();
 
         if($request) {
-            if($request->class_id) {
-                $schedule = Routine::where('class_id', $request->class_id)->get();
+            if($request->class) {
+                $req_class = Classs::where('slug', $request->class)->first();
+                $schedule = Routine::where('class_id', $req_class->id)->get();
             }else{
-                $schedule = '';
+                $req_class = Classs::first();
+                $schedule = Routine::where('class_id', $req_class->id)->get();
             }
         }
 
-        return view('schedules.index', compact('contact','about','classes','schedule','policys'));
+        return view('schedules.index', compact('contact','about','classes','schedule','policys','req_class'));
     }
 
     /**

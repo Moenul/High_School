@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Classs;
 use App\Models\Student;
+use Illuminate\Support\Str;
 
 class AdminClassesController extends Controller
 {
@@ -38,6 +39,8 @@ class AdminClassesController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->name);
 
         Classs::create($input);
 
@@ -81,6 +84,8 @@ class AdminClassesController extends Controller
         $class = Classs::findOrFail($id);
 
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->name);
 
         $class->update($input);
 

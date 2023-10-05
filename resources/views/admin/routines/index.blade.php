@@ -45,7 +45,9 @@
                     @foreach ($routines as $routine)
                         <tr>
                             <td>{{$routine->class->name}}</td>
-                            <td>{{ \Illuminate\Support\Str::limit($routine->routine, 30, '...') }}</td>
+                            <td>
+                                {!! Str::limit(strip_tags($routine->routine), 30, ' ...') !!}
+                            </td>
                             <td style="width:80px; text-align:center; font-size: 20px;"><a href="{{ Route('admin.routines.edit', $routine->id) }}"><i class="far fa-edit text-warning"></i></a></td>
                             <td>
                             {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminRoutinesController@destroy', $routine->id]]) !!}

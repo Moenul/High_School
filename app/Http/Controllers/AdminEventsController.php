@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class AdminEventsController extends Controller
 {
@@ -38,6 +39,8 @@ class AdminEventsController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->title);
 
         Event::create($input);
 
@@ -79,6 +82,8 @@ class AdminEventsController extends Controller
         $event = Event::findOrFail($id);
 
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->title);
 
         $event->update($input);
 

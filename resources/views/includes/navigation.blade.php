@@ -3,11 +3,11 @@
 <div class="top_nav">
 	<div class="container">
         @if ($contact)
-            <li><a href="{{$contact->youtube_link}}"><i style="color:#FF0000" class="fa-brands fa-youtube"></i></a></li>
-            <li><a href="{{$contact->whatsapp_link}}"><i style="color:#25D366" class="fa-brands fa-whatsapp"></i></a></li>
-            <li><a href="{{$contact->facebook_link}}"><i style="color:#4267B2" class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="{{$contact->youtube_link}}" aria-label="Touch us on Youtube"><i style="color:#FF0000" class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="{{$contact->whatsapp_link}}" aria-label="Touch us on Whatsapp"><i style="color:#25D366" class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href="{{$contact->facebook_link}}" aria-label="Touch us on Facebook"><i style="color:#4267B2" class="fa-brands fa-facebook-f"></i></a></li>
 
-            <li><i class="fa-solid fa-location-dot"></i> <a href="{{$contact->address_link}}" target="_blank">{{$contact->address}}</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> <a href="{{$contact->address_link}}" target="_blank" aria-label="Touch us on Google Map">{{$contact->address}}</a></li>
             <li><i class="fa-solid fa-phone-flip"></i> <a href="tel:+880{{$contact->phone_1}}">+88 0{{$contact->phone_1}}</a></li>
         @endif
     </div>
@@ -15,7 +15,7 @@
 <!-- /* /////  Top Nav Section End ------------------- */ -->
 
 <!-- /* /////  Middle Nav Section Start ------------------- */ -->
-<div class="middle_nav">
+<div class="middle_nav" title="Sarail Sadar High School (SSHS) Announcement">
     <div class="marquee_title">বিজ্ঞপ্তিঃ </div>
 	<marquee scrollamount="8" loop="infinite">
         @if ($about)
@@ -32,7 +32,7 @@
 		<div class="nav_brand">
             @if ($about)
             <a href="/">
-                <img src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}">
+                <img src="{{ $about->photo ? $about->photo->file : '/images/Empty_Images.jpg' }}" alt="Sarail Sadar High School (SSHS) Logo">
             </a>
             @endif
 
@@ -47,8 +47,8 @@
 						<ul>
 							<a href="{{ route('schedules.index') }}">ক্লাস রুটিন</a>
 							<a href="{{ route('view_students.index') }}">শিক্ষার্থী তথ্য</a>
-							<a href="">পরীক্ষার রেজাল্ট</a>
-							<a href="">লাইব্রেরি</a>
+							<a href="/">পরীক্ষার রেজাল্ট</a>
+							<a href="/">লাইব্রেরি</a>
 						</ul>
 					</div>
 				</li>
@@ -56,8 +56,6 @@
 					<div class="nav_dropdown">
 						<ul>
 							<a href="#about_us">আমাদের সমন্ধে</a>
-							{{-- <a href="#president">সভাপতি</a>
-                            <a href="#institute_head">প্রধান শিক্ষক</a> --}}
 							<a href="#instructor">শিক্ষক ও কর্মচারীবৃন্দ</a>
 							<a href="#school_committee">ম্যানেজিং কমিটি </a>
 						</ul>

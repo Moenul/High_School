@@ -17,6 +17,7 @@ class CreatePoliciesTable extends Migration
             $table->id();
             $table->integer('photo_id')->unsigned()->nullable();
             $table->string('name')->nullable();
+            $table->string('slug')->unique();
             $table->string('title')->nullable();
             $table->text('desc')->nullable();
             $table->timestamps();

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Policy;
 use App\Models\Photo;
 use Image;
+use Illuminate\Support\Str;
 
 class AdminPolicysController extends Controller
 {
@@ -39,6 +40,8 @@ class AdminPolicysController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->name);
 
         if ($file = $request->file('photo_id')) {
             $imageConvert = Image::make($file)->encode('webp', 90);
@@ -96,6 +99,8 @@ class AdminPolicysController extends Controller
         $policy = Policy::findOrFail($id);
 
         $input = $request->all();
+
+        $input['slug'] = Str::slug($request->name);
 
         if($file = $request->file('photo_id')){
 

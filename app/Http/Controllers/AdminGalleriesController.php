@@ -80,7 +80,8 @@ class AdminGalleriesController extends Controller
      */
     public function edit($id)
     {
-
+        $gallery = Gallery::findOrFail($id);
+        return view('admin.galleries.edit', compact('gallery'));
     }
 
     /**
@@ -92,7 +93,37 @@ class AdminGalleriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')){
+
+            if ($gallery->photo_id !== null) {
+                unlink(public_path() . $gallery->photo->file);
+
+                $photo = $gallery->photo->id;
+                Photo::findOrFail($photo)->delete();
+            }
+
+            $imageConvert = Image::make($file)->encode('webp', 90);
+
+            $name = time() . $file->getClientOriginalName();
+            $filename = pathinfo($name, PATHINFO_FILENAME);
+            $destinationPath = public_path('images/' . $filename . '.webp');
+
+            $imageConvert->save($destinationPath);
+
+            $name = $filename . ".webp";
+
+            $photo = Photo::create(['file'=>$name]);
+
+            $input['photo_id'] = $photo->id;
+        }
+
+        $gallery->update($input);
+
+        return redirect('/admin/galleries')->with('success', 'Gallery Item Successfully Updated!');
     }
 
     /**

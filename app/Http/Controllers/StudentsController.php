@@ -25,14 +25,16 @@ class StudentsController extends Controller
         $policys = Policy::all();
 
         if($request) {
-            if($request->class_id) {
-                $students = Student::where('class_id', $request->class_id)->orderBy('student_roll', 'asc')->get();
+            if($request->class) {
+                $req_class = Classs::where('slug', $request->class)->first();
+                $students = $req_class->student->sortBy('student_roll');
             }else{
-                $students = '';
+                $req_class = Classs::first();
+                $students = $req_class->student->sortBy('student_roll');
             }
         }
 
-        return view('view_students.index', compact('contact','about','classes','policys', 'students'));
+        return view('view_students.index', compact('contact','about','classes','policys', 'students','req_class'));
     }
 
     /**

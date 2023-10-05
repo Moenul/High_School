@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Sarail Sadar High School | Home</title>
+@endsection
+
 @section('navigation')
     @include('includes.navigation')
 @endsection
@@ -15,7 +19,7 @@
 		<div class="slider" id="slider">
             @if ($sliders)
                 @foreach ($sliders as $slider)
-                <div class="slider_image"style="background-image: url('{{ $slider->photo ? $slider->photo->file : '/images/Empty_Images_Landscape.jpg' }}');"></div>
+                <div class="slider_image" style="background-image: url('{{ $slider->photo ? $slider->photo->file : '/images/Empty_Images_Landscape.jpg' }}');" title="Sarail Sadar High School (SSHS) Cover Photos"></div>
                 @endforeach
             @endif
 		</div>
@@ -37,7 +41,7 @@
 
 <div class="updates_section">
 	<div class="container">
-		<div class="notice_section">
+		<div class="notice_section" title="Sarail Sadar High School (SSHS) Notices">
 			<div class="section_title">নোটিশ</div>
 			<div class="section_bar">
 
@@ -63,7 +67,7 @@
 
 			</div>
 		</div>
-		<div class="event_section">
+		<div class="event_section" title="Sarail Sadar High School (SSHS) Events">
 			<div class="section_title">ইভেন্ট</div>
 			<div class="section_bar">
 
@@ -74,7 +78,7 @@
                         @if (\Carbon\Carbon::parse($event->date)->greaterThanOrEqualTo(\Carbon\Carbon::now()))
 
                         <!-- event bar -->
-                        <a href="{{ Route('view_events.show', $event->id) }}">
+                        <a href="{{ action('EventsController@index', ['slug'=>$event->slug]) }}">
                         <div class="event_bar">
                             <div class="event_date">
                                 <div class="event_date_dot"></div>
@@ -107,7 +111,7 @@
                         @if (\Carbon\Carbon::parse($event->date)->lessThanOrEqualTo(\Carbon\Carbon::now()))
 
                          <!-- previous event bar -->
-                         <a href="{{ Route('view_events.show', $event->id) }}">
+                         <a href="{{ action('EventsController@index', ['slug'=>$event->slug]) }}">
                          <div class="event_bar previous_event_bar">
                             <div class="event_date">
                                 <div class="event_date_dot"></div>
@@ -118,7 +122,9 @@
                             </div>
                             <div class="event_box">
                                 <div class="event_title">{{$event->title}}</div>
-                                <div class="event_desc">{!! $event->desc !!}</div>
+                                <div class="event_desc">
+                                    {!! Str::limit(strip_tags($event->desc), 125, ' ...') !!}
+                                </div>
                                 <div class="event_time">{{$event->time}}</div>
                             </div>
                         </div>
@@ -142,7 +148,9 @@
         @if ($galleries)
         <div class="gallery">
             @foreach ($galleries as $gallery)
-                <div class="gallery_item"><img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}"></div>
+                <div class="gallery_item">
+                    <img src="{{ $gallery->photo ? $gallery->photo->file : '/images/Empty_Images.jpg' }}" alt="{{ $gallery->desc }}">
+                </div>
             @endforeach
         </div>
         @endif
@@ -156,7 +164,7 @@
 		<div class="section_name">আমাদের সমন্ধে</div>
         @if ($about)
 
-		<div class="about_image_bar"><img src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}"></div>
+		<div class="about_image_bar"><img src="{{ $about->cover ? $about->cover->file : '/images/Empty_Images.jpg' }}" alt="Sarail Sadar High School (SSHS) Cover Image {{ $about->institute_name }}"></div>
 		<div class="about_desc_bar">
 			<div class="desc_title">{{ $about->institute_name }}</div>
 			<p>{{ $about->institute_desc }}</p>
@@ -175,7 +183,7 @@
                 @foreach ($speaches->where('person_type', '=', 'President') as $person)
                     <div class="col-md-6">
                         <div class="president_img">
-                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="">
+                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $person->name }}, {{$person->title}}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -199,7 +207,7 @@
                 @foreach ($speaches->where('person_type', '=', 'Institute Head') as $person)
                     <div class="col-md-6">
                         <div class="institute_head_img">
-                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="">
+                            <img src="{{ $person->photo ? $person->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $person->name }}, {{$person->title}}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -224,7 +232,7 @@
         @if ($instructors->count())
             @foreach ($instructors as $instructor)
                 <div class="instructor">
-                    <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}"></div>
+                    <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $instructor->name }}, {{$instructor->title}}"></div>
                     <div class="desc">
                         <div class="name">{{$instructor->name}}</div>
                         <div class="title">{{$instructor->title}}</div>
@@ -248,7 +256,7 @@
         @if ($members->count())
             @foreach ($members as $member)
                 <div class="member">
-                    <div class="photo"><img src="{{ $member->photo ? $member->photo->file : '/images/DummyProfile.jpg' }}"></div>
+                    <div class="photo"><img src="{{ $member->photo ? $member->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $member->name }}, {{$member->title}}"></div>
                     <div class="name">{{$member->name}}</div>
                     <div class="title">({{$member->title}})</div>
                 </div>
@@ -261,7 +269,7 @@
 </div>
 
 
-<div class="contact_section" id="contact">
+<div class="contact_section" id="contact" title="Sarail Sadar High School Contact Section">
 	<div class="container">
 		<div class="section_name">যোগাযোগ</div>
 
@@ -279,7 +287,7 @@
 				<li>{{$contact->address}}</li>
 				<div class="location_bar">
 					<div id="googleMap" style="width:100%; height: 100%;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1821.4346813167701!2d91.10941800827581!3d24.070904540475286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375403bdb65ac59b%3A0xea30991b975c1391!2sSarail%20Sadar%20High%20School!5e0!3m2!1sen!2sbd!4v1694692619324!5m2!1sen!2sbd" width="100%" height="100%" style="border:2px solid grey; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe title="Our Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1821.4346813167701!2d91.10941800827581!3d24.070904540475286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375403bdb65ac59b%3A0xea30991b975c1391!2sSarail%20Sadar%20High%20School!5e0!3m2!1sen!2sbd!4v1694692619324!5m2!1sen!2sbd" width="100%" height="100%" style="border:2px solid grey; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 				</div>
 			</div>
@@ -321,7 +329,7 @@
 @section('script')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
 
     var ENDPOINT = "{{ url('/home') }}";
     var page = 1;

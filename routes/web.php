@@ -50,7 +50,8 @@ Route::group(['middleware' => 'admin'], function(){
     ]]);
 
     Route::resource('/admin/galleries', 'AdminGalleriesController', ['names'=>[
-        'index'=>'admin.galleries.index'
+        'index'=>'admin.galleries.index',
+        'edit'=>'admin.galleries.edit'
     ]]);
 
     Route::resource('/admin/members', 'AdminMembersController', ['names'=>[
@@ -158,7 +159,8 @@ Route::resource('/view_students', 'StudentsController', ['names'=>[
 ]]);
 
 Route::resource('/view_events', 'EventsController', ['names'=>[
-    'index'=>'view_events.index'
+    'index'=>'view_events.index',
+    'show'=>'view_events.show'
 ]]);
 
 Route::resource('/informations', 'InformationsController', ['names'=>[
