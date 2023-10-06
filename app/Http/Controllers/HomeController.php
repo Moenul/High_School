@@ -37,16 +37,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $contact = Contact::first();
-        $about = About::first();
-        $galleries = Gallery::all();
+        $about = About::with('photo')->first();
+        $galleries = Gallery::with('photo')->get();
         $events = Event::orderBy('date', 'desc')->limit(3)->get();
-        $members = Member::all();
-        $instructors = Instructor::all();
+        $members = Member::with('photo')->get();
+        $instructors = Instructor::with('photo')->get();
         $policys = Policy::all();
-        $speaches = Speach::all();
+        $speaches = Speach::with('photo')->get();
 
 
-        $notices = Notice::paginate(5);
+        $notices = Notice::with('pdf')->simplePaginate(5);
 
         if ($request->ajax()) {
             $view = view('includes.notice', compact('notices'))->render();
@@ -54,7 +54,7 @@ class HomeController extends Controller
             return response()->json(['html' => $view]);
         }
 
-        $sliders = Slider::where('status',1)->limit(5)->get();
+        $sliders = Slider::where('status',1)->with('photo')->take(5)->get();
 
         return view('home', compact('contact','about','galleries','events','members','instructors','notices','sliders','policys','speaches'));
     }

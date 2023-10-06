@@ -21,13 +21,13 @@ class SchedulesController extends Controller
     {
         $contact = Contact::first();
         $classes = Classs::all();
-        $about = About::first();
+        $about = About::with('photo')->first();
         $policys = Policy::all();
 
         if($request) {
             if($request->class) {
                 $req_class = Classs::where('slug', $request->class)->first();
-                $schedule = Routine::where('class_id', $req_class->id)->get();
+                $schedule = $req_class->routine;
             }else{
                 $req_class = Classs::first();
                 $schedule = Routine::where('class_id', $req_class->id)->get();

@@ -40,7 +40,7 @@
 		<div class="nav_list">
 			<ul>
 				<a href="{{ url('/admission') }}"><li style="background: #7ad2fe;">ভর্তি আবেদন</li></a>
-                <a href="#contact"><li>যোগাযোগ</li></a>
+                <a href="/#contact"><li>যোগাযোগ</li></a>
                 <a href="{{ route('view_events.index') }}"><li>ইভেন্ট</li></a>
                 <li>একাডেমিক <i class="fa-solid fa-angle-down"></i>
 					<div class="nav_dropdown">

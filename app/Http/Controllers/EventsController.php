@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\About;
 use App\Models\Event;
+use App\Models\Policy;
 
 class EventsController extends Controller
 {
@@ -17,18 +18,18 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         $contact = Contact::first();
-        $about = About::first();
-        $event = Event::orderBy('date', 'desc')->get()->first();
+        $about = About::with('photo')->first();
+        $policys = Policy::all();
 
         if($request) {
             if($request->slug) {
                 $event = Event::where('slug', $request->slug)->first();
             }else{
-                $event = Event::orderBy('date', 'desc')->get()->first();
+                $event = Event::orderBy('date', 'desc')->first();
             }
         }
 
-        $all_events = Event::orderBy('date', 'desc')->paginate(8);
+        $all_events = Event::orderBy('date', 'desc')->simplePaginate(6);
 
         if ($request->ajax()) {
             $view = view('includes.all_events', compact('all_events'))->render();
@@ -36,7 +37,7 @@ class EventsController extends Controller
             return response()->json(['html' => $view]);
         }
 
-        return view('view_events.index', compact('contact','about','event','all_events'));
+        return view('view_events.index', compact('contact','about','event','all_events','policys'));
     }
 
     /**

@@ -23,7 +23,7 @@ class AdmissionController extends Controller
     public function index()
     {
         $contact = Contact::first();
-        $about = About::first();
+        $about = About::with('photo')->first();
         $policys = Policy::all();
         $classes = Classs::pluck('name','id')->all();
         $studentCosts = StudentCost::orderBy('class_id', 'asc')->get();

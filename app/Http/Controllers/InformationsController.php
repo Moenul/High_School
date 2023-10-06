@@ -17,7 +17,7 @@ class InformationsController extends Controller
     public function index(Request $request)
     {
         $contact = Contact::first();
-        $about = About::first();
+        $about = About::with('photo')->first();
         $policys = Policy::all();
 
         if($request) {

@@ -19,4 +19,9 @@ class Classs extends Model
         return $this->hasMany('App\Models\Student','class_id');
     }
 
+    public function routine()
+    {
+        return $this->hasMany('App\Models\Routine','class_id');
+    }
+
 }

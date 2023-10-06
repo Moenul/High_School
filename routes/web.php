@@ -167,7 +167,7 @@ Route::resource('/informations', 'InformationsController', ['names'=>[
     'index'=>'informations.index'
 ]]);
 
-Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');
+// Route::get('generatePdf',['App\Http\Controllers\PdfController', 'generatePdf'])->name('generatePdf');
 
 Route::post('contactMail', 'ContactMailsController@store');
 

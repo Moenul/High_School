@@ -21,7 +21,7 @@ class StudentsController extends Controller
     {
         $contact = Contact::first();
         $classes = Classs::all();
-        $about = About::first();
+        $about = About::with('photo')->first();
         $policys = Policy::all();
 
         if($request) {
@@ -30,7 +30,7 @@ class StudentsController extends Controller
                 $students = $req_class->student->sortBy('student_roll');
             }else{
                 $req_class = Classs::first();
-                $students = $req_class->student->sortBy('student_roll');
+                $students = Student::where('class_id', $req_class->id)->orderBy('student_roll','asc')->get();
             }
         }
 

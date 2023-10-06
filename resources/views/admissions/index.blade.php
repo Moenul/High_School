@@ -20,9 +20,7 @@
         <div class="instruction_bar">
             <div class="alert_info">
                 <p>
-                    @if (App\Models\Policy::where('name', '=', 'Admission Form Alerts')->count())
-                        {!! App\Models\Policy::where('name', '=', 'Admission Form Alerts')->first()->desc !!}
-                    @endif
+
                 </p>
             </div>
             <div class="cost_info">
