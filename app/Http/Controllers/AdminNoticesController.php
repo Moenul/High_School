@@ -52,7 +52,7 @@ class AdminNoticesController extends Controller
 
         Notice::create($input);
 
-        return redirect('admin/notices');
+        return redirect('admin/notices')->with('success', 'Notice Item Created!');
     }
 
     /**
@@ -103,7 +103,7 @@ class AdminNoticesController extends Controller
 
         $notice->update($input);
 
-        return redirect('/admin/notices');
+        return redirect('/admin/notices')->with('success', 'Notice Item Updated!');
     }
 
     /**
@@ -124,6 +124,6 @@ class AdminNoticesController extends Controller
         }
 
         $notice->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Notice Item Deleted!');
     }
 }

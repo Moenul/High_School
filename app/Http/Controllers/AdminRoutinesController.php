@@ -42,7 +42,7 @@ class AdminRoutinesController extends Controller
 
         Routine::create($input);
 
-        return redirect('admin/routines');
+        return redirect('admin/routines')->with('success', 'Routine Item Created!');
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminRoutinesController extends Controller
 
         $routine->update($input);
 
-        return redirect('/admin/routines');
+        return redirect('/admin/routines')->with('success', 'Routine Item Updated!');
     }
 
     /**
@@ -98,6 +98,6 @@ class AdminRoutinesController extends Controller
         $routine = Routine::findOrFail($id);
 
         $routine->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Routine Item Deleted!');
     }
 }

@@ -61,7 +61,7 @@ class AdminPolicysController extends Controller
 
         Policy::create($input);
 
-        return redirect('admin/policys');
+        return redirect('admin/policys')->with('success', 'Policy Item Created!');
     }
 
     /**
@@ -128,7 +128,7 @@ class AdminPolicysController extends Controller
 
         $policy->update($input);
 
-        return redirect('/admin/policys');
+        return redirect('/admin/policys')->with('success', 'Policy Item Updated!');
     }
 
     /**
@@ -149,6 +149,6 @@ class AdminPolicysController extends Controller
         }
 
         $policy->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Policy Item Deleted!');
     }
 }

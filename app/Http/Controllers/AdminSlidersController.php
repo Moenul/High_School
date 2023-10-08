@@ -58,7 +58,7 @@ class AdminSlidersController extends Controller
 
         Slider::create($input);
 
-        return redirect('admin/sliders');
+        return redirect('admin/sliders')->with('success', 'Slider Item Created!');
     }
 
     /**
@@ -93,7 +93,7 @@ class AdminSlidersController extends Controller
     public function update(Request $request, $id)
     {
         Slider::findOrFail($id)->update($request->all());
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Slider Item Updated!');
     }
 
     /**
@@ -114,6 +114,6 @@ class AdminSlidersController extends Controller
         }
 
         $slider->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Slider Item Deleted!');
     }
 }

@@ -40,7 +40,7 @@ class AdminSectionsController extends Controller
 
         Section::create($input);
 
-        return redirect('admin/sections');
+        return redirect('admin/sections')->with('success', 'Section Item Created!');
     }
 
     /**
@@ -81,7 +81,7 @@ class AdminSectionsController extends Controller
 
         $section->update($input);
 
-        return redirect('/admin/sections');
+        return redirect('/admin/sections')->with('success', 'Section Item Updated!');
     }
 
     /**
@@ -95,6 +95,6 @@ class AdminSectionsController extends Controller
         $section = Section::findOrFail($id);
 
         $section->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Section Item Deleted!');
     }
 }

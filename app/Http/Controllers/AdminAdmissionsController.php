@@ -100,7 +100,7 @@ class AdminAdmissionsController extends Controller
         $student = Student::create($input);
 
 
-        return redirect('/admin/admissions');
+        return redirect('/admin/admissions')->with('success', 'Student Successfully Created!');
     }
 
     /**
@@ -168,6 +168,6 @@ class AdminAdmissionsController extends Controller
         }
 
         $admission->delete();
-        return redirect('/admin/admissions');
+        return redirect('/admin/admissions')->with('warning', 'Admission Request Deleted!');
     }
 }

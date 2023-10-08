@@ -129,7 +129,7 @@ class AdminAboutsController extends Controller
 
         $about->update($input);
 
-        return redirect('/admin/abouts');
+        return redirect('/admin/abouts')->with('success', 'About Items Updated!');
     }
 
     /**

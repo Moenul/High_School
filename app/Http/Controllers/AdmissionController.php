@@ -103,7 +103,7 @@ class AdmissionController extends Controller
 
         $admission = Admission::create($input);
 
-        return redirect()->route('admission.show', $admission);
+        return redirect()->route('admission.show', $admission)->with('success', 'Admission Form Successfully Submitted!');
         // return dd($input);
     }
 

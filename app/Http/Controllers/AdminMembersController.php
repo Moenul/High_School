@@ -58,7 +58,7 @@ class AdminMembersController extends Controller
 
         Member::create($input);
 
-        return redirect('admin/members');
+        return redirect('admin/members')->with('success', 'Member Item Created!');
     }
 
     /**
@@ -123,7 +123,7 @@ class AdminMembersController extends Controller
 
         $member->update($input);
 
-        return redirect('/admin/members');
+        return redirect('/admin/members')->with('success', 'Member Item Updated!');
 
     }
 
@@ -145,6 +145,6 @@ class AdminMembersController extends Controller
         }
 
         $member->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Member Item Deleted!');
     }
 }

@@ -58,7 +58,7 @@ class AdminInstructorsController extends Controller
 
         Instructor::create($input);
 
-        return redirect('admin/instructors');
+        return redirect('admin/instructors')->with('success', 'Instructor Item Created!');
     }
 
     /**
@@ -123,7 +123,7 @@ class AdminInstructorsController extends Controller
 
         $instructor->update($input);
 
-        return redirect('/admin/instructors');
+        return redirect('/admin/instructors')->with('success', 'Instructor Item Updated!');
     }
 
     /**
@@ -144,6 +144,6 @@ class AdminInstructorsController extends Controller
         }
 
         $instructor->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Instructor Item Deleted!');
     }
 }

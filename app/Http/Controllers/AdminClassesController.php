@@ -44,7 +44,7 @@ class AdminClassesController extends Controller
 
         Classs::create($input);
 
-        return redirect('admin/classes');
+        return redirect('admin/classes')->with('success', 'Class Created!');
     }
 
     /**
@@ -89,7 +89,7 @@ class AdminClassesController extends Controller
 
         $class->update($input);
 
-        return redirect('/admin/classes');
+        return redirect('/admin/classes')->with('success', 'Class Updated!');
     }
 
     /**
@@ -103,6 +103,6 @@ class AdminClassesController extends Controller
         $class = Classs::findOrFail($id);
 
         $class->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Class Deleted!');
     }
 }

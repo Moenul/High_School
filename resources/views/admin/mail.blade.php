@@ -3,5 +3,5 @@
 <hr>
 <p>{{ $desc }}</p>
 <hr>
-<span>Your email was</span>
-<p>{{ $messages }}</p>
+<span style="color: #ce7e08;">Your email was</span>
+<p style="color:#6a6a6a;background: #fafafa;padding: 10px;">{{ $messages }}</p>

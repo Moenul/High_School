@@ -58,7 +58,7 @@ class AdminSpeachsController extends Controller
 
         Speach::create($input);
 
-        return redirect('admin/speaches');
+        return redirect('admin/speaches')->with('success', 'Speach Item Created!');
     }
 
     /**
@@ -123,7 +123,7 @@ class AdminSpeachsController extends Controller
 
         $speach->update($input);
 
-        return redirect('/admin/speaches');
+        return redirect('/admin/speaches')->with('success', 'Speach Item Updated!');
     }
 
     /**
@@ -144,6 +144,6 @@ class AdminSpeachsController extends Controller
         }
 
         $speach->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Speach Item Deleted!');
     }
 }

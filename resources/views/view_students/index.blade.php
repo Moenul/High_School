@@ -13,10 +13,10 @@
     <div class="container">
         <h1>শিক্ষার্থী তথ্য</h1>
         <div class="row">
-            <div class="col-md-3 border">
+            <div class="col-md-3 border mb-3">
                 <h5 class="text-center p-2">শ্রেণী নির্বাচন করুন :-</h5>
                 @if ($classes)
-                <div class="list-group">
+                <div class="list-group mb-3">
                     @foreach ($classes as $class)
 
                         <a href="{{ action('StudentsController@index', ['class'=> $class->slug]) }}"

@@ -78,7 +78,7 @@ class AdminContactsController extends Controller
 
         $contact->update($input);
 
-        return redirect('/admin/contacts');
+        return redirect('/admin/contacts')->with('success', 'Contact Items Updated!');
     }
 
     /**

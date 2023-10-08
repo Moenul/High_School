@@ -151,7 +151,7 @@ class AdminStudentsController extends Controller
 
         $student->update($input);
 
-        return redirect('/admin/students');
+        return redirect('/admin/students')->with('success', 'Student Successfully Updated!');
     }
 
     /**
@@ -179,6 +179,6 @@ class AdminStudentsController extends Controller
         }
 
         $student->delete();
-        return redirect('/admin/students');
+        return redirect('/admin/students')->with('warning', 'Student Successfully Deleted!');
     }
 }

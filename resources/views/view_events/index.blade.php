@@ -14,7 +14,7 @@
 
 
             <div class="row">
-                <div class="col-8">
+                <div class="col-md-8 mb-3">
                     @if ($event)
                         <div class="event_title h4">{!! $event->title !!}</div>
                         <div class="event_datee">{{ \Carbon\Carbon::parse($event->date)->format('d M Y') }}</div>
@@ -23,7 +23,7 @@
                     @endif
                 </div>
 
-                <div class="col-4 event_sidebar border p-2">
+                <div class="col-md-4 event_sidebar border p-2">
 
                     <div id="data-wrapper">
                         @include('includes.all_events')

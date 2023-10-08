@@ -58,7 +58,7 @@ class AdminGalleriesController extends Controller
 
         Gallery::create($input);
 
-        return redirect('admin/galleries');
+        return redirect('admin/galleries')->with('success', 'Gallery Item Created!');
     }
 
     /**
@@ -123,7 +123,7 @@ class AdminGalleriesController extends Controller
 
         $gallery->update($input);
 
-        return redirect('/admin/galleries')->with('success', 'Gallery Item Successfully Updated!');
+        return redirect('/admin/galleries')->with('success', 'Gallery Item Updated!');
     }
 
     /**
@@ -145,6 +145,6 @@ class AdminGalleriesController extends Controller
         }
 
         $gallery->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Gallery Item Deleted!');
     }
 }

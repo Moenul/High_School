@@ -42,7 +42,7 @@ class AdminStudentCostsController extends Controller
 
         StudentCost::create($input);
 
-        return redirect('admin/studentCosts');
+        return redirect('admin/studentCosts')->with('success', 'StudentCost Item Created!');
     }
 
     /**
@@ -84,7 +84,7 @@ class AdminStudentCostsController extends Controller
 
         $studentCost->update($input);
 
-        return redirect('/admin/studentCosts');
+        return redirect('/admin/studentCosts')->with('success', 'StudentCost Item Updated!');
     }
 
     /**
@@ -98,6 +98,6 @@ class AdminStudentCostsController extends Controller
         $studentCost = StudentCost::findOrFail($id);
 
         $studentCost->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'StudentCost Item Deleted!');
     }
 }

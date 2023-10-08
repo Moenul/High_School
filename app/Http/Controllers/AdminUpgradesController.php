@@ -93,7 +93,7 @@ class AdminUpgradesController extends Controller
 
         $redirect_class = $request->redirect_class;
 
-        return redirect('/admin/classes/'.$redirect_class);
+        return redirect('/admin/classes/'.$redirect_class)->with('success', 'Student Successfully Updated!');
     }
 
     /**

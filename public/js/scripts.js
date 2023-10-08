@@ -39,6 +39,50 @@ $(document).ready(function(){
      });
     // --------------------------
 
+
+    // Sub-Category Slider Script
+    $(".slide_section").hover(function() {
+        $(this).find(".slide_bar").addClass('hovered');
+        $(this).find(".next_btn").click(function() {
+            var $scroll = $(".hovered").scrollLeft();
+            $(".hovered").scrollLeft($scroll + 500);
+        });
+        $(this).find(".prev_btn").click(function() {
+            var $scroll = $(".hovered").scrollLeft();
+            $(".hovered").scrollLeft($scroll - 500);
+        });
+        $hovered_this = $(this);
+
+        function slider_recall() {
+
+            var $target_bar = $hovered_this.find(".slide_bar");
+            var $slide_bar_width = $hovered_this.find(".slide_bar_content").width();
+            var $slide_aria_calc = $hovered_this.find(".slide_bar").width();
+            var $slide_width_calc = $slide_bar_width - $slide_aria_calc;
+
+            if ($target_bar.scrollLeft() < 10) {
+                $hovered_this.find(".prev_btn").css('visibility', 'hidden');
+            } else {
+                $hovered_this.find(".prev_btn").css('visibility', 'visible');
+            }
+
+            if ($target_bar.scrollLeft() > $slide_width_calc) {
+                $hovered_this.find(".next_btn").css('visibility', 'hidden');
+            } else if ($slide_bar_width < $slide_aria_calc) {
+                $hovered_this.find(".next_btn").css('visibility', 'hidden');
+            } else {
+                $hovered_this.find(".next_btn").css('visibility', 'visible');
+            }
+        }
+        setInterval(slider_recall, 500);
+
+    }, function() {
+        $(this).find(".slide_bar").removeClass('hovered');
+    });
+
+
+    // -----------
+
     // Before Upload Preview Image
 
     function readURL(input) {

@@ -225,45 +225,53 @@
 
 
 
-<div class="instructor_section" id="instructor">
+<div class="instructor_section slide_section" id="instructor">
 	<div class="container">
 		<div class="section_name">শিক্ষক ও কর্মচারীবৃন্দ</div>
-		<div class="instructors">
-        @if ($instructors->count())
-            @foreach ($instructors as $instructor)
-                <div class="instructor">
-                    <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $instructor->name }}, {{$instructor->title}}"></div>
-                    <div class="desc">
-                        <div class="name">{{$instructor->name}}</div>
-                        <div class="title">{{$instructor->title}}</div>
-                        <div class="qualification">{{$instructor->qualification}}</div>
-                        <div class="phone">+88 {{$instructor->phone}}</div>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <p class="text-warning">No Data Found!</p>
-        @endif
+        <div class="prev_btn"><i class="fas fa-angle-left"></i></div>
+		<div class="next_btn"><i class="fas fa-angle-right"></i></div>
+		<div class="instructors slide_bar">
+            <div class="slide_bar_content">
+                @if ($instructors->count())
+                    @foreach ($instructors as $instructor)
+                        <div class="instructor">
+                            <div class="photo"><img src="{{ $instructor->photo ? $instructor->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $instructor->name }}, {{$instructor->title}}"></div>
+                            <div class="desc">
+                                <div class="name">{{$instructor->name}}</div>
+                                <div class="title">{{$instructor->title}}</div>
+                                <div class="qualification">{{$instructor->qualification}}</div>
+                                <div class="phone">+88 {{$instructor->phone}}</div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p class="text-warning">No Data Found!</p>
+                @endif
+            </div>
 		</div>
 	</div>
 </div>
 
 
-<div class="donor_member_section" id="school_committee">
+<div class="donor_member_section slide_section" id="school_committee">
 	<div class="container">
 		<div class="section_name">ম্যানেজিং কমিটি</div>
-		<div class="donor_members">
-        @if ($members->count())
-            @foreach ($members as $member)
-                <div class="member">
-                    <div class="photo"><img src="{{ $member->photo ? $member->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $member->name }}, {{$member->title}}"></div>
-                    <div class="name">{{$member->name}}</div>
-                    <div class="title">({{$member->title}})</div>
-                </div>
-            @endforeach
-        @else
-            <p class="text-warning">No Data Found!</p>
-        @endif
+        <div class="prev_btn"><i class="fas fa-angle-left"></i></div>
+		<div class="next_btn"><i class="fas fa-angle-right"></i></div>
+		<div class="donor_members slide_bar">
+            <div class="slide_bar_content">
+                @if ($members->count())
+                    @foreach ($members as $member)
+                        <div class="member">
+                            <div class="photo"><img src="{{ $member->photo ? $member->photo->file : '/images/DummyProfile.jpg' }}" alt="{{ $member->name }}, {{$member->title}}"></div>
+                            <div class="name">{{$member->name}}</div>
+                            <div class="title">({{$member->title}})</div>
+                        </div>
+                    @endforeach
+                @else
+                <p class="text-warning">No Data Found!</p>
+                @endif
+            </div>
 		</div>
 	</div>
 </div>

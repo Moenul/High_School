@@ -49,7 +49,7 @@ class AdminMailsController extends Controller
         $data = array( 'name'=> $name, 'email' => $contact_email, 'subject' => $contact_subject, 'messages' => $contact_message, 'desc' => $mail_desc );
         Mail::send('admin/mail', $data, function($message) use ($data){
             $message->to($data['email'], $data['name'])->subject('Reply of - '. $data['subject']);
-            $message->from('bhuiyansab5@gmail.com' ,'Bijoy Bhuiyan');
+            $message->from('support@sshs.edu.bd' ,'Sarail Sadar High School');
         });
 
         return redirect()->back()->with('success', 'Mail successfully send!');
@@ -104,6 +104,6 @@ class AdminMailsController extends Controller
         $mail = ContactMail::findOrFail($id);
 
         $mail->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Mail Deleted!');
     }
 }

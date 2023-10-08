@@ -16,9 +16,9 @@
 <div class="post_section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 border">
+            <div class="col-md-4 border mb-3">
                 @if ($policys)
-                <div class="list-group mt-3">
+                <div class="list-group mt-3 mb-3">
                     @foreach ($policys as $policy)
                         <a href="{{ action('InformationsController@index', ['name'=> $policy->slug]) }}"
                             class="list-group-item list-group-item-action

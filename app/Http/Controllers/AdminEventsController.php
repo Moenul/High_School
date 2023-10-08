@@ -44,7 +44,7 @@ class AdminEventsController extends Controller
 
         Event::create($input);
 
-        return redirect('admin/events');
+        return redirect('admin/events')->with('success', 'Event Created!');
     }
 
     /**
@@ -87,7 +87,7 @@ class AdminEventsController extends Controller
 
         $event->update($input);
 
-        return redirect('/admin/events');
+        return redirect('/admin/events')->with('success', 'Event Updated!');
     }
 
     /**
@@ -101,6 +101,6 @@ class AdminEventsController extends Controller
         $event = Event::findOrFail($id);
 
         $event->delete();
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Event Deleted!');
     }
 }
