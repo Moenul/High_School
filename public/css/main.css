@@ -636,6 +636,9 @@ body {
 .institute_head .institute_head_img img,
 .president .president_img img{
     width: 100%;
+    border: 1px solid #c8c8c8;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px #dbdbdb;
 }
 .institute_head .name,
 .president .name{
@@ -1756,10 +1759,8 @@ body {
 /* /// MiniMax ///  Admission Section End ------------------- */
 
 /* /// MiniMax ///  Post Section Start ------------------- */
-.post_desc .image {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px;
+.post_section .post_desc .image {
+    width: 95%;
 }
 
 /* /// MiniMax ///  Post Section End ------------------- */
