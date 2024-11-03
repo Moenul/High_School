@@ -6,6 +6,7 @@
     <meta name="description" content="Author: Sarail Sadar High School (SSHS), Service: Higher Secondary Educational Institutions, Degree: SSC, Address: 34C6+C2C, Haluyapara, Sarail Thana Rd, Sarail, Brahmanbaria, Bangladesh, Institute EIIN Code: 103497, Established: 1993">
     <meta name="keywords" content="Sarail Sadar High School, High School, EIIN Code: 103497, Institute, Gov High School, SSHS">
     <meta name="author" content="Sarail Sadar High School (SSHS)">
+    <meta property="og:image" content="https://sshs.edu.bd/images/Logo.webp"/>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
